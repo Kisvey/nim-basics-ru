@@ -1,54 +1,53 @@
-= Procedures
+= Процедуры
+
+
+Процедуры или _функции_, как их называют в некоторых других языках программирования, это части кода, которые выполняют определённую задачу, упакованную в единое целое.
+Преимуществом группировки кода таким образом является то, что мы можем _вызывать_ эти процедуры вместо того, чтобы писать весь код заново, когда мы хотим использовать код процедуры.
+
+В некоторых из предыдущих глав мы рассматривали гипотезу Коллатца в различных сценариях.
+Обёртывая логику гипотезы Коллатца в процедуру, мы могли бы вызывать один и тот же код для всех упражнений.
+
+На протяжении мы использовали много встроенных процедур, таких как `echo` для печати, `add` для добавления элементов в последовательность, `inc` для увеличения значения целого числа, `len` для получения длины контейнера и т.д.
+Теперь мы увидим, как создавать и использовать наши собственные процедуры.
+
+Некоторые преимущества использования процедур:
+
+* Уменьшение дублирования кода
+* Упрощение чтения кода, поскольку мы можем называть части по их функционалу
+* Разбиение сложной задачи на более простые шаги
+
+Как упоминалось в начале этого раздела, процедуры часто называют функциями в других языках программирования.
+Это на самом деле немного неверно, если мы рассмотрим математическое определение функции.
+Математические функции принимают набор аргументов (например, `f(x, y)`, где `f` - это функция, а `x` и `y` - её аргументы) и всегда возвращают один и тот же результат для одних и тех же входных данных.
+
+Программные процедуры, с другой стороны, не всегда возвращают один и тот же результат для заданного входа.
+Иногда они вообще ничего не возвращают.
+Это связано с тем, что наши компьютерные программы могут хранить состояние в переменных, которые мы упоминали ранее, и которые процедуры могут читать и изменять.
+В Nim слово `func` зарезервировано для использования как более математически корректный вид функции, который не допускает побочных эффектов.
 
 
 
-Procedures, or _functions_ as they are called in some other programming languages, are parts of code that perform a specific task, packaged as a unit.
-The benefit of grouping code together like this is that we can _call_ these procedures instead of writing all the code over again when we wish to use the procedure's code.
 
-In some of the previous chapters we've looked at the Collatz conjecture in various different scenarios.
-By wrapping up the Collatz conjecture logic into a procedure we could have called the same code for all the exercises.
+== Объявление процедуры
 
-So far we have used many built-in procedures, such as `echo` for printing, `add` for adding elements to a sequence, `inc` to increase the value of an integer, `len` to get the length of a container, etc.
-Now we'll see how to create and use our own procedures.
+Прежде мы чем сможем использовать (вызывать) нашу процедуру, нам нужно её создать и определить, что она делает.
 
-Some of the advantages of using procedures are:
-
-* Reducing code duplication
-* Easier to read code as we can name pieces by what they do
-* Decomposing a complex task into simpler steps
-
-As mentioned in the beginning of this section, procedures are often called functions in other languages.
-This is actually a bit of a misnomer if we consider the mathematical definition of a function.
-Mathematical functions take a set of arguments (like `f(x, y)`, where `f` is a function, and `x` and `y` are its arguments) and _always_ return the same answer for the same input.
-
-Programmatic procedures on the other hand don't always return the same output for a given input.
-Sometimes they don't return anything at all.
-This is because our computer programs can store state in the variables we mentioned earlier which procedures can read and change.
-In Nim, the word `func` is currently reserved to be used as the more mathematically correct kind of function, forcing no side-effects.
-
-
-
-
-== Declaring a procedure
-
-Before we can use (call) our procedure, we need to create it and define what it does.
-
-A procedure is declared by using the `proc` keyword and the procedure name, followed by the input parameters and their type inside of parentheses, and the last part is a colon and the type of the value returned from a procedure, like this:
+Процедура объявляется с помощью ключевого слова `proc` и имени процедуры, за которым следуют входные параметры и их тип в круглых скобках, а последняя часть - это двоеточие и тип значения, возвращаемого процедурой, вот так:
 
 [source]
 ----
 proc <name>(<p1>: <type1>, <p2>: <type2>, ...): <returnType>
 ----
 
-The body of a procedure is written in the indented block following the declaration appended with a `=` sign.
+Тело процедуры пишется в отступе после объявления с добавленным знаком `=`.
 
 [source]
 .callProcs.nim
 ----
 include::{source-dir}/callProcs.nim[lines=1..8]
 ----
-<1> Declaring procedure called `findMax`, which has two parameters, `x` and `y`, and it returns an `int` type.
-<2> To return a value from a procedure, we use the `return` keyword.
+<1> Объявление процедуры с именем `findMax`, которая имеет два параметра, `x` и `y`, и возвращает значение типа `int`.
+<2> Чтобы вернуть значение из процедуры, мы используем ключевое слово `return`.
 
 
 {nbsp}
@@ -62,13 +61,13 @@ proc echoLanguageRating(language: string) = <1>
   else:
     echo language, " might be a second-best language."
 ----
-<1> The `echoLanguageRating` procedure just echoes the given name, it doesn't return anything, so the return type is not declared.
+<1> Процедура `echoLanguageRating` просто выводит заданное имя, она не возвращает ничего, поэтому тип возвращаемого значения не объявляется.
 
 
 {nbsp}
 
-Normally we're not allowed to change any of the parameters we are given.
-Doing something like this will throw an error:
+Обычно мы не можем изменять какие-либо параметры, которые нам передали.
+Творение чего-то подобного приведет к ошибке:
 
 [source]
 ----
@@ -79,7 +78,7 @@ var ourVariable = 10
 changeArgument(ourVariable)
 ----
 
-In order for this to work we need to allow Nim, and the programmer using our procedure, to change the argument by declaring it as a variable:
+Что бы сделать это возможным, нам нужно разрешить Nim и программисту, использующему нашу процедуру, изменять аргумент, объявив его как переменную:
 
 [source]
 ----
@@ -92,7 +91,7 @@ echo ourVariable
 changeArgument(ourVariable)
 echo ourVariable
 ----
-<1> Notice how `argument` is now declared as a `var int` and not just as an `int`.
+<1> Обратите внимание, как `argument` теперь объявлен как `var int`, а не просто как `int`.
 
 [source, output]
 ----
@@ -100,9 +99,9 @@ echo ourVariable
 20
 ----
 
-This of course means that the name we pass it must be declared as a variable as well, passing in something assigned with `const` or `let` will throw an error.
+Это естественно означает что имя, которое мы передаем, также должно быть объявлено как переменная, передача чего-то присвоенного с `const` или `let` вызовет ошибку.
 
-While it is good practice to pass things as arguments it is also possible to use names declared outside the procedure, both variables and constants:
+Хорошей практикой является передача аргументов в процедуры, но также возможно использовать имена, объявленные вне процедуры, как переменные, так и константы:
 
 [source]
 ----
@@ -115,8 +114,8 @@ proc echoX() =
 echoX()
 echoX()
 ----
-<1> Here we access the outside variable `x`.
-<2> We can also update its value, since it's declared as a variable.
+<1> Тут мы обращаемся к внешней переменной `x`.
+<2> Мы также можем обновить её значение, поскольку она объявлена как переменная.
 [source, output]
 ----
 100
@@ -124,26 +123,26 @@ echoX()
 ----
 
 
-== Calling the procedures
+== Вызов процедуры
 
-After we have declared a procedure, we can call it.
-The usual way of calling procedures/functions in many programming languages is to state its name and provide the arguments in the parentheses, like this:
+После того, как мы объявили процедуру, мы можем её вызвать.
+Обычный способ вызова процедур/функций во многих языках программирования - указать её имя и предоставить аргументы в круглых скобках, вот так:
 
 [source]
 ----
 <procName>(<arg1>, <arg2>, ...)
 ----
 
-The result from calling a procedure can be stored in a variable.
+Результат от вызова процедуры может быть сохранен в переменной.
 
-If we want to call our `findMax` procedure from the above example, and save the return value in a variable we can do that with:
+Если мы хотим вызвать нашу процедуру `findMax` из приведенного выше примера и сохранить возвращаемое значение в переменной, мы можем сделать это так:
 
 [source]
 .callProcs.nim
 ----
 include::{source-dir}/callProcs.nim[lines=10..18]
 ----
-<1> The result from the function `findMax` is here named `c`, and is called with the results of our first two calls (`findMax(987, 321)`).
+<1> Результат от функции `findMax` здесь называется `c`, и вызывается с результатами наших первых двух вызовов (`findMax(987, 321)`).
 
 [source, output]
 ----
@@ -154,25 +153,25 @@ include::{source-dir}/callProcs.nim[lines=10..18]
 
 {nbsp}
 
-Nim, unlike many other languages, also supports https://en.wikipedia.org/wiki/Uniform_Function_Call_Syntax[Uniform Function Call Syntax], which allows many different ways of calling procedures.
+Nim также, в отличие от многих других языков, поддерживает https://en.wikipedia.org/wiki/Uniform_Function_Call_Syntax[Унифицированный синтаксис вызова функций], который позволяет использовать множество различных способов вызова процедур.
 
-This one is a call where the first argument is written before the function name, and the rest of the parameters are stated in parentheses:
+Этот вызов похож на обычный вызов процедуры, но первый аргумент записывается перед именем функции и остальные параметры указываются в круглых скобках:
 
 [source]
 ----
 <arg1>.<procName>(<arg2>, ...)
 ----
 
-We have used this syntax when we were adding elements to an existing sequence (`<seq>.add(<element>)`), as this makes it more readable and expresses our intent more clearly than writing `add(<seq>, <element>)`.
-We can also omit the parentheses around the arguments:
+Мы использовали этот синтаксис, когда добавляли элементы в существующую последовательность (`<seq>.add(<element>)`), так как это делает его более читаемым и выражает наше намерение более ясно, чем запись `add(<seq>, <element>)`.
+Мы также можем опустить круглые скобки вокруг аргументов:
 
 [source]
 ----
 <procName> <arg1>, <arg2>, ...
 ----
 
-We've seen this style being used when we call the `echo` procedure, and when calling the `len` procedure without any arguments.
-These two can also be combined like this, but this syntax however is not seen very often:
+Мы видели этот стиль, когда вызывали процедуру `echo`, и при вызове процедуры `len` без каких-либо аргументов.
+Эти два также могут быть объединены вот так, но этот синтаксис, однако, не очень часто используется:
 
 [source]
 ----
@@ -182,16 +181,16 @@ These two can also be combined like this, but this syntax however is not seen ve
 
 {nbsp}
 
-The uniform call syntax allows for more readable chaining of multiple procedures:
+Унифицированный синтаксис вызова позволяет сделать цепочку из нескольких процедур более читаемой:
 
 [source]
 .ufcs.nim
 ----
 include::{source-dir}/ufcs.nim[]
 ----
-<1> If multiple parameters are of the same type, we can declare their type in this compact way.
-<2> First we add `a` and `b`, then the result of that operation (2 + 3 = 5) is passed as the first parameter to the `multi` procedure, where it is multiplied by `c` (5 * 4 = 20).
-<3> First we multiply `c` and `b`, then the result of that operation (4 * 3 = 12) is passed as the first parameter to the `plus` procedure, where it is added with `a` (12 + 2 = 14).
+<1> Если несколько параметров имеют одинаковый тип, мы можем объявить их тип в этом компактном виде.
+<2> Сначала мы складываем `a` и `b`, затем результат этой операции (2 + 3 = 5) передается как первый параметр в процедуру `multi`, где он умножается на `c` (5 * 4 = 20).
+<3> Сначала мы умножаем `c` и `b`, затем результат этой операции (4 * 3 = 12) передается как первый параметр в процедуру `plus`, где он складывается с `a` (12 + 2 = 14).
 
 [source, output]
 ----
@@ -204,42 +203,41 @@ true
 
 
 
-== Result variable
+== Переменная result
 
-In Nim, every procedure that returns a value has an implicitly declared and initialized (with a default value) `result` variable.
-The procedure will return the value of this `result` variable when it reaches the end of its indented block, even with no `return` statement.
+В Nim, каждая процедура, которая возвращает значение, имеет неявно объявленную и инициализированную (значением по умолчанию) переменную `result`.
+Процедура вернет значение этой переменной `result`, когда достигнет конца своего отступленного блока, даже если нет оператора `return`.
 
 [source]
 .result.nim
 ----
 include::{source-dir}/result.nim[lines=1..9]
 ----
-<1> The return type is `int`. The `result` variable is initialized with the default value for `int`: `0`.
-<2> When the end of the procedure is reached, the value of `result` is returned.
+<1> Возвращаемый тип `int`. Переменная `result` инициализирована значением по умолчанию для `int`: `0`.
+<2> Когда процедура достигает конца своего отступленного блока, возвращается значение переменной `result`.
 
 [source, output]
 ----
 33
 ----
 
-Note that this procedure is here to demonstrate the `result` variable, and it is not 100% correct:
-if you would pass a sequence containing only negative numbers, this procedure would return `0` (which is _not_ contained in the sequence).
-
+Обратите внимание, что эта процедура здесь приведена для демонстрации переменной `result`, и она не является на 100% корректной:
+если вы передадите последовательность, содержащую только отрицательные числа, эта процедура вернет `0` (что _не_ содержится в последовательности).
 
 
 {nbsp}
 
 
-WARNING: Beware!
-In older Nim versions (before Nim 0.19.0), the default value of strings and sequences was https://en.wikipedia.org/wiki/Null_pointer[`nil`], and when we would use them as returning types, the `result` variable would need to be initialized as an empty string (`""`) or as an empty sequence (`@[]`).
+WARNING: Осторожно!
+В старых версиях Nim (до Nim 0.19.0) значение по умолчанию для строк и последовательностей было https://en.wikipedia.org/wiki/Null_pointer[`nil`], и когда мы использовали их в качестве возвращаемых типов, переменная `result` должна была быть инициализирована как пустая строка (`""`) или как пустая последовательность (`@[]`).
 
 [source]
 .result.nim
 ----
 include::{source-dir}/result.nim[lines=11..20]
 ----
-<1> In Nim version 0.19.0 and newer, this line is not needed -- sequences are automatically initialized as empty sequences. +
-In older Nim versions, sequences must be initialized, and without this line the compiler would throw an error. (Notice that `var` must _not_ be used, as `result` is already implicitly declared.) 
+<1> В версии Nim 0.19.0 и новее эта строка не нужна -- последовательности автоматически инициализируются как пустые последовательности. +
+В более старых версиях Nim последовательности должны быть инициализированы, и без этой строки компилятор выдаст ошибку. (Обратите внимание, что `var` не должен использоваться, так как `result` уже объявлен неявно.) 
 
 [source, output]
 ----
@@ -249,16 +247,16 @@ In older Nim versions, sequences must be initialized, and without this line the 
 
 {nbsp}
 
-Inside of a procedure we can also call other procedures.
+Внутри процедуры мы также можем вызывать другие процедуры.
 
 [source]
 .filterOdds.nim
 ----
 include::{source-dir}/filterOdds.nim[]
 ----
-<1> Once again, this line is not needed in the newer versions of Nim.
-<2> Calling the previously declared procedure. Its return type is `bool` and can be used in the if-statement.
-<3> The third way of calling a procedure, as we saw above.
+<1> Ещё раз, эта строка не нужна в новых версиях Nim.
+<2> Вызов ранее объявленной процедуры. Её возвращаемый тип `bool` и может быть использован в условии if.
+<3> Третий способ вызова процедуры, как мы видели выше.
 
 [source, output]
 ----
@@ -271,10 +269,10 @@ include::{source-dir}/filterOdds.nim[]
 
 
 
-== Forward declaration
+== Предварительное объявление 
 
-As mentioned in the very beginning of this section we can declare a procedure without a code block.
-The reason for this is that we have to declare procedures before we can call them, doing this will not work:
+Как упоминалось в самом начале этого раздела, мы можем объявить процедуру без блока кода.
+Причина этого в том, что мы должны объявить процедуры до того, как мы сможем их вызвать, и вот так делать не будет работать:
 
 [source]
 ----
@@ -283,10 +281,10 @@ echo 5.plus(10) # error      <1>
 proc plus(x, y: int): int =  <2>
   return x + y
 ----
-<1> This will throw an error as `plus` isn't defined yet.
-<2> Here we define `plus`, but since it's after we use it Nim doesn't know about it yet.
+<1> Это приведет к ошибке, так как `plus` еще не определена.
+<2> Здесь мы определяем `plus`, но так как она определена после её использования, Nim ещё не знает о ней.
 
-The way to get around this is what's called a forward declaration:
+Способ обойти это - это то, что называется предварительным объявлением:
 
 [source]
 ----
@@ -297,24 +295,23 @@ echo 5.plus(10)              <2>
 proc plus(x, y: int): int =  <3>
   return x + y
 ----
-<1> Here we tell Nim that it should consider the `plus` procedure to exist with this definition.
-<2> Now we are free to use it in our code, this will work.
-<3> This is were `plus` is actually implemented, this must of course match our previous definition.
+<1> Тут мы говорим Nim, что процедура `plus` существует с таким определением.
+<2> Теперь мы можем использовать её в коде, это будет работать.
+<3> Это место, где `plus` реализована на самом деле, и она должна соответствовать предыдущему определению.
 
 
 
 
 
-== Exercises
+== Упражнения
 
-1. Create a procedure which will greet a person (print "Hello <name>") based on the provided name. Create a sequence of names. Greet each person using the created procedure.
+1. Создайте процедуру, которая будет приветствовать человека (печатать "Hello <name>") на основе предоставленного имени. Создайте последовательность имен. Приветствуйте каждого человека с помощью созданной процедуры.
 
-2. Create a procedure `findMax3` which will return the largest of three values.
+2. Создайте процедуру `findMax3`, которая будет возвращать наибольшее из трех значений.
 
-3. Points in 2D plane can be represented as `tuple[x, y: float]`. Write a procedure which will receive two points and return a new point which is a sum of those two points (add x's and y's separately).
+3. Точки на плоскости можно представить как `tuple[x, y: float]`. Напишите процедуру, которая будет получать две точки и возвращать новую точку, которая является суммой этих двух точек (складывая x и y отдельно).
+4. Создайте две процедуры `tick` и `tock`, которые будут печатать слова "tick" и "tock". Создайте глобальную переменную для отслеживания количества вызовов, и вызывайте одну процедуру из другой до тех пор, пока счетчик не достигнет 20. Ожидаемый вывод - строки с "tick" и "tock", чередующиеся 20 раз. (Подсказка: используйте предварительное объявление.)
 
-4. Create two procedures `tick` and `tock` which echo out the words "tick" and "tock". Have a global variable to keep track of how many times they have run, and run one from the other until the counter reaches 20. The expected output is to get lines with "tick" and "tock" alternating 20 times. (Hint: use forward declarations.)
+NOTE: Вы можете нажать Ctrl+C, чтобы остановить выполнение программы, если вы ввели бесконечный цикл.
 
-NOTE: You can press Ctrl+C to stop execution of a program if you enter an infinite loop.
-
-Test all procedures by calling them with different parameters.
+Тестируйте все процедуры, вызывая их с разными параметрами.

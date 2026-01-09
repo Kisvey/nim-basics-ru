@@ -1,49 +1,49 @@
-= Loops
+= Циклы
 
 
 
-Loops are another control flow construct which allow us to run some parts of code multiple times.
+Циклы являются еще одной конструкцией управления потоком, которая позволяет нам выполнять некоторые части кода несколько раз.
 
-In this chapter we will meet two kinds of loops:
+В этом разделе мы познакомимся с двумя видами циклов:
 
-* for-loop: run a known number of times
-* while-loop: run as long some condition is satisfied
+* Цикл for: Запускается известное количество раз
+* Цикл while: Запускается до тех пор, пока некоторое условие истинно
 
 
-== For loop
+== Цикл For
 
-Syntax of a for-loop is:
+Синтаксис цикла for выглядит следующим образом:
 [source]
 ----
-for <loopVariable> in <iterable>:
-  <loop body>
+for <переменная_цикла> in <итерируемый_объект>:
+  <тело_цикла>
 ----
 
-Traditionally, `i` is often used as a `loopVariable` name, but any other name can be used.
-That variable will be available only inside the loop.
-Once the loop has finished, the value of the variable is discarded.
+Традиционно, `i` часто используется в качестве имени `переменная_цикла`, но может быть использовано любое другое имя.
+Эта переменная будет доступна только внутри цикла.
+После завершения цикла значение переменной отбрасывается.
 
-The `iterable` is any object we can iterate through.
-Of the types already mentioned, strings are iterable objects.
-(More iterable types will be introduced in the <<Containers, next chapter>>.)
+`Итерируемый_объект` (или просто `итерируемый`) - это объект, содержащий несколько значений, по которым мы хотим пройтись в цикле.
+Как в Основных типах данных было упомянуто ранее, строки это итерируемый объект.
+(Больше итерируемых типов будут представлены в <<Контейнеры, следующая глава>>.)
 
-All lines in the `loop body` are executed at every loop, which allows us to efficiently write repeating parts of code.
+Все строки в `теле_цикла` выполняются при каждой итерации цикла, что позволяет эффективно писать повторяющиеся части кода.
 
 {nbsp}
 
-If we want to iterate through a range of (integer) numbers in Nim, the syntax for the `iterable` is `start .. finish` where `start` and `finish` are numbers.
-This will iterate through all the numbers between `start` and `finish`, including both `start` and `finish`.
-For the default range iterable, `start` needs to be smaller than `finish`.
+Если мы хотим итерироваться по диапазону (целых) чисел в Nim, синтаксис для `итерируемого` это `start .. finish`, где `start` и `finish` это числа.
+Это будет итерироваться по всем числам между `start` и `finish`, включая оба `start` и `finish`.
+Для итерируемого по умолчанию диапазона, `start` должен быть меньше чем `finish`.
 
-If we want to iterate _until_ a number (not including it), we can use `..<`:
+Есди мы хотим итерироваться _до_ числа (не включая его), мы можем использовать `..<`:
 
 [source]
 .for1.nim
 ----
 include::{source-dir}/for1.nim[]
 ----
-<1> Iterating through a range of numbers using `..` -- both ends are included in the range.
-<2> Iterating through the same range using `..<` -- it iterates until the higher end, not including it.
+<1> Итерируя по диапазону чисел с помощью `..` -- оба конца будут включены в диапазон.
+<2> Итерируя по тому же диапазону с помощью `..<` -- итерирование происходит до верхней границы, не включая её.
 
 [source, output]
 ----
@@ -61,14 +61,14 @@ include::{source-dir}/for1.nim[]
 
 
 
-If we want to iterate through a range of numbers with a step size different than one, `countup` is used. With `countup` we define the starting value, the stopping value (included in the range), and the step size.
+Если мы хотим итерироваться по диапазону чисел с шагом, отличным от одного, используется `countup`. С помощью `countup` мы определяем начальное значение, конечное значение (включенное в диапазон) и размер шага.
 
 [source]
 .for2.nim
 ----
 include::{source-dir}/for2.nim[lines=1..2]
 ----
-<1> Counting up from zero to 16, with a step size of 4. The end (16) is included in the range.
+<1> Счётчик от нуля до 16 с шагом 4. Конечное значение (16) включено в диапазон.
 
 [source, output]
 ----
@@ -80,16 +80,16 @@ include::{source-dir}/for2.nim[lines=1..2]
 ----
 
 
-To iterate through a range of numbers where the `start` is larger than `finish`, a similar function called `countdown` is used.
-Even if we're counting down, the step size must be positive.
+Чтобы итерироваться по диапазону чисел, где `start` больше чем `finish`, используется похожая функция под названием `countdown`. 
+Даже если мы считаем вниз, размер шага должен быть положительным.
 
 [source]
 .for2.nim
 ----
 include::{source-dir}/for2.nim[lines=5..12]
 ----
-<1> To iterate from a higher to a lower number, we must use `countdown` (The `..` operator can only be used when the starting value is smaller than the end value).
-<2> Even when counting down, the step size must be a positive number.
+<1> Чтобы итерироваться от большего к меньшему числу, мы должны использовать `countdown` (оператор `..` может быть использован только когда начальное значение меньше конечного).
+<2> Даже при обратном отсчете размер шага должен быть положительным.
 
 [source, output]
 ----
@@ -106,7 +106,7 @@ include::{source-dir}/for2.nim[lines=5..12]
 ----
 
 
-Since string is an iterable, we can use a for-loop to iterate through each character of the string (this kind of iteration is sometimes called a _for-each_ loop).
+Поскольку строка является итерируемым объектом, мы можем использовать цикл for, чтобы итерироваться по каждому символу строки (такой вид итерации иногда называют _for-each_ циклом).
 
 [source]
 .for3.nim
@@ -127,8 +127,8 @@ t
 ----
 
 
-If we also need to have an iteration counter (starting from zero), we can achieve that by using `for <counterVariable>, <loopVariable> in <iterator>:` syntax.
-This is very practical if you want to iterate through one iterable, and simultaneously access another iterable at the same offset.
+Если нам также нужно иметь счетчик итераций (начинающийся с нуля), мы можем достичь этого, используя синтаксис `for <переменнаяСчетчика>, <переменнаяЦикла> in <итерируемый>:`.
+Ланный способ очень практичекие если вы желаеье итерировать один iterable, и одновременно получать доступ к другому iterable на том же смещении.
 
 [source]
 .for3.nim
@@ -151,20 +151,20 @@ letter 7 is: t
 
 
 
-== While loop
+== Цикл While
 
-While loops are similar to if statements, but they keep executing their block of code as long as the condition remains true.
-They are used when we don't know in advance how many times the loop will run.
+Цикл While похож на условный оператор if, но он продолжает выполнять свой блок кода до тех пор, пока условие остается истинным.
+Они используются, когда мы заранее не знаем, сколько раз цикл будет выполняться.
 
-We must make sure the loop will terminate at some point and not become an https://en.wikipedia.org/wiki/Infinite_loop[infinite loop].
+Мы должны убедиться, что цикл в какой-то момент завершится и не станет https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D1%81%D0%BA%D0%BE%D0%BD%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D1%86%D0%B8%D0%BA%D0%BB[бесконечным циклом].
 
 [source]
 .while.nim
 ----
 include::{source-dir}/while.nim[]
 ----
-<1> This condition will be checked every time before entering the new loop and executing the code inside of it.
-<2> `inc` is used to increment `a` by one. It is the same as writing `a = a + 1` or `a += 1`.
+<1> Это условие будет проверяться каждый раз перед входом в новый цикл и выполнением кода внутри него.
+<2> `inc` используется для увеличения `a` на единицу. Это то же самое, что и `a = a + 1` или `a += 1`.
 
 [source, output]
 ----
@@ -177,12 +177,12 @@ final value of a: 4
 
 
 
-== Break and continue
+== Break и continue
 
-The `break` statement is used to prematurely exit from a loop, usually if some condition is met.
+Оператор `break` используется для преждевременного выхода из цикла, обычно если какое-то условие выполняется.
 
-In the next example, if there were no if statement with `break` in it, the loop would continue to run and print until `i` becomes 1000.
-With the `break` statement, when `i` becomes 3, we immediately exit the loop (before printing the value of `i`).
+В следующем примере, если бы не было условия `if` с `break`, цикл продолжился бы и выводил бы значения до тех пор, пока `i` не станет 1000.
+С оператором `break`, когда `i` становится 3, мы немедленно выходим из цикла (до вывода значения `i`).
 
 [source]
 .break.nim
@@ -198,8 +198,8 @@ include::{source-dir}/break.nim[]
 
 {nbsp}
 
-The `continue` statement starts the next iteration of a loop immediately, without executing the remaining lines of the current iteration.
-Notice how 3 and 6 are missing from the output of the following code:
+Оператор `continue` начинает следующую итерацию цикла немедленно, не выполняя оставшиеся строки текущей итерации.
+Обратите внимание, что 3 и 6 отсутствуют в выводе следующего кода:
 
 [source]
 .continue.nim
@@ -220,17 +220,17 @@ include::{source-dir}/continue.nim[]
 
 
 
-== Exercises
+== Упражнения
 
-1. https://en.wikipedia.org/wiki/Collatz_conjecture[Collatz conjecture] is a popular mathematical problem with simple rules. First pick a number. If it is odd, multiply it by three and add one; if it is even, divide it by two. Repeat this procedure until you arrive at one. E.g. 5 -> odd -> 3*5 + 1 = 16 -> even -> 16 / 2 = 8 -> even -> 4 -> 2 -> 1 -> end! +
-Pick an integer (as a mutable variable) and create a loop which will print every step of the Collatz conjecture. (Hint: use `div` for division)
+1. https://ru.wikipedia.org/wiki/%D0%93%D0%B8%D0%BF%D0%BE%D1%82%D0%B5%D0%B7%D0%B0_%D0%9A%D0%BE%D0%BB%D0%BB%D0%B0%D1%82%D1%86%D0%B0[Гипотеза Коллатца] это популярная математическая задача с простыми правилами. Сначала выберите число. Если оно нечетное, умножьте его на три и прибавьте один; если четное, разделите его на два. Повторяйте эту процедуру до тех пор, пока не получите единицу. Например: 5 -> нечетное -> 3*5 + 1 = 16 -> четное -> 16 / 2 = 8 -> четное -> 4 -> 2 -> 1 -> конец! +
+Выберите целое число (как изменяемую переменную) и создайте цикл, который будет печатать каждый шаг гипотезы Коллатца. (Подсказка: используйте `div` для деления)
 
-2. Create an immutable variable containing your full name. Write a for-loop which will iterate through that string and print only the vowels (a, e, i, o, u). (Hint: use `case` statement with multiple values per branch)
+2. Создайте неизменяемую переменную, содержащую ваше полное имя. Напишите цикл for, который будет итерировать по этой строке и печатать только гласные (a, e, i, o, u). (Подсказка: используйте оператор `case` с несколькими значениями ветви)
 
-3. https://en.wikipedia.org/wiki/Fizz_buzz[Fizz buzz] is a kids game sometimes used to test basic programming knowledge. We count numbers from one upwards. If a number is divisible by 3 replace it with _fizz_, if it is divisible by 5 replace it with _buzz_, and if a number is divisible by 15 (both 3 and 5) replace it with _fizzbuzz_. First few rounds would look like this: 1, 2, fizz, 4, buzz, fizz, 7, ... +
-Create a program which will print first 30 rounds of Fizz buzz. (Hint: beware of the order of divisibility tests)
+3. https://ru.wikipedia.org/wiki/Fizz_buzz[Fizz buzz] это детская игра, иногда используемая для проверки базовых знаний программирования. Мы считаем числа от одного вверх. Если число делится на 3, замените его на _fizz_, если оно делится на 5, замените его на _buzz_, а если число делится на 15 (оба 3 и 5), замените его на _fizzbuzz_. Первые несколько раундов будут выглядеть так: 1, 2, fizz, 4, buzz, fizz, 7, ... +
+Создайте программу, которая будет печатать первые 30 раундов Fizz buzz. (Подсказка: обратите внимание на порядок проверок делимости)
 
-4. In the previous exercises you have converted inches to centimeters, and vice versa. Create a conversion table with multiple values. For example, the table might look like this: +
+4. В предыдущих упражнениях вы конвертировали дюймы в сантиметры и наоборот. Создайте таблицу конвертации с несколькими значениями. Например, таблица может выглядеть так: +
 ----
 in	| cm
 ----------------

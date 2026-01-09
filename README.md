@@ -1,26 +1,26 @@
-# Nim basics
+# Основы Nim
 
-These are the source files for [Nim basics](https://narimiran.github.io/nim-basics/) tutorial.
+Исходные файлы для [Основы Nim](https://kisvey.github.io/nim-basics/).
+Оригинал [Nim basics](https://narimiran.github.io/nim-basics/).
 
 
 
-## Contributing
+## Коллаборирование
 
-Please report any errors to the [issue tracker](https://github.com/narimiran/nim-basics/issues).
+Сообщайте о любых ошибка в [issue tracker](https://github.com/kisvey/nim-basics/issues).
 
-Pull requests are welcome, but before making (significant) changes, please open an issue so it can be discussed what is the best way to tackle the specific problem.
+Приветствуются запросы на изменение кода, но перед внесением (значительных) изменений, пожалуйста, откройте заявку, чтобы обсудить, как лучше всего решить конкретную проблему.
 
-After making the changes, make sure to build new web and epub versions:
+После внесений изменений, создайте новую веб и epub версию;
 ```bash
 make
 ```
 
-If you just want to see the changes, while working on a significant refactoring, you can just build web version, as it is much faster:
+Если вы просто хотите увидеть изменения, пока работаете над значительными изменениями, вы можете создавать только веб версию, так как это намного быстрее.
 ```bash
 make web
 ```
 
-
-## License
+## Лицензия
 
 [MIT License](LICENSE.txt)

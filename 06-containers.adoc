@@ -1,12 +1,13 @@
-= Containers
+= Контейнеры
 
 
 
-Containers are data types which contain a collection of items and allow us to access those elements.
-Typically a container is also iterable, meaning that we can use them the same way we used strings in the <<Loops, loops chapter>>.
 
-For example, a grocery list is a container of items we want to buy, and a list of primes is a container of numbers.
-Written in pseudocode:
+Контейнеры это типы данных, которые содержат коллекцию элементов и позволяют нам получить доступ к этим элементам.
+Обычно контейнер также является итерируемым, что означает, что мы можем использовать их так же, как строки в главе <<Циклы, Циклы>>.
+
+Например, список покупок - это контейнер элементов, которые мы хотим купить, а список простых чисел - это контейнер чисел.
+Написано в псевдокоде:
 [source]
 ----
 groceryList = [ham, eggs, bread, apples]
@@ -15,17 +16,17 @@ primes = [1, 2, 3, 5, 7]
 
 
 
-== Arrays
+== Массивы
 
-An array is the simplest container type.
-Arrays are homogeneous, i.e. all elements in an array must have the same type.
-Arrays are also of a constant size, meaning that the amount of elements (or rather: the amount of _possible_ elements), must be known at compile-time.
-This means that we call arrays a "homogeneous container of a constant length".
+Массив - это самый простой тип контейнера.
+Массивы однородны, т.е. все элементы в массиве должны иметь одинаковый тип.
+Массивы также имеют постоянный размер, что означает, что количество элементов (или скорее: количество _возможных_ элементов) должно быть известно на этапе компиляции.
+Это означает, что мы называем массивы "однородным контейнером постоянной длины".
 
-The array type is declared using `array[<length>, <type>]`, where `length` is the total capacity of the array (number of elements it can fit), and `type` is a type of all its elements.
-The declaration can be omitted if both length and type can be inferred from the passed elements.
+Тип массива объявляется с помощью `array[<length>, <type>]`, где `length` - это общая емкость массива (количество элементов, которое он может содержать), а `type` - тип всех его элементов.
+Объявление может быть опущено, если и длина, и тип могут быть выведены из переданных элементов..
 
-The elements of an array are enclosed inside of square brackets.
+Элементы массива заключены внутри квадратных скобок.
 
 [source]
 ----
@@ -35,12 +36,11 @@ var
   c = []  # error      <2>
   d: array[7, string]  <3>
 ----
-<1> If we provide the values, the length and type of array `b` are known at compile time. Although correct, there is no need to specifically declare it like array `a`.
-<2> Neither the length nor the type of the elements can be inferred from this kind of declaration -- this produces an error.
-<3> The correct way to declare an empty array (which will be filled later) is to give its length and type, without providing the values of its elements -- array `d` can contain seven strings.
+<1> Если мы предоставляем значения, длина и тип массива `b` известны на этапе компиляции. Хотя это корректно, нет необходимости специально объявлять его как массив `a`.
+<2> Ни длина, ни тип элементов не могут быть выведены из этого типа объявления -- это приводит к ошибке.
+<3> Правильный способ объявить пустой массив (который будет заполнен позже) - это указать его длину и тип, не предоставляя значения его элементов -- массив `d` может содержать семь строк.
 
-
-Since the length of an array has to be known at compile-time, this will not work:
+Так как длина массива должна быть известна на этапе компиляции, это не сработает:
 
 [source]
 ----
@@ -50,18 +50,18 @@ let n = 5
 var a: array[m, char]
 var b: array[n, char] # error <1>
 ----
-<1> This produces an error because `n` is declared using `let` -- its value is not known at compile time. We can only use values declared with `const` as a `length` parameter for an array initialization.
+<1> Это приводит к ошибке, потому что `n` объявлен с помощью `let` -- его значение неизвестно на этапе компиляции. Мы можем использовать только значения, объявленные с помощью `const`, как параметр `length` для инициализации массива.
 
 
 
 
 
-== Sequences
+== Последовательность
 
-Sequences are containers similar to arrays, but their length doesn't have to be known at compile time, and it can change during runtime: we declare only the type of the contained elements with `seq[<type>]`.
-Sequences are also homogeneous, i.e. every element in a sequence has to be the same type.
+Последовательности - это контейнеры, похожие на массивы, но их длина не обязательно должна быть известна на этапе компиляции, и она может изменяться во время выполнения: мы объявляем только тип содержащихся элементов с помощью `seq[<type>]`.
+Последовательности также являются однородными, т.е. каждый элемент в последовательности должен быть одного типа.
 
-The elements of a sequence are enclosed between `@[` and `]`.
+Элементы последовательности заключены между `@[` и `]`.
 
 [source]
 ----
@@ -69,30 +69,30 @@ var
   e1: seq[int] = @[]   <1>
   f = @["abc", "def"]  <2>
 ----
-<1> The type of an empty sequence must be declared.
-<2> The type of a non-empty sequence can be inferred. In this case, it is a sequence containing strings.
+<1> Тип пустой последовательности должен быть объявлен.
+<2> Тип непустой последовательности может быть автоматически выведен. В этом случае, это последовательность, содержащая строки.
 
-Another way to initialize an empty sequence is to call the `newSeq` procedure. We'll look more at procedure calls in the <<Procedures, next chapter>> but for now just know that this is also a possibility:
+Другой способ инициализации пустой последовательности - вызвать процедуру `newSeq`. Мы рассмотрим вызовы процедур в <<Процедуры, следующей главе>>, но пока просто знайте, что это также возможно:
 
 [source]
 ----
 var
   e = newSeq[int]() <1>
 ----
-<1> Providing the type parameter inside of square brackets allows the procedure to know that it shall return a sequence of a certain type. +
-A frequent error is omission of the final `()`, which must be included.
+<1> Предоставление типа параметра внутри квадратных скобок позволяет процедуре знать, что она должна вернуть последовательность определенного типа. +
+Частая ошибка - пропуск конечных `()`, которые должны быть включены.
 
 
-We can add new elements to a sequence with the `add` function, similar to how we did with strings.
-For this to work the sequence must be mutable (defined with `var`), and the element we're adding must be of the same type as the elements in the sequence.
+Мы можем добавлять новые элементы в последовательность с помощью функции `add`, аналогично тому, как мы это делали со строками.
+Для этого последовательность должна быть изменяемой (объявленной с помощью `var`), и добавляемый элемент должен быть того же типа, что и элементы в последовательности.
 
 [source]
 .seq.nim
 ----
 include::{source-dir}/seq.nim[]
 ----
-<1> Adding a new element of the same type (char).
-<2> Adding another sequence containing the same type.
+<1> Добавление нового элемента того же типа (char).
+<2> Добавление другой последовательности, содержащей тот же тип.
 
 [source, output]
 ----
@@ -100,7 +100,7 @@ include::{source-dir}/seq.nim[]
 @['1', '2', '3', 'x', 'y', 'z']
 ----
 
-Trying to pass different types to the existing sequences will produce an error:
+Попытка передать разные типы в существующие последовательности приведет к ошибке:
 
 [source]
 ----
@@ -109,11 +109,10 @@ var i = @[9, 8, 7]
 i.add(9.81) # error <1>
 g.add(i)    # error <2>
 ----
-<1> Trying to add a `float` to a sequence of `int`.
-<2> Trying to add a sequence of `int` to a sequence of `char`.
+<1> Попытка добавить `float` к последовательности `int`.
+<2> Попытка добавить последовательность `int` к последовательности `char`.
 
-
-Since sequences can vary in length we need a way to get their length, for this we can use the `len` function.
+С учетом того что последовательности могут изменять свою длину во время выполнения, нам нужен способ узнать их длину.  Для этого мы можем использовать функцию `len`.
 
 [source]
 ----
@@ -134,25 +133,24 @@ echo i.len
 
 
 
-== Indexing and slicing
+== Индексация и срезы
 
-Indexing allows us to get a specific element from a container by its index.
-Think of the index as a position inside of the container.
+Индексация позволяет нам получить конкретный элемент из контейнера по его индексу.
+Думайте об индексе как о позиции внутри контейнера.
 
-Nim, like many other programming languages, has zero-based indexing, meaning that the first element in a container has the index zero, the second element has the index one, etc.
+Nim, как и многие другие языки программирования, использует индексацию с нулевым основанием, что означает, что первый элемент в контейнере имеет индекс ноль, второй элемент имеет индекс один и так далее.
 
-If we want to index "from the back", it is done by using the `^` prefix.
-The last element (first from the back) has index `^1`.
-
-The syntax for indexing is `<container>[<index>]`.
+Если мы хотим получить элемент "с конца", это делается с помощью префикса `^`.
+Последний элемент (первый с конца) имеет индекс `^1`. Второй с конца имеет индекс `^2` и так далее.
+Синтаксис для индексации: `<container>[<index>]`.
 
 [source]
 .indexing.nim
 ----
 include::{source-dir}/indexing.nim[lines=1..4]
 ----
-<1> Zero-based indexing: the element at index 1 is `b`.
-<2> Getting the last element.
+<1> Индексация с нулевым основанием: элемент с индексом 1 - это `b`.
+<2> Получение последнего элемента.
 
 [source, output]
 ----
@@ -162,13 +160,13 @@ e
 
 {nbsp}
 
-Slicing allows us to get a series of elements with one call.
-It uses the same syntax as ranges (introduced in the <<For loop, for loop section>>).
+Срезы позволяют нам получить серию элементов за один вызов.
+Он использует тот же синтаксис, что и диапазоны (введенные в <<Циклы, цикл for>>).
 
-If we use `start .. stop` syntax, both ends are included in the slice.
-Using `start ..< stop` syntax, the `stop` index is not included in the slice.
+Если мы используем синтаксис `start .. stop`, оба конца включаются в срез.
+Используя синтаксис `start ..< stop`, индекс `stop` не включается в срез.
 
-The syntax for slicing is `<container>[<start> .. <stop>]`.
+Синтаксис для срезов: `<container>[<start> .. <stop>]`.
 
 [source]
 .indexing.nim
@@ -182,17 +180,16 @@ include::{source-dir}/indexing.nim[lines=6..8]
 @[a, b, c]
 ----
 
-
-Both indexing and slicing can be used to assign new values to the existing mutable containers and strings.
+Как индексация, так и срезы могут быть использованы для присвоения новых значений существующим изменяемым контейнерам и строкам.
 
 [source]
 .assign.nim
 ----
 include::{source-dir}/assign.nim[]
 ----
-<1> Array of length 5 has indexes from zero to four. We will assign a value to each element of the array.
-<2> Assigning (changing) the second element (index 1) of a sequence.
-<3> Changing characters of a string at indexes 8 and 9.
+<1> Массив длины 5 имеет индексы от нуля до четырех. Мы присвоим значение каждому элементу массива.
+<2> Присваивание (изменение) второго элемента (индекс 1) последовательности.
+<3> Изменение символов строки по индексам 8 и 9.
 
 
 [source, output]
@@ -205,20 +202,20 @@ Tom and Barry
 
 
 
-== Tuples
+== Кортежи
 
-Both of the containers we've seen so far have been homogeneous.
-Tuples, on the other hand, contain heterogeneous data, i.e. elements of a tuple can be of different types.
-Similarly to arrays, tuples have fixed-size.
+Оба контейнера, которые мы видели до сих пор, были однородными.
+Кортежи, с другой стороны, содержат разнородные данные, т.е. элементы кортежа могут быть разных типов.
+Аналогично массивам, кортежи имеют фиксированный размер.
 
-The elements of a tuple are enclosed inside of parentheses.
+Елементы кортежа заключены внутри круглых скобок.
 
 [source]
 .tuples.nim
 ----
 include::{source-dir}/tuples.nim[lines=1..3]
 ----
-<1> Tuples can contain fields of different types. In this case: `string`, `int`, and `char`.
+<1> Кортежи могут содержать поля разных типов. В этом случае: `string`, `int`, и `char`.
 
 [source, output]
 ----
@@ -226,17 +223,16 @@ include::{source-dir}/tuples.nim[lines=1..3]
 ----
 
 
-
-We can also name each field in a tuple to distinguish them.
-This can be used for accessing the elements of the tuple, instead of indexing.
+Мы можем также дать имена каждому полю в кортеже, чтобы различать их.
+Это может быть использовано для доступа к элементам кортежа, вместо индексации
 
 [source]
 .tuples.nim
 ----
 include::{source-dir}/tuples.nim[lines=5..10]
 ----
-<1> Changing the value of a field by using the field's index.
-<2> Changing the value of a field by using the field's name.
+<1> Изменение значения поля по индексу.
+<2> Изменение значения поля по имени.
 
 [source, output]
 ----
@@ -247,20 +243,20 @@ include::{source-dir}/tuples.nim[lines=5..10]
 
 
 
-== Exercises
+== Упражнения
 
-1. Create an empty array which can contain ten integers.
-    * Fill that array with numbers 10, 20, ..., 100. (Hint: use loops)
-    * Print only the elements of that array that are on odd indices (values 20, 40, ...).
-    * Multiply elements on even indices by 5. Print the modified array.
+1. Создайте пустой массив, который может содержать десять целых чисел.
+    * Заполните этот массив числами 10, 20, ..., 100. (Подсказка: используйте циклы)
+    * Выведите только элементы этого массива, которые находятся на нечетных индексах (значения 20, 40, ...).
+    * Умножьте элементы на четных индексах на 5. Выведите измененный массив.
 
-2. Re-do the <<_exercises_2, Collatz conjecture exercise>>, but this time instead of printing each step, add it to a sequence.
-    * Pick a starting number. Interesting choices, among others, are 9, 19, 25 and 27.
-    * Create a sequence whose only member is that starting number
-    * Using the same logic as before, keep adding elements to the sequence until you reach 1
-    * Print the length of the sequence, and the sequence itself
+2. Повторите упражнение гипотеза Коллатца, но в этот раз вместо печати каждого шага добавляйте его в последовательность.
+    * Выберите начальное число. Интересные выборы, среди прочего, это 9, 19, 25 и 27.
+    * Создайте последовательность, единственным элементом которой является начальное число
+    * Используя ту же логику, что и раньше, продолжайте добавлять элементы в последовательность до достижения 1
+    * Выведите длину последовательности и саму последовательность
 
-3. Find the number in a range from 2 to 100 which will produce the longest Collatz sequence.
-    * For each number in the given range calculate its Collatz sequence
-    * If the length of current sequence is longer than the previous record, save the current length and the starting number as a new record (you can use the tuple `(longestLength, startingNumber)` or two separate variables)
-    * Print the starting number which gives the longest sequence, and its length
+3. Найдите число в диапазоне от 2 до 100, которое приведет к самой длинной последовательности Коллатца.
+    * Для каждого числа в заданном диапазоне вычислите его последовательность Коллатца
+    * Если длина текущей последовательности больше предыдущей записи, сохраните текущую длину и начальное число как новую запись (вы можете использовать кортеж `(longestLength, startingNumber)` или две отдельные переменные)
+    * Выведите начальное число, которое дает самую длинную последовательность, и ее длину

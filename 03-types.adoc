@@ -1,29 +1,29 @@
-= Basic data types
+= Основные типы данных
 
 
 
-== Integers
+== Целые числа
 
-As seen in the previous chapter, integers are numbers which are written without a fractional component and without a decimal point.
+Как видно из предыдущей главы, целые числа - это числа, которые записываются без дробной части и без десятичной точки.
 
-For example: `32`, `-174`, `0`, `10_000_000` are all integers.
-Notice that we can use `_` as a thousands separator, to make larger numbers more readable (it is easier to see that we're talking about 10 million when it's written as 10_000_000 rather than as 10000000).
+Например: `32`, `-174`, `0`, `10_000_000` являются целыми числами.
+Обратите внимание, что мы можем использовать `_` как разделитель тысяч, чтобы сделать большие числа более читаемыми (легче понять, что речь идет о 10 миллионов, когда они записаны как 10_000_000, а не как 10000000).
 
-The usual mathematical operators -- addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`) -- work as one would expect.
-The first three operations always produce integers, while dividing two integers always gives a floating point number (a number with a decimal point) as a result, even if two numbers can be divided without a remainder.
+Обычные математические операторы -- сложение (`+`), вычитание (`-`), умножение (`*`) и деление (`/`) -- работают так, как можно было бы ожидать.
+Первые три операции всегда производят целые числа, в то время как деление двух целых чисел всегда дает число с плавающей точкой (число с десятичной точкой) в результате, даже если два числа могут быть разделены без остатка.
 
-Integer division (division where the fractional part is discarded) can be achieved with the `div` operator.
-An operator `mod` is used if one is interested in the remainder (modulus) of an integer division.
-The result of these two operations is always an integer.
+Деление целых чисел (деление, при котором дробная часть отбрасывается) можно выполнить с помощью оператора `div`.
+Оператор `mod` используется, если вас интересует остаток от деления целых чисел (модуль).
+Результат этих двух операций всегда является целым числом.
 
 [source]
 .integers.nim
 ----
 include::{source-dir}/integers.nim[]
 ----
-<1> The `echo` command will print to the screen everything that follows it separated by commas. In this case, it first prints the string ``a + b = ``, and then after it, in the same row, it prints the result of the expression `a + b`.
+<1> Команда `echo` напечатает на экране всё, что следует за ней, разделённое запятыми. В данном случае она сначала печатает строку ``a + b = ``, а затем, в той же строке, печатает результат выражения `a + b`.
 
-We can compile and run the above code, and the output should be:
+Мы можем скомпилировать и запустить приведённый выше код, и вывод должен быть следующим:
 [source, output]
 ----
 a + b = 15
@@ -37,16 +37,16 @@ a mod b = 3
 
 
 
-== Floats
+== Числа с плавающей точкой
 
-Floating-point numbers, or floats for short, are an https://en.wikipedia.org/wiki/Floating-point_arithmetic[approximate representation] of real numbers.
+Числа с плавающей точкой, или просто float, являются https://ru.wikipedia.org/wiki/%D0%A7%D0%B8%D1%81%D0%BB%D0%BE_%D1%81_%D0%BF%D0%BB%D0%B0%D0%B2%D0%B0%D1%8E%D1%89%D0%B5%D0%B9_%D0%B7%D0%B0%D0%BF%D1%8F%D1%82%D0%BE%D0%B9[приблизительным представлением] действительных чисел.
 
-For example: `2.73`, `-3.14`, `5.0`, `4e7` are floats.
-Notice that we can use scientific notation for large floats, where the number after the `e` is the exponent.
-In this example, `4e7` is a notation representing `4 * 10^7`.
+Например: `2.73`, `-3.14`, `5.0`, `4e7` являются числами с плавающей точкой.
+Обратите внимание, что мы можем использовать научную нотацию для больших чисел с плавающей точкой, где число после `e` является показателем степени.
+В этом примере, `4e7` - это запись, представляющая `4 * 10^7`.
 
-We can also use the four basic mathematical operations between two floats.
-Operators `div` and `mod` are not defined for floats.
+Мы можем выполнять математические операции с числами с плавающей точкой так же, как и с целыми числами.
+Операторы `div` и `mod` не определены для чисел с плавающей точкой.
 
 [source]
 .floats.nim
@@ -61,9 +61,9 @@ c - d = 4.5
 c * d = 15.1875
 c / d = 3.0  <1>
 ----
-<1> Notice that in the addition and division examples, even though we get a number without a decimal part, the result is still of the floating type.
+<1> Обратите внимание, что в примерах сложения и деления, даже если мы получаем число без десятичной части, результат всё равно является числом с плавающей точкой.
 
-The precedence of mathematical operations is as one would expect: multiplication and division have higher priority than addition and subtraction.
+Последовательность выполнения математических операций соответствует ожидаемой: умножение и деление имеют более высокий приоритет, чем сложение и вычитание.
 
 [source]
 ----
@@ -80,9 +80,9 @@ echo 24 - 8 / 4
 
 
 
-=== Converting floats and integers
+=== Преобразование float и int
 
-Mathematical operations between variables of different numerical types are not possible in Nim, and they will produce an error:
+Математические операции между переменными разных числовых типов невозможны в Nim и приведут к ошибке:
 [source]
 ----
 let
@@ -92,8 +92,8 @@ let
 echo e + f   # error
 ----
 
-The values of variables need to be converted to the same type.
-Conversion is straight-forward: to convert to an integer, we use the `int` function, and to convert to a float the `float` function is used.
+Значения переменных необходимо преобразовать к одному типу.
+Преобразование достаточно простое: для преобразования в целое число используется функция `int`, а для преобразования в число с плавающей точкой - функция `float`.
 [source]
 ----
 let
@@ -106,12 +106,10 @@ echo int(f)        <2>
 echo float(e) + f  <3>
 echo e + int(f)    <4>
 ----
-<1> Printing a `float` version of an integer `e`. (`e` remains of integer type)
-<2> Printing an `int` version of a float `f`.
-<3> Both operands are floats and can be added.
-<4> Both operands are integers and can be added.
-
-
+<1> Печать `float` версии `int` числа `e`. (`e` остаётся `int`)
+<2> Печать `int` версии `float` числа `f`.
+<3> Оба операнда являются числами с плавающей точкой и могут быть сложены.
+<4> Оба операнда являются целыми числами и могут быть сложены.
 [source, output]
 ----
 5.0
@@ -120,20 +118,18 @@ echo e + int(f)    <4>
 28
 ----
 
-NOTE: When using the `int` function to convert a float to an integer no rounding will be performed.
-The number simply drops any decimals. +
-To perform rounding we must call another function, but for that we must know a bit more about how to use Nim.
+NOTE: Когда мы используем функцию `int` для преобразования числа с плавающей точкой в целое, округление не производится.
+Число просто отбрасывает десятичную часть. +
+Для выполнения округления необходимо вызвать другую функцию, но для этого нужно знать немного больше о том, как использовать Nim.
 
 
+== Символы
 
+Тип `char` используется для представления одного https://ru.wikipedia.org/wiki/ASCII[ASCII] символа.
 
-== Characters
-
-The `char` type is used for representing a single https://en.wikipedia.org/wiki/ASCII[ASCII] character.
-
-Chars are written between two single ticks (`'`).
-Chars can be letters, symbols, or single digits.
-Multiple digits or multiple letters produce an error.
+Символы записываются между двумя одинарными кавычками (`'`).
+Символы могут быть буквами, символами или одиночными цифрами.
+Несколько цифр или несколько букв вызовут ошибку.
 [source]
 ----
 let
@@ -147,51 +143,47 @@ let
 
 
 
-== Strings
+== Строки
 
-Strings can be described as a series of characters.
-Their content is written between two double quotes (`"`).
+Строки могут быть описаны как последовательность символов.
+Их содержимое записывается между двумя двойными кавычками (`"`).
 
-We might think of strings as words, but they can contain more than one word, some symbols, or digits.
+Мы можем думать о строках как о словах, но они могут содержать более одного слова, некоторые символы или цифры.
 
 [source]
 .strings.nim
 ----
 include::{source-dir}/strings.nim[]
 ----
-<1> An empty string.
-<2> This is not a number (int). It is inside double quotes, making it a string.
-<3> Even though this is only one character, it is not a char because it is enclosed inside of double quotes.
+<1> Пустая строка.
+<2> Это не число (int). Оно находится внутри двойных кавычек, поэтому является строкой.
+<3> Даже если это только один символ, это не char, потому что он заключен внутри двойных кавычек.
 
 
+=== Специальные символы в строках
 
-
-
-=== Special characters
-
-If we try to print the following string:
+Есди мы попытаемся напечатать следующую строку:
 [source]
 ----
 echo "some\nim\tips"
 ----
-the result might surprise us:
+результат может удивить нас:
 [source, output]
 ----
 some
 im	ips
 ----
 
-This is because there are several characters which have a special meaning.
-They are used by prepending the escape character `\` to them.
+Это происходит потому, что есть несколько символов, которые имеют специальное значение.
+Они используются путем добавления перед ними символа экранирования `\`.
 
-* `\n` is a newline character
-* `\t` is a tab character
-* `\\` is a backslash (since one `\` is used as the escape character)
+* `\n` это символ новой строки
+* `\t` это символ табуляции
+* `\\` это обратная косая черта (так как одна `\` используется как символ экранирования)
 
-If we wanted to print the above example as it was written, we have two possibilities:
-
-* Use `\\` instead of `\` to print backslashes, or
-* Use raw strings which have syntax `r"..."` (putting a letter `r` immediately before the first quote), in which there are no escape characters and no special meanings: everything is printed as it is.
+Если мы хотим напечатать вышеуказанный пример так, как он был написан, у нас есть два варианта:
+* Используйте `\\` вместо `\` для печати обратных косых черт, или
+* Используйте сырые строки, которые имеют синтаксис `r"..."` (помещая букву `r` сразу перед первой кавычкой), в которых нет символов экранирования и специальных значений: всё печатается как есть.
 
 [source]
 ----
@@ -205,27 +197,25 @@ some\nim\tips
 some\nim\tips
 ----
 
-There are more special characters than the ones listed above, and they are all found in the https://nim-lang.org/docs/manual.html#lexical-analysis-string-literals[Nim manual].
+Есть и другие специальные символы, помимо перечисленных выше и их можно найти в https://nim-lang.org/docs/manual.html#lexical-analysis-string-literals[руководстве по Nim].
 
 
 
+=== Конкатенация строк
 
-
-=== String concatenation
-
-Strings in Nim are mutable, meaning their content can change.
-With the `add` function we can add (append) either another string or a char to an existing string.
-If we don't want to change the original string, we can also concatenate (join together) strings with the `&` operator, this returns a new string.
+Строки в Nim изменяемы, что означает, что их содержимое может изменяться.
+С помощью функции `add` мы можем добавить (присоединить) либо другую строку, либо символ к существующей строке.
+Если мы не хотим изменять исходную строку, мы также можем конкатенировать (соединять вместе) строки с помощью оператора `&`, который возвращает новую строку.
 
 [source]
 .stringConcat.nim
 ----
 include::{source-dir}/stringConcat.nim[]
 ----
-<1> If we plan to modify strings, they should be declared as `var`.
-<2> Adding another string modifies the existing string `p` in-place, changing its value.
-<3> We can also add a `char` to a string.
-<4> Concatenating two strings produces a new string, without modifying the original strings.
+<1> Если мы планируем изменять строки, они должны быть объявлены как `var`.
+<2> Добавление другой строки изменяет существующую строку `p` на месте, меняя её значение.
+<3> Мы также можем добавить символ к строке.
+<4> Конкатенация двух строк создаёт новую строку, не изменяя исходные строки.
 
 [source, output]
 ----
@@ -241,23 +231,21 @@ q is still: xyz
 
 
 
-== Boolean
+== Булевы значения
 
-A boolean (or just `bool`) data type can only have two values: `true` or `false`.
-Booleans are usually used for control flow (see <<Control flow, next chapter>>), and they are often a result of relational operators.
+Булево значение (или просто `bool`) может иметь только два значения: `true` или `false`.
+Булевы значения обычно используются для управления потоком выполнения (см. <<Поток управления, следующая глава>>), и они часто являются результатом операторов сравнения.
 
-The usual naming convention for boolean variables is to write them as a simple yes/no (true/false) question, e.g. `isEmpty`, `isFinished`, `isMoving`, etc.
+Обычное соглашение по именованию булевых переменных — писать их как простые вопросы да/нет (true/false), например, `isEmpty`, `isFinished`, `isMoving` и т.д.
 
+=== Операторы сравнения
 
+Операторы сравнения проверяют отношение между двумя сущностями, которые должны быть сравнимы.
 
-=== Relational operators
+Чтобы сравнить два значения и определить, равны ли они, используются `==` (два знака равенства).
+Не путайте это с `=`, который используется для присваивания, как мы видели ранее.
 
-Relational operators test the relation between two entities, which must be comparable.
-
-To compare if two values are the same, `==` (two equal signs) is used.
-Do not confuse this with `=`, which is used for assignment as we saw earlier.
-
-Here are all the relational operators defined for integers:
+Тут все операторы сравнения для целых чисел:
 
 [source]
 .relationalOperators.nim
@@ -276,17 +264,17 @@ g is smaller or equal to h: true
 ----
 
 
-We can also compare characters and strings:
+Мы также можем использовать эти операторы для сравнения символов (`char`) и строк (`string`):
 
 [source]
 .relationalOperators.nim
 ----
 include::{source-dir}/relationalOperators.nim[lines=13..30]
 ----
-<1> All uppercase letters come before lowercase letters.
-<2> String comparison works char-by-char. First three characters are the same, and character `b` is smaller than character `z`.
-<3> String length doesn't matter for comparison if their characters are not identical.
-<4> Shorter string is smaller than the longer one.
+<1> Все заглавные буквы идут перед строчными буквами.
+<2> Сравнение строк происходит посимвольно. Первые три символа одинаковы, и символ `b` меньше символа `z`.
+<3> Длина строки не влияет на сравнение, если символы не совпадают.
+<4> Короткая строка меньше длинной строки.
 
 [source, output]
 ----
@@ -300,14 +288,14 @@ true
 
 
 
-=== Logical operators
+=== Логические операторы
 
-Logical operators are used to test the truthiness of an expression consisting of one or more boolean values.
+Логические операторы используются для проверки истинности выражения, состоящего из одного или нескольких булевых значений.
 
-* Logical `and` returns `true` only if both members are `true`
-* Logical `or` returns `true` if there is at least one member which is `true`
-* Logical `xor` returns `true` if one member is true, but the other is not
-* Logical `not` negates the truthiness of its member: changing `true` to `false`, and vice versa (it is the only logical operator that takes just one operand)
+* Логическое `and` возвращает `true` только если оба члена равны `true`
+* Логическое `or` возвращает `true`, если хотя бы один член равен `true`
+* Логическое `xor` возвращает `true`, если один член равен `true`, но другой нет
+* Логическое `not` отрицает истинность своего члена: меняет `true` на `false`, и наоборот (это единственный логический оператор, который принимает только один операнд)
 
 [source]
 .logicalOperators.nim
@@ -334,31 +322,30 @@ not F: true
 ----
 
 
-Relational and logical operators can be combined together to form more complex expressions.
+Операторы сравнения и логические операторы могут быть использованы вместе для создания более сложных выражений.
 
-For example: `(5 < 7) and (11 + 9 == 32 - 2*6)` will become `true and (20 == 20)`, which becomes `true and true`, and in the end this will give the final result of `true`.
-
-
-
-
-== Recap
-
-This was the longest chapter in this tutorial and we covered a lot of ground.
-Take your time to go through each data type and experiment with what you can do with each of them.
-
-Types might seem like a restriction at first, but they allow the Nim compiler to both make your code faster, and make sure you're not doing something wrong by accident -- this is especially beneficial in large code bases.
-
-Now you know the basic data types and several operations on them, which should be enough to do some simple calculations in Nim.
-Test your knowledge by doing the following exercises.
+Например: `(5 < 7) and (11 + 9 == 32 - 2*6)` станет `true and (20 == 20)`, что станет `true and true`, и в конце это даст окончательный результат `true`.
 
 
 
+== Заключение
 
-== Exercises
+Эта глава была самой длинной в этом Туториале, и мы охватили много материала.
+Не торопитесь, чтобы пройтись по каждому типу данных и поэкспериментировать с тем, что вы можете сделать с каждым из них.
 
-1. Create an immutable variable containing your age (in years). Print your age in days. (1 year = 365 days)
-2. Check if your age is divisible by 3. (Hint: use `mod`)
-3. Create an immutable variable containing your height in centimeters. Print your height in inches. (1 in = 2.54 cm)
-4. A pipe has a 3/8 inch diameter. Express the diameter in centimeters.
-5. Create an immutable variable containing your first name, and another one containing your last name. Make a variable `fullName` by concatenating the previous two variables. Don't forget to put a whitespace in-between. Print your full name.
-6. Alice earns $400 every 15 days. Bob earns $3.14 per hour and works 8 hours a day, 7 days a week. After 30 days, has Alice earned more than Bob? (Hint: use relational operators)
+Типы могут показаться ограничением на первый взгляд, но они позволяют компилятору Nim как ускорить ваш код, так и убедиться, что вы не делаете что-то неправильно по ошибке — это особенно полезно в больших кодовых базах.
+
+Теперь вы знаете основные типы данных и несколько операций над ними, чего должно быть достаточно, чтобы выполнять простые вычисления в Nim.
+Проверьте свои знания, выполнив следующие упражнения.
+
+
+
+
+== Упражнения
+
+1. Создайте неизменяемую переменную, содержащую ваш возраст (в годах). Выведите ваш возраст в днях. (1 год = 365 дней)
+2. Проверьте, делится ли ваш возраст на 3 без остатка. (Подсказка: используйте `mod`)
+3. Создайте неизменяемую переменную, содержащую ваш рост в сантиметрах. Выведите ваш рост в дюймах. (1 дюйм = 2.54 см)
+4. Труба имеет диаметр 3/8 дюйма. Выразите диаметр в сантиметрах.
+5. Создайте неизменяемую переменную, содержащую ваше имя, и еще одну переменную, содержащую вашу фамилию. Создайте переменную `fullName`, объединив предыдущие две переменные. Не забудьте поставить пробел между ними. Выведите ваше полное имя.
+6. Алиса зарабатывает $400 каждые 15 дней. Боб зарабатывает $3.14 в час и работает 8 часов в день, 7 дней в неделю. Через 30 дней Алиса заработала больше, чем Боб? (Подсказка: используйте операторы сравнения)

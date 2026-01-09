@@ -1,34 +1,27 @@
-= Conclusion
+= Заключение
+
+
+Время подводить итоги этого Туториала.
+Надеюсь, это было полезно для вас, и вы смогли сделать свои первые шаги в программировании и/или в языке программирования Nim.
+
+Это были лишь основы, и мы только поцарапали поверхность, но этого должно быть достаточно, чтобы вы могли создавать простые программы и решать некоторые простые задачи или головоломки.
+Nim предлагает гораздо больше, и, надеюсь, вы продолжите исследовать его возможности.
 
 
 
-It is time to conclude this tutorial.
-Hopefully this has been useful to you, and you managed to make your first steps in programming and/or the Nim programming language.
+== Что дальше?
 
-These have only been the basics and we've only scratched the surface, but this should be enough to enable you to make simple programs and solve some simple tasks or puzzles.
-Nim has a lot more to offer, and hopefully you will continue to explore its possibilities.
-
-
-
-
-
-== Next steps
-
-If you want to continue learning from Nim tutorials:
+Если вы хотите продолжить обучение по Туториалам Nim:
 
 * https://nim-lang.org/docs/tut1.html[Official Nim tutorial]
 
 * https://nim-by-example.github.io/[Nim by example]
 
+Если вы хотите решать задачи программирования, вот несколько ресурсов:
 
-If you want to solve some programming puzzles:
+* http://adventofcode.com/[Advent of Code]: Серия интересных головоломок, публикуемых каждый декабрь. Архив старых головоломок (с 2015 года) доступен.
 
-* http://adventofcode.com/[Advent of Code]: Series of interesting puzzles released every December. Archive of old puzzles (from 2015 onwards) is available.
-
-* https://projecteuler.net/[Project Euler]: Mostly mathematical tasks.
-
-
-
+* https://projecteuler.net/[Project Euler]: В основном математические задачи.
 {nbsp}
 
-Happy coding!
+Удачного Программирования!

@@ -1,6 +1,6 @@
-= Nim basics
+= Основы Nim
 :source-highlighter: rouge
-:rouge-style: gruvbox
+:rouge-style: molokai
 :source-language: nim
 :source-dir: code
 :pdf-themesdir: styles
@@ -14,39 +14,36 @@
 :toc: left
 
 
+https://nim-lang.org/[Nim] это относительно новый язык программирования что позволяет позволяет писать лёгкий к чтению и высоко-производительный код. 
+Но если вы читаете данный Туториал, вы скорее всего уже хотя-бы немного знакомы с Nim. _(Прим. пер.: Вам скорее всего уже прожужжали уши)_
 
-https://nim-lang.org/[Nim] is a relatively new programming language which allows users to write easy-to-read high-performance code.
-But if you are reading this Nim tutorial, the chances are that you already know about Nim.
+Туториал доступен https://kisvey.github.io/nim-basics-ru/[онлайн] и в https://github.com/kisvey/nim-basics-ru/raw/master/nim-basics.epub[качестве книги в формате epub]. _(Прим. пер.: https://github.com/narimiran/nim-basics[Оригинальная версия])_
 
-The tutorial is available both https://narimiran.github.io/nim-basics/[online] and as a https://github.com/narimiran/nim-basics/raw/master/nim-basics.epub[book in epub format].
-
-This is a work-in-progress: if you spot any errors and/or you have an idea how to make this tutorial better, please report it to the https://github.com/narimiran/nim-basics/issues[issue tracker].
-
+Над ней всё ещё продолжается работа: если вы встретите ошибки и/или у вас есть идея как сделать данный Туториал лучше, пожалуйста сообщайте об этом в https://github.com/kisvey/nim-basics/issues[issue tracker]. _(Прим. пер.: Если ошибка присутствует и в оригинале лучше сообщить https://github.com/narimiran/nim-basics/issues[сюда])_
 
 
+== Для кого этот туториал?
 
-== Who is this for?
-
-* People with no or minimal previous programming experience
-* People with some programming experience in other programming languages
-* People who want to explore Nim for the first time, starting from scratch
-
-
-== Who is this _not_ for?
-
-* People with lots of programming experience: other, more advanced, tutorials might suit you better.
-  See https://nim-lang.org/docs/tut1.html[Official Tutorial] or https://nim-by-example.github.io/[Nim by Example].
-* People experienced in Nim (feel free to help make this tutorial better)
+* Людям без опыта в программировании или с минимальным опытом
+* Людям с некоторым опытом в программировании на других языках программирования
+* Людям что хотят изучить Nim с нуля
 
 
-== How to use this tutorial?
+== Для кого этот туториал _не предназначен_?
 
-The aim of this tutorial is to give you the basics of programming and the Nim syntax so you can have an easier time following other tutorials and/or explore further by yourself.
+* Людям с большим опытом программирования: другие, более продвинутые туториалы могут подойти вам лучше.
+  Посмотрите https://nim-lang.org/docs/tut1.html[Official Tutorial] или https://nim-by-example.github.io/[Nim by Example].
+* Людям с опытом в Nim (Если желаете можете помочь с переводом или улучшением данного туториала)
 
-Instead of just reading what is written, it would be the best if you try the stuff by yourself, modify the examples, think of some examples of your own, and be curious in general.
-The exercises at the end of some chapters should be non-negotiable -- don't skip them.
 
-If you need additional help understanding some parts of the tutorial or with the exercises, you can always ask for help on the https://forum.nim-lang.org/[Nim forum], the https://gitter.im/nim-lang/Nim[Nim Gitter channel], their https://discordapp.com/invite/ezDFDw2[Discord server], or Nim's IRC channel on freenode, #nim.
+== Как использовать этот туториал?
+
+Цель данного туториала -- дать вам основы программирования и синтаксиса Nim, чтобы вам было проще следовать другим туториалам и/или исследовать дальше самостоятельно.
+
+Вместо того чтобы просто читать написанное, будет лучше если вы попробуете всё самостоятельно, измените примеры, придумаете свои собственные примеры и в целом будете любопытны.
+Упражнения в конце некоторых глав могут быть обязательными -- не пропускайте их.
+
+Если вам нужна дополнительная помощь в понимании некоторых частей туториала или с упражнениями, вы всегда можете попросить помощи на https://forum.nim-lang.org/[форуме Nim], https://gitter.im/nim-lang/Nim[канале Nim Gitter], их https://discordapp.com/invite/ezDFDw2[Discord сервере], или в IRC канале Nim на freenode, #nim.
 
 
 include::01-installation.adoc[]
@@ -78,4 +75,5 @@ include::10-conclusion.adoc[]
 
 {nbsp}
 
-The source files are available https://github.com/narimiran/nim-basics[on Github].
+Исходные файлы доступны https://github.com/kisvey/nim-basics-ru[на Github].
+Оригинальный туториал доступен https://github.com/narimiran/nim-basics[на Github].

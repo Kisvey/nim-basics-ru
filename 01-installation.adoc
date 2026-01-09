@@ -1,46 +1,40 @@
-= Installation
+= Установка
 
 
 
-== Installing Nim
+== Установка Nim
 
-Nim has ready made distributions for all three major operating systems and there are several options when it comes to installing Nim.
+Nim уже имеет готовые дистрибутивы для всех трёх основных операционных систем, и есть несколько вариантов установки Nim.
 
-You can follow https://nim-lang.org/install.html[the official installation procedure] to install the latest stable version, or you can use a tool called https://github.com/nim-lang/choosenim[choosenim] which enables you to easily switch between the stable and the latest development version if you're interested in the latest features and bugfixes.
+Вы можете следовать https://nim-lang.org/install.html[официальной процедуре установки] чтобы установить последнюю стабильную версию, или вы можете использовать инструмент под названием https://github.com/nim-lang/choosenim[choosenim], который позволяет легко переключаться между стабильной и последней версией разработки, если вы хотите использовать последние функции и исправления.
+н
+Какой бы способ вы ни выбрали, просто следуйте процедуре установки, объясненной на каждом из этих ресурсов, и Nim будет установлен.
+Мы проверим успешность установки в следующем разделе.   
 
-Whichever way you choose, just follow the installation procedure explained at each link and Nim should be installed.
-We will check that the installation went well in a coming chapter.
+Если вы используете Linux, существует высокая вероятность, что ваш дистрибутив имеет Nim в менеджере пакетов.
+Если вы устанавливаете его таким образом, убедитесь, что это последняя версия (см. сайт для информации о последней версии), иначе установите через один из двух методов, упомянутых выше.
 
-If you're using Linux, there is a high probability that your distribution has Nim in the package manager.
-If you are installing it that way, make sure it's the most recent version (see the website for what is the latest version), otherwise install via one of two methods mentioned above.
+В этом руководстве мы будем использовать стабильную версию.
+Изначально это руководство было написано для Nim 0.19 (выпущена в сентябре 2018 года), и оно должно работать с любой более новой версией, включая Nim 1.x и Nim 2.x.
 
-In this tutorial we will use the stable version.
-Originally, this tutorial was written for Nim 0.19 (released in September 2018), and it should work for any newer version, including Nim 1.x and Nim 2.x.
+== Установка дополнительных инструментов
 
+Вы можете писать код на Nim в любом текстовом редакторе, а затем компилировать и запускать его из терминала.
+Если вы хотите подсветку синтаксиса и автозавершение кода, существуют плагины для популярных редакторов кода, которые предоставляют данные функции.
 
+Большинство пользователей Nim предпочитают редактор https://code.visualstudio.com/[VS Code] с https://marketplace.visualstudio.com/items?itemName=NimLang.nimlang[расширением Nim], которое предоставляет подсветку синтаксиса и автозавершение кода, и https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner[расширением Code Runner] для быстрой компиляции и запуска.
 
+Автор лично использует https://neovim.io/[NeoVim] редактор с https://github.com/alaviss/nim.nvim[этим плагином], который предоставляет дополнительные функции, такие как подсветка синтаксиса и автозавершение кода.
 
-== Installing additional tools
+Если вы используете другие редакторы кода, посмотрите https://github.com/nim-lang/Nim/wiki/Editor-Support[вики] для доступной поддержки редакторов.
 
-You can write Nim code in any text editor, and then compile and run it from the terminal.
-If you want syntax highlighting and code completion there are plugins for popular code editors which provide these features.
+== Проверка установки
 
-Most of Nim users prefer the https://code.visualstudio.com/[VS Code] editor, with the https://marketplace.visualstudio.com/items?itemName=NimLang.nimlang[Nim extension] which provides syntax highlighting and code completion, and the https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner[Code Runner extension] for quick compiling and running.
+Чтобы проверить успешность установки, мы напишем программу, которая традиционно используется в качестве вводного примера: https://en.wikipedia.org/wiki/%22Hello,_World!%22_program[Hello World].
 
-The author personally uses https://neovim.io/[NeoVim] editor, with https://github.com/alaviss/nim.nvim[this plugin] which provides additional features like syntax highlighting and code completion.
+Печать (в смысле: отображать на экране; не на бумаге с помощью принтера) фразу `Hello World!` на Nim просто и не требует никакого шаблонного кода.
 
-If you're using other code editors, see https://github.com/nim-lang/Nim/wiki/Editor-Support[the wiki] for available editor support.
-
-
-
-
-== Testing the installation
-
-To check if the installation was successful, we will write a program which is traditionally used as an introductory example: https://en.wikipedia.org/wiki/%22Hello,_World!%22_program[Hello World].
-
-Printing (as in: displaying on the screen; not on a paper with a printer) the phrase `Hello World!` in Nim is straightforward and it doesn't require any boilerplate code.
-
-In a new text file called e.g. `helloworld.nim` we need to write just one line of code:
+В новом текстовом файле под названием, например, `helloworld.nim` нужно написать всего одну строку кода:
 
 [source]
 .helloworld.nim
@@ -48,41 +42,40 @@ In a new text file called e.g. `helloworld.nim` we need to write just one line o
 include::code/helloworld.nim[]
 ----
 
-NOTE: The phrase you want to print must follow the `echo` command and must be enclosed in double-quotes (`"`).
+NOTE: Фраза, которую вы хотите напечатать, должна следовать за командой `echo` и быть заключена в двойные кавычки (`"`).
 
-First we need to compile our program, and then run it to see if it works as expected.
+Прежде нам нужно скомпилировать нашу программу, а затем запустить её, чтобы проверить, работает ли она как ожидается.
 
-Open your terminal in the same directory where your file is (on Linux you can get "Open Terminal here" if you right-click the directory in your file manager, on Windows you should use Shift + right-click to get the menu option for opening the command line).
+Откройте ваш терминал в той же директории, где находится ваш файл (на Linux вы можете открыть "Открыть терминал здесь", если вы щёлкните правой кнопкой мыши по директории в вашем файловом менеджере, на Windows вы должны использовать Shift + щёлкнуть правой кнопкой мыши, чтобы получить опцию меню для открытия командной строки).
 
-We compile our program by typing in the terminal:
+Мы компилируем нашу программу, набирая в терминале:
 [source, terminal]
 ----
 nim c helloworld.nim
 ----
 
-After a successful compilation, we can run our program.
-On Linux we can run our program by typing `./helloworld` in the terminal, and on Windows we do it by typing `helloworld.exe`.
+После успешной компиляции мы можем запустить нашу программу.
+На Linux мы можем запустить нашу программу, набрав `./helloworld` в терминале, а на Windows мы делаем это, набрав `helloworld.exe`.
 
-There is also a possibility to both compile and run the program with just one command.
-We need to type:
+также есть возможность скомпилировать и запустить программу одной командой.
+Нужно набрать:
 [source, terminal]
 ----
 nim c -r helloworld.nim
 ----
 
-NOTE: `c` is telling Nim to compile the file, and `-r` is telling it to run it immediately. +
-To see all compiler options, type `nim --help` in your terminal.
+NOTE: `c` говорит Nim скомпилировать файл, а `-r` говорит сразу же его запустить. Чтобы увидеть все опции компилятора, наберите `nim --help` в вашем терминале.
 
-If you're using VSCode with the Code Runner extension mentioned before, you'll just have to press `Ctrl+Alt+N` and your file will be compiled and run.
+Если вы используете VSCode с упомянутым ранее расширением Code Runner, вам просто нужно нажать `Ctrl+Alt+N`, и ваш файл будет скомпилирован и запущен.
 
-Whichever way you chose to run your program, after a brief moment in the output window (or in your terminal) you should see:
+Не важно, какой из этих способов вы выберете для запуска вашей программы, после короткого момента в окне вывода (или в вашем терминале) вы должны увидеть:
 [source, output]
 ----
 Hello World!
 ----
 
-Congratulations, you have successfully run your first Nim program!
+Поздравляем, вы успешно запустили свою первую программу на Nim!
 
-Now you know how to print some stuff on the screen (using the `echo` command), compile your program (typing `nim c programName.nim` in your terminal), and run it (various possibilities).
+Теперь вы знаете, как печатать текст на экране (используя команду `echo`), компилировать программу (набирая `nim c programName.nim` в терминале) и запускать её (различными способами).
 
-We can now start to explore the basic elements which will help us to write simple Nim programs.
+Мы можем теперь начать изучать основные элементы, которые помогут нам писать простые программы на Nim.

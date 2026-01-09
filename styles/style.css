@@ -21,8 +21,8 @@ table {
 }
 
 body {
-    background: #fcfaf7;
-    color: #010d11;
+    background: #1e202a;
+    color: #ffffff;
     text-align: justify;
     margin-top: -1.8em;
     font-family: "Fira Sans", "Open Sans", "Noto Sans", "DejaVu Sans", sans-serif;
@@ -35,7 +35,7 @@ body {
 h1, h2, h3, #toctitle, .sidebarblock>.content>.title, h4, h5, h6 {
     font-weight: 600;
     font-style: normal;
-    color: #cb4b16;
+    color: #ffe953;
     margin-top: 2.5em;
 }
 
@@ -54,13 +54,13 @@ code {
 }
 
 a {
-    color: #268bd2;
-    text-decoration-color: #7daed1;
+    color: #ffe94d;
+    text-decoration-color: #ffe94d;
 }
 
 a:hover, a:focus {
-    color: #cb4b16;
-    text-decoration-color: #cb4b16;
+    color: #f5ea95;
+    text-decoration-color: #f5ea95;
 }
 
 p {
@@ -71,7 +71,7 @@ p {
 
 *:not(pre)>code {
     padding: 0.0em 0.35ex;
-    background-color: #e5e7e8;
+    background-color: #323744;
     border-radius: 6px;
     -webkit-border-radius: 6px;
     word-wrap: break-word;
@@ -117,7 +117,7 @@ pre, pre>code {
 .listingblock>.title {
     line-height: 1.0;
     font-size: 1.0em;
-    color: #cb4b16;
+    color: #ffe94d;
     font-weight: 400;
     font-style: italic;
     margin-bottom: -0.5em;
@@ -126,7 +126,7 @@ pre, pre>code {
 .conum[data-value] {
     display: inline-block;
     color: #fcfaf7;
-    background-color: #7b868a;
+    background-color: #3d4244;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     text-align: center;
@@ -183,12 +183,12 @@ li p {
     }
 
     #toc.toc2 {
-        background: #fcfaf7;
+        background: #1e202a;
         position: fixed;
         width: 17em;
         left: 0;
         top: 0;
-        border-right: 2px solid #efefed;
+        border-right: 2px solid #0a0a09;
         padding: 0.5em;
         height: 100%;
         overflow: auto;

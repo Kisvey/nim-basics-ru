@@ -1,19 +1,18 @@
-= Interacting with user input
+= Взаемодействие с пользовательским вводом
+
+
+Использование того, что мы уже представили до сих пор (базовые типы данных и контейнеры, управление потоком, циклы) позволяет нам создавать довольно много простых программ.
+
+В этой главе мы научимся делать наши программы более интерактивными.
+Для этого нам нужна возможность читать данные из файла или запрашивать ввод от пользователя.
 
 
 
-Using the stuff we've introduced so far (basic data types and containers, control flow, loops) allows us to make quite a few simple programs.
 
-In this chapter we will learn how to make our programs more interactive.
-For that we need an option to read data from a file, or ask a user for an input.
+== Чтение из файла
 
-
-
-
-== Reading from a file
-
-Let's say we have a text file called `people.txt` in the same directory as our Nim code.
-The contents of that file looks like this:
+Например мы имеем текстовый файл под названием `people.txt` в той же директории, что и наш Nim код.
+Содержимое этого файла выглядит так:
 
 [source]
 .people.txt
@@ -22,15 +21,15 @@ include::{source-dir}/people.txt[]
 
 ----
 
-We want to use the contents of that file in our program, as a list (sequence) of names.
+Мы хотим использовать содержимое этого файла в нашей программе, как список (последовательность) имён.
 
 [source]
 .readFromFile.nim
 ----
 include::{source-dir}/readFromFile.nim[]
 ----
-<1> To read contents of a file, we use the `readFile` procedure, and we provide a path to the file from which to read (if the file is in the same directory as our Nim program, providing a filename is enough). The result is a multiline string.
-<2> To split a multiline string into a sequence of strings (each string contains all the contents of a single line) we use `splitLines` from the `strutils` module.
+<1> Чтобы прочитать содержимое файла, мы используем процедуру `readFile`, и передаем ей путь к файлу, из которого нужно читать (если файл находится в той же директории, что и наш Nim-программа, достаточно просто указать имя файла). Результатом является многострочная строка.
+<2> Чтобы разбить многострочную строку на последовательность строк (каждая строка содержит содержимое одной строки файла), мы используем `splitLines` из модуля `strutils`.
 
 [source, output]
 ----
@@ -40,19 +39,18 @@ Carol C.
             <1>
 @["Alice A.", "Bob B.", "Carol C.", ""] <2>
 ----
-<1> There was a final new line (empty last line) in the original file, which is also present here.
-<2> Because of the final new line, our sequence is longer than we expected/wanted.
+<1> Это последняя строка в файле, которая содержит пустую строку.
+<2> Из-за пустой строки в конце файла, наша последовательность длиннее, чем мы ожидали/хотели.
 
-To solve the problem of a final new line, we can use the `strip` procedure from `strutils` after we have read from a file.
-All this does is remove any so-called whitespace from the start and end of our string.
-Whitespace is simply any character that makes some space, new-lines, spaces, tabs, etc.
-
+Чтобы решить проблему с пустой строкой в конце, мы можем использовать процедуру `strip` из модуля `strutils` после чтения файла.
+Всё, что делает `strip`, это удаляет любые так называемые пробельные символы (whitespace) в начале и конце строки.
+Пробельные символы — это просто символы, создающие пробелы: новые строки, пробелы, табуляции и т.д.
 [source]
 .readFromFile2.nim
 ----
 include::{source-dir}/readFromFile2.nim[]
 ----
-<1> Using `strip` provides the expected results.
+<1> Используя `strip`, мы получаем ожидаемые результаты.
 
 [source, output]
 ----
@@ -65,17 +63,17 @@ Carol C.
 
 
 
-== Reading user input
+== Чтение пользовательского ввода
 
-If we want to interact with a user, we must be able to ask them for an input, and then process it and use it.
-We need to read from https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)[standard input (stdin)] by passing `stdin` to the `readLine` procedure.
+Если мы хотим взаимодействовать с пользователем, мы должны иметь возможность запрашивать у него ввод, а затем обрабатывать его и использовать.
+Нам нужно читать из https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)[стандартного ввода (stdin)] передавая `stdin` в процедуру `readLine`.
 
 [source]
 .interaction1.nim
 ----
 include::{source-dir}/interaction1.nim[]
 ----
-<1> The type of `name` is inferred to be a string.
+<1> Тип `name` автоматически определяется как строка.
 
 
 [source, output]
@@ -83,7 +81,7 @@ include::{source-dir}/interaction1.nim[]
 Please enter your name:
         <1>
 ----
-<1> Waiting for user input. After we write our name and press `Enter`, the program will continue.
+<1> Ожидаем ввод от пользователя. После того как мы введем имя и нажмем `Enter`, программа продолжится.
 
 [source, output]
 ----
@@ -92,23 +90,23 @@ Alice
 Hello Alice, nice to meet you!
 ----
 
-NOTE: If you are using an outdated version of VS Code, you cannot run this the usual way (using `Ctrl+Alt+N`) because output window doesn't allow user inputs -- you need to run these examples in the terminal. +
-With the newer versions of VS Code there is no such limitation.
+NOTE: Если вы используете устаревшую версию VS Code, вы не можете запускать это обычным способом (используя `Ctrl+Alt+N`), потому что окно вывода не позволяет вводить данные пользователя -- вам нужно запускать эти примеры в терминале. +
+С более новыми версиями VS Code такой проблемы нет.
 
 
 
 
-== Dealing with numbers
+== Работа с числами
 
-Reading from a file or from a user input always gives a string as a result.
-If we would like to use numbers, we need to convert strings to numbers: we again use the `strutils` module and use `parseInt` to convert to integers or `parseFloat` to convert into a float.
+Чтение из файла или из пользовательского ввода всегда даёт строку в качестве результата.
+Если мы хотим использовать числа, нам нужно конвертировать строки в числа: мы снова используем модуль `strutils` и используем `parseInt` для конвертации в целые числа или `parseFloat` для конвертации в число с плавающей точкой.
 
 [source]
 .interaction2.nim
 ----
 include::{source-dir}/interaction2.nim[]
 ----
-<1> Convert a string to an integer. When written like this, we trust our user to give a valid integer. What would happen if a user inputs `'79` or `ninety-three`? Try it yourself.
+<1> Конвертируем строку в целое число. Когда написано так, мы доверяем пользователю, что он введёт корректное целое число. Что произойдёт, если пользователь введёт `'79` или `ninety-three`? Попробуйте сами.
 
 [source, output]
 ----
@@ -119,7 +117,7 @@ You are 84 years old.
 
 {nbsp}
 
-If we have file `numbers.txt` in the same directory as our Nim code, with the following content:
+Допустим, у нас есть файл `numbers.txt` в той же директории, что и наш Nim код, со следующим содержимым:
 
 [source]
 .numbers.txt
@@ -127,19 +125,18 @@ If we have file `numbers.txt` in the same directory as our Nim code, with the fo
 include::{source-dir}/numbers.txt[]
 ----
 
-and we want to read that file and find the sum and average of the numbers provided, we can do something like this:
+и мы хотим прочитать этот файл и найти сумму и среднее значение предоставленных чисел, мы можем сделать следующее:
 
 [source]
 .interaction3.nim
 ----
 include::{source-dir}/interaction3.nim[]
 ----
-<1> We import multiple modules. `strutils` gives us `strip` and `splitLines`, `sequtils` gives `map`, and `math` gives `sum`.
-<2> We strip the final new line, and split lines to create a sequence of strings.
-<3> `map` works by applying a procedure (in this case `parseFloat`) to each member of a container. In other words, we convert each string to a float, returning a new sequence of floats.
-<4> Using `sum` from `math` module to give us the sum of all elements in a sequence.
-<5> We need to convert the length of a sequence to float, because `sumNums` is a float.
-
+<1> Мы импортируем несколько модулей. `strutils` даёт нам `strip` и `splitLines`, `sequtils` даёт `map`, а `math` даёт `sum`.
+<2> Мы удаляем последнюю новую строку, и разбиваем строки на последовательность строк.
+<3> `map` работает, применяя процедуру (в данном случае `parseFloat`) к каждому элементу контейнера. Другими словами, мы конвертируем каждую строку в число с плавающей точкой, возвращая новую последовательность чисел с плавающей точкой.
+<4> Используем `sum` из модуля `math`, чтобы получить сумму всех элементов в последовательности.
+<5> Нам нужно конвертировать длину последовательности в число с плавающей точкой, потому что `sumNums` является числом с плавающей точкой.
 [source, output]
 ----
 226.15
@@ -149,10 +146,10 @@ include::{source-dir}/interaction3.nim[]
 
 
 
-== Exercises
+== Упражнения 
 
-1. Ask a user for their height and weight. Calculate their https://en.wikipedia.org/wiki/Body_mass_index[BMI]. Report them the BMI value and the category.
+1. Спросите пользователя о его росте и весе. Рассчитайте его https://en.wikipedia.org/wiki/Body_mass_index[ИМТ]. Сообщите пользователю значение ИМТ и категорию.
 
-2. Repeat <<_exercises_4, Collatz conjecture exercise>> so your program asks a user for a starting number. Print the resulting sequence.
+2. Повторите упражнение о гипотезе Коллатца, чтобы ваша программа запрашивала у пользователя начальное число. Выведите получившуюся последовательность.
 
-3. Ask a user for a string they want to have reversed. Create a procedure which takes a string and returns a reversed version. For example, if user types `Nim-lang`, the procedure should return `gnal-miN`. (Hint: use indexing and `countdown`)
+3. Спросите пользователя о строке, которую он хочет перевернуть. Создайте процедуру, которая принимает строку и возвращает перевернутую версию. Например, если пользователь введет `Nim-lang`, процедура должна вернуть `gnal-miN`. (Подсказка: используйте индексацию и `countdown`)

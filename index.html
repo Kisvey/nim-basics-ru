@@ -4,32 +4,32 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.23">
-<title>Nim basics</title>
+<meta name="generator" content="Asciidoctor 2.0.20">
+<title>Основы Nim</title>
 <link rel="stylesheet" href="./styles/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="./rouge-gruvbox.css">
+<link rel="stylesheet" href="./rouge-molokai.css">
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
-<h1>Nim basics</h1>
+<h1>Основы Nim</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_who_is_this_for">Who is this for?</a></li>
-<li><a href="#_who_is_this_not_for">Who is this <em>not</em> for?</a></li>
-<li><a href="#_how_to_use_this_tutorial">How to use this tutorial?</a></li>
-<li><a href="#_installation">Installation</a>
+<li><a href="#_для_кого_этот_туториал">Для кого этот туториал?</a></li>
+<li><a href="#_для_кого_этот_туториал_не_предназначен">Для кого этот туториал <em>не предназначен</em>?</a></li>
+<li><a href="#_как_использовать_этот_туториал">Как использовать этот туториал?</a></li>
+<li><a href="#_установка">Установка</a>
 <ul class="sectlevel1">
-<li><a href="#_installing_nim">Installing Nim</a></li>
-<li><a href="#_installing_additional_tools">Installing additional tools</a></li>
-<li><a href="#_testing_the_installation">Testing the installation</a></li>
+<li><a href="#_установка_nim">Установка Nim</a></li>
+<li><a href="#_установка_дополнительных_инструментов">Установка дополнительных инструментов</a></li>
+<li><a href="#_проверка_установки">Проверка установки</a></li>
 </ul>
 </li>
-<li><a href="#_naming_values">Naming values</a>
+<li><a href="#_присваивание_имён_значениям">Присваивание имён значениям</a>
 <ul class="sectlevel1">
-<li><a href="#_variable_declaration">Variable declaration</a></li>
-<li><a href="#_immutable_assignment">Immutable assignment</a>
+<li><a href="#_декларация_переменной">Декларация переменной</a></li>
+<li><a href="#_неизменяемые_присваивания">Неизменяемые присваивания</a>
 <ul class="sectlevel2">
 <li><a href="#_const">Const</a></li>
 <li><a href="#_let">Let</a></li>
@@ -37,34 +37,34 @@
 </li>
 </ul>
 </li>
-<li><a href="#_basic_data_types">Basic data types</a>
+<li><a href="#_основные_типы_данных">Основные типы данных</a>
 <ul class="sectlevel1">
-<li><a href="#_integers">Integers</a></li>
-<li><a href="#_floats">Floats</a>
+<li><a href="#_целые_числа">Целые числа</a></li>
+<li><a href="#_числа_с_плавающей_точкой">Числа с плавающей точкой</a>
 <ul class="sectlevel2">
-<li><a href="#_converting_floats_and_integers">Converting floats and integers</a></li>
+<li><a href="#_преобразование_float_и_int">Преобразование float и int</a></li>
 </ul>
 </li>
-<li><a href="#_characters">Characters</a></li>
-<li><a href="#_strings">Strings</a>
+<li><a href="#_символы">Символы</a></li>
+<li><a href="#_строки">Строки</a>
 <ul class="sectlevel2">
-<li><a href="#_special_characters">Special characters</a></li>
-<li><a href="#_string_concatenation">String concatenation</a></li>
+<li><a href="#_специальные_символы_в_строках">Специальные символы в строках</a></li>
+<li><a href="#_конкатенация_строк">Конкатенация строк</a></li>
 </ul>
 </li>
-<li><a href="#_boolean">Boolean</a>
+<li><a href="#_булевы_значения">Булевы значения</a>
 <ul class="sectlevel2">
-<li><a href="#_relational_operators">Relational operators</a></li>
-<li><a href="#_logical_operators">Logical operators</a></li>
+<li><a href="#_операторы_сравнения">Операторы сравнения</a></li>
+<li><a href="#_логические_операторы">Логические операторы</a></li>
 </ul>
 </li>
-<li><a href="#_recap">Recap</a></li>
-<li><a href="#_exercises">Exercises</a></li>
+<li><a href="#_заключение">Заключение</a></li>
+<li><a href="#_упражнения">Упражнения</a></li>
 </ul>
 </li>
-<li><a href="#_control_flow">Control flow</a>
+<li><a href="#_поток_управления">Поток управления</a>
 <ul class="sectlevel1">
-<li><a href="#_if_statement">If statement</a>
+<li><a href="#_оператор_if">Оператор If</a>
 <ul class="sectlevel2">
 <li><a href="#_else">Else</a></li>
 <li><a href="#_elif">Elif</a></li>
@@ -73,49 +73,49 @@
 <li><a href="#_case">Case</a></li>
 </ul>
 </li>
-<li><a href="#_loops">Loops</a>
+<li><a href="#_циклы">Циклы</a>
 <ul class="sectlevel1">
-<li><a href="#_for_loop">For loop</a></li>
-<li><a href="#_while_loop">While loop</a></li>
-<li><a href="#_break_and_continue">Break and continue</a></li>
-<li><a href="#_exercises_2">Exercises</a></li>
+<li><a href="#_цикл_for">Цикл For</a></li>
+<li><a href="#_цикл_while">Цикл While</a></li>
+<li><a href="#_break_и_continue">Break и continue</a></li>
+<li><a href="#_упражнения_2">Упражнения</a></li>
 </ul>
 </li>
-<li><a href="#_containers">Containers</a>
+<li><a href="#_контейнеры">Контейнеры</a>
 <ul class="sectlevel1">
-<li><a href="#_arrays">Arrays</a></li>
-<li><a href="#_sequences">Sequences</a></li>
-<li><a href="#_indexing_and_slicing">Indexing and slicing</a></li>
-<li><a href="#_tuples">Tuples</a></li>
-<li><a href="#_exercises_3">Exercises</a></li>
+<li><a href="#_массивы">Массивы</a></li>
+<li><a href="#_последовательность">Последовательность</a></li>
+<li><a href="#_индексация_и_срезы">Индексация и срезы</a></li>
+<li><a href="#_кортежи">Кортежи</a></li>
+<li><a href="#_упражнения_3">Упражнения</a></li>
 </ul>
 </li>
-<li><a href="#_procedures">Procedures</a>
+<li><a href="#_процедуры">Процедуры</a>
 <ul class="sectlevel1">
-<li><a href="#_declaring_a_procedure">Declaring a procedure</a></li>
-<li><a href="#_calling_the_procedures">Calling the procedures</a></li>
-<li><a href="#_result_variable">Result variable</a></li>
-<li><a href="#_forward_declaration">Forward declaration</a></li>
-<li><a href="#_exercises_4">Exercises</a></li>
+<li><a href="#_объявление_процедуры">Объявление процедуры</a></li>
+<li><a href="#_вызов_процедуры">Вызов процедуры</a></li>
+<li><a href="#_переменная_result">Переменная result</a></li>
+<li><a href="#_предварительное_объявление">Предварительное объявление</a></li>
+<li><a href="#_упражнения_4">Упражнения</a></li>
 </ul>
 </li>
-<li><a href="#_modules">Modules</a>
+<li><a href="#_модули">Модули</a>
 <ul class="sectlevel1">
-<li><a href="#_importing_a_module">Importing a module</a></li>
-<li><a href="#_creating_our_own">Creating our own</a></li>
+<li><a href="#_импортирование_модуля">Импортирование модуля</a></li>
+<li><a href="#_создание_собственных_модулей">Создание собственных модулей</a></li>
 </ul>
 </li>
-<li><a href="#_interacting_with_user_input">Interacting with user input</a>
+<li><a href="#_взаемодействие_с_пользовательским_вводом">Взаемодействие с пользовательским вводом</a>
 <ul class="sectlevel1">
-<li><a href="#_reading_from_a_file">Reading from a file</a></li>
-<li><a href="#_reading_user_input">Reading user input</a></li>
-<li><a href="#_dealing_with_numbers">Dealing with numbers</a></li>
-<li><a href="#_exercises_5">Exercises</a></li>
+<li><a href="#_чтение_из_файла">Чтение из файла</a></li>
+<li><a href="#_чтение_пользовательского_ввода">Чтение пользовательского ввода</a></li>
+<li><a href="#_работа_с_числами">Работа с числами</a></li>
+<li><a href="#_упражнения_5">Упражнения</a></li>
 </ul>
 </li>
-<li><a href="#_conclusion">Conclusion</a>
+<li><a href="#_заключение_2">Заключение</a>
 <ul class="sectlevel1">
-<li><a href="#_next_steps">Next steps</a></li>
+<li><a href="#_что_дальше">Что дальше?</a></li>
 </ul>
 </li>
 </ul>
@@ -125,119 +125,118 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://nim-lang.org/">Nim</a> is a relatively new programming language which allows users to write easy-to-read high-performance code.
-But if you are reading this Nim tutorial, the chances are that you already know about Nim.</p>
+<p><a href="https://nim-lang.org/">Nim</a> это относительно новый язык программирования что позволяет позволяет писать лёгкий к чтению и высоко-производительный код.
+Но если вы читаете данный Туториал, вы скорее всего уже хотя-бы немного знакомы с Nim. <em>(Прим. пер.: Вам скорее всего уже прожужжали уши)</em></p>
 </div>
 <div class="paragraph">
-<p>The tutorial is available both <a href="https://narimiran.github.io/nim-basics/">online</a> and as a <a href="https://github.com/narimiran/nim-basics/raw/master/nim-basics.epub">book in epub format</a>.</p>
+<p>Туториал доступен <a href="https://kisvey.github.io/nim-basics-ru/">онлайн</a> и в <a href="https://github.com/kisvey/nim-basics-ru/raw/master/nim-basics.epub">качестве книги в формате epub</a>. <em>(Прим. пер.: <a href="https://github.com/narimiran/nim-basics">Оригинальная версия</a>)</em></p>
 </div>
 <div class="paragraph">
-<p>This is a work-in-progress: if you spot any errors and/or you have an idea how to make this tutorial better, please report it to the <a href="https://github.com/narimiran/nim-basics/issues">issue tracker</a>.</p>
+<p>Над ней всё ещё продолжается работа: если вы встретите ошибки и/или у вас есть идея как сделать данный Туториал лучше, пожалуйста сообщайте об этом в <a href="https://github.com/kisvey/nim-basics/issues">issue tracker</a>. <em>(Прим. пер.: Если ошибка присутствует и в оригинале лучше сообщить <a href="https://github.com/narimiran/nim-basics/issues">сюда</a>)</em></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_who_is_this_for">Who is this for?</h2>
+<h2 id="_для_кого_этот_туториал">Для кого этот туториал?</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>People with no or minimal previous programming experience</p>
+<p>Людям без опыта в программировании или с минимальным опытом</p>
 </li>
 <li>
-<p>People with some programming experience in other programming languages</p>
+<p>Людям с некоторым опытом в программировании на других языках программирования</p>
 </li>
 <li>
-<p>People who want to explore Nim for the first time, starting from scratch</p>
+<p>Людям что хотят изучить Nim с нуля</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_who_is_this_not_for">Who is this <em>not</em> for?</h2>
+<h2 id="_для_кого_этот_туториал_не_предназначен">Для кого этот туториал <em>не предназначен</em>?</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>People with lots of programming experience: other, more advanced, tutorials might suit you better.
-See <a href="https://nim-lang.org/docs/tut1.html">Official Tutorial</a> or <a href="https://nim-by-example.github.io/">Nim by Example</a>.</p>
+<p>Людям с большим опытом программирования: другие, более продвинутые туториалы могут подойти вам лучше.
+Посмотрите <a href="https://nim-lang.org/docs/tut1.html">Official Tutorial</a> или <a href="https://nim-by-example.github.io/">Nim by Example</a>.</p>
 </li>
 <li>
-<p>People experienced in Nim (feel free to help make this tutorial better)</p>
+<p>Людям с опытом в Nim (Если желаете можете помочь с переводом или улучшением данного туториала)</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_how_to_use_this_tutorial">How to use this tutorial?</h2>
+<h2 id="_как_использовать_этот_туториал">Как использовать этот туториал?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The aim of this tutorial is to give you the basics of programming and the Nim syntax so you can have an easier time following other tutorials and/or explore further by yourself.</p>
+<p>Цель данного туториала&#8201;&#8212;&#8201;дать вам основы программирования и синтаксиса Nim, чтобы вам было проще следовать другим туториалам и/или исследовать дальше самостоятельно.</p>
 </div>
 <div class="paragraph">
-<p>Instead of just reading what is written, it would be the best if you try the stuff by yourself, modify the examples, think of some examples of your own, and be curious in general.
-The exercises at the end of some chapters should be non-negotiable&#8201;&#8212;&#8201;don&#8217;t skip them.</p>
+<p>Вместо того чтобы просто читать написанное, будет лучше если вы попробуете всё самостоятельно, измените примеры, придумаете свои собственные примеры и в целом будете любопытны.
+Упражнения в конце некоторых глав могут быть обязательными&#8201;&#8212;&#8201;не пропускайте их.</p>
 </div>
 <div class="paragraph">
-<p>If you need additional help understanding some parts of the tutorial or with the exercises, you can always ask for help on the <a href="https://forum.nim-lang.org/">Nim forum</a>, the <a href="https://gitter.im/nim-lang/Nim">Nim Gitter channel</a>, their <a href="https://discordapp.com/invite/ezDFDw2">Discord server</a>, or Nim&#8217;s IRC channel on freenode, #nim.</p>
+<p>Если вам нужна дополнительная помощь в понимании некоторых частей туториала или с упражнениями, вы всегда можете попросить помощи на <a href="https://forum.nim-lang.org/">форуме Nim</a>, <a href="https://gitter.im/nim-lang/Nim">канале Nim Gitter</a>, их <a href="https://discordapp.com/invite/ezDFDw2">Discord сервере</a>, или в IRC канале Nim на freenode, #nim.</p>
 </div>
 </div>
 </div>
-<h1 id="_installation" class="sect0">Installation</h1>
+<h1 id="_установка" class="sect0">Установка</h1>
 <div class="sect1">
-<h2 id="_installing_nim">Installing Nim</h2>
+<h2 id="_установка_nim">Установка Nim</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Nim has ready made distributions for all three major operating systems and there are several options when it comes to installing Nim.</p>
+<p>Nim уже имеет готовые дистрибутивы для всех трёх основных операционных систем, и есть несколько вариантов установки Nim.</p>
 </div>
 <div class="paragraph">
-<p>You can follow <a href="https://nim-lang.org/install.html">the official installation procedure</a> to install the latest stable version, or you can use a tool called <a href="https://github.com/nim-lang/choosenim">choosenim</a> which enables you to easily switch between the stable and the latest development version if you&#8217;re interested in the latest features and bugfixes.</p>
+<p>Вы можете следовать <a href="https://nim-lang.org/install.html">официальной процедуре установки</a> чтобы установить последнюю стабильную версию, или вы можете использовать инструмент под названием <a href="https://github.com/nim-lang/choosenim">choosenim</a>, который позволяет легко переключаться между стабильной и последней версией разработки, если вы хотите использовать последние функции и исправления.
+н
+Какой бы способ вы ни выбрали, просто следуйте процедуре установки, объясненной на каждом из этих ресурсов, и Nim будет установлен.
+Мы проверим успешность установки в следующем разделе.</p>
 </div>
 <div class="paragraph">
-<p>Whichever way you choose, just follow the installation procedure explained at each link and Nim should be installed.
-We will check that the installation went well in a coming chapter.</p>
+<p>Если вы используете Linux, существует высокая вероятность, что ваш дистрибутив имеет Nim в менеджере пакетов.
+Если вы устанавливаете его таким образом, убедитесь, что это последняя версия (см. сайт для информации о последней версии), иначе установите через один из двух методов, упомянутых выше.</p>
 </div>
 <div class="paragraph">
-<p>If you&#8217;re using Linux, there is a high probability that your distribution has Nim in the package manager.
-If you are installing it that way, make sure it&#8217;s the most recent version (see the website for what is the latest version), otherwise install via one of two methods mentioned above.</p>
-</div>
-<div class="paragraph">
-<p>In this tutorial we will use the stable version.
-Originally, this tutorial was written for Nim 0.19 (released in September 2018), and it should work for any newer version, including Nim 1.x and Nim 2.x.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_installing_additional_tools">Installing additional tools</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You can write Nim code in any text editor, and then compile and run it from the terminal.
-If you want syntax highlighting and code completion there are plugins for popular code editors which provide these features.</p>
-</div>
-<div class="paragraph">
-<p>Most of Nim users prefer the <a href="https://code.visualstudio.com/">VS Code</a> editor, with the <a href="https://marketplace.visualstudio.com/items?itemName=NimLang.nimlang">Nim extension</a> which provides syntax highlighting and code completion, and the <a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">Code Runner extension</a> for quick compiling and running.</p>
-</div>
-<div class="paragraph">
-<p>The author personally uses <a href="https://neovim.io/">NeoVim</a> editor, with <a href="https://github.com/alaviss/nim.nvim">this plugin</a> which provides additional features like syntax highlighting and code completion.</p>
-</div>
-<div class="paragraph">
-<p>If you&#8217;re using other code editors, see <a href="https://github.com/nim-lang/Nim/wiki/Editor-Support">the wiki</a> for available editor support.</p>
+<p>В этом руководстве мы будем использовать стабильную версию.
+Изначально это руководство было написано для Nim 0.19 (выпущена в сентябре 2018 года), и оно должно работать с любой более новой версией, включая Nim 1.x и Nim 2.x.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_testing_the_installation">Testing the installation</h2>
+<h2 id="_установка_дополнительных_инструментов">Установка дополнительных инструментов</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To check if the installation was successful, we will write a program which is traditionally used as an introductory example: <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">Hello World</a>.</p>
+<p>Вы можете писать код на Nim в любом текстовом редакторе, а затем компилировать и запускать его из терминала.
+Если вы хотите подсветку синтаксиса и автозавершение кода, существуют плагины для популярных редакторов кода, которые предоставляют данные функции.</p>
 </div>
 <div class="paragraph">
-<p>Printing (as in: displaying on the screen; not on a paper with a printer) the phrase <code>Hello World!</code> in Nim is straightforward and it doesn&#8217;t require any boilerplate code.</p>
+<p>Большинство пользователей Nim предпочитают редактор <a href="https://code.visualstudio.com/">VS Code</a> с <a href="https://marketplace.visualstudio.com/items?itemName=NimLang.nimlang">расширением Nim</a>, которое предоставляет подсветку синтаксиса и автозавершение кода, и <a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">расширением Code Runner</a> для быстрой компиляции и запуска.</p>
 </div>
 <div class="paragraph">
-<p>In a new text file called e.g. <code>helloworld.nim</code> we need to write just one line of code:</p>
+<p>Автор лично использует <a href="https://neovim.io/">NeoVim</a> редактор с <a href="https://github.com/alaviss/nim.nvim">этим плагином</a>, который предоставляет дополнительные функции, такие как подсветка синтаксиса и автозавершение кода.</p>
+</div>
+<div class="paragraph">
+<p>Если вы используете другие редакторы кода, посмотрите <a href="https://github.com/nim-lang/Nim/wiki/Editor-Support">вики</a> для доступной поддержки редакторов.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_проверка_установки">Проверка установки</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Чтобы проверить успешность установки, мы напишем программу, которая традиционно используется в качестве вводного примера: <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">Hello World</a>.</p>
+</div>
+<div class="paragraph">
+<p>Печать (в смысле: отображать на экране; не на бумаге с помощью принтера) фразу <code>Hello World!</code> на Nim просто и не требует никакого шаблонного кода.</p>
+</div>
+<div class="paragraph">
+<p>В новом текстовом файле под названием, например, <code>helloworld.nim</code> нужно написать всего одну строку кода:</p>
 </div>
 <div class="listingblock">
 <div class="title">helloworld.nim</div>
@@ -252,19 +251,19 @@ If you want syntax highlighting and code completion there are plugins for popula
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The phrase you want to print must follow the <code>echo</code> command and must be enclosed in double-quotes (<code>"</code>).
+Фраза, которую вы хотите напечатать, должна следовать за командой <code>echo</code> и быть заключена в двойные кавычки (<code>"</code>).
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>First we need to compile our program, and then run it to see if it works as expected.</p>
+<p>Прежде нам нужно скомпилировать нашу программу, а затем запустить её, чтобы проверить, работает ли она как ожидается.</p>
 </div>
 <div class="paragraph">
-<p>Open your terminal in the same directory where your file is (on Linux you can get "Open Terminal here" if you right-click the directory in your file manager, on Windows you should use Shift + right-click to get the menu option for opening the command line).</p>
+<p>Откройте ваш терминал в той же директории, где находится ваш файл (на Linux вы можете открыть "Открыть терминал здесь", если вы щёлкните правой кнопкой мыши по директории в вашем файловом менеджере, на Windows вы должны использовать Shift + щёлкнуть правой кнопкой мыши, чтобы получить опцию меню для открытия командной строки).</p>
 </div>
 <div class="paragraph">
-<p>We compile our program by typing in the terminal:</p>
+<p>Мы компилируем нашу программу, набирая в терминале:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -272,12 +271,12 @@ The phrase you want to print must follow the <code>echo</code> command and must 
 </div>
 </div>
 <div class="paragraph">
-<p>After a successful compilation, we can run our program.
-On Linux we can run our program by typing <code>./helloworld</code> in the terminal, and on Windows we do it by typing <code>helloworld.exe</code>.</p>
+<p>После успешной компиляции мы можем запустить нашу программу.
+На Linux мы можем запустить нашу программу, набрав <code>./helloworld</code> в терминале, а на Windows мы делаем это, набрав <code>helloworld.exe</code>.</p>
 </div>
 <div class="paragraph">
-<p>There is also a possibility to both compile and run the program with just one command.
-We need to type:</p>
+<p>также есть возможность скомпилировать и запустить программу одной командой.
+Нужно набрать:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -291,17 +290,16 @@ We need to type:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>c</code> is telling Nim to compile the file, and <code>-r</code> is telling it to run it immediately.<br>
-To see all compiler options, type <code>nim --help</code> in your terminal.
+<code>c</code> говорит Nim скомпилировать файл, а <code>-r</code> говорит сразу же его запустить. Чтобы увидеть все опции компилятора, наберите <code>nim --help</code> в вашем терминале.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>If you&#8217;re using VSCode with the Code Runner extension mentioned before, you&#8217;ll just have to press <code>Ctrl+Alt+N</code> and your file will be compiled and run.</p>
+<p>Если вы используете VSCode с упомянутым ранее расширением Code Runner, вам просто нужно нажать <code>Ctrl+Alt+N</code>, и ваш файл будет скомпилирован и запущен.</p>
 </div>
 <div class="paragraph">
-<p>Whichever way you chose to run your program, after a brief moment in the output window (or in your terminal) you should see:</p>
+<p>Не важно, какой из этих способов вы выберете для запуска вашей программы, после короткого момента в окне вывода (или в вашем терминале) вы должны увидеть:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -309,46 +307,46 @@ To see all compiler options, type <code>nim --help</code> in your terminal.
 </div>
 </div>
 <div class="paragraph">
-<p>Congratulations, you have successfully run your first Nim program!</p>
+<p>Поздравляем, вы успешно запустили свою первую программу на Nim!</p>
 </div>
 <div class="paragraph">
-<p>Now you know how to print some stuff on the screen (using the <code>echo</code> command), compile your program (typing <code>nim c programName.nim</code> in your terminal), and run it (various possibilities).</p>
+<p>Теперь вы знаете, как печатать текст на экране (используя команду <code>echo</code>), компилировать программу (набирая <code>nim c programName.nim</code> в терминале) и запускать её (различными способами).</p>
 </div>
 <div class="paragraph">
-<p>We can now start to explore the basic elements which will help us to write simple Nim programs.</p>
+<p>Мы можем теперь начать изучать основные элементы, которые помогут нам писать простые программы на Nim.</p>
 </div>
 </div>
 </div>
-<h1 id="_naming_values" class="sect0">Naming values</h1>
+<h1 id="_присваивание_имён_значениям" class="sect0">Присваивание имён значениям</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>It is often helpful to give the values in our programs names to help us keep track of things.
-If we ask a user for his/her name, we want to store it for the later usage, without asking for it again and again every time we need to do some computation with it.</p>
+<p>Может быть полезно давать значениям в наших программах имена, чтобы помочь нам отслеживать их.
+Если мы спрашиваем у пользователя его/её имя, мы хотим сохранить его для дальнейшего использования, не спрашивая его снова и снова каждый раз, когда нам нужно сделать с ним какие-то вычисления.</p>
 </div>
 <div class="paragraph">
-<p>In the example <code>pi = 3.14</code>, the name <code>pi</code> is connected to the value <code>3.14</code>.
-From our experience, we can tell that the type of a variable <code>pi</code> is a (decimal) number.</p>
+<p>В примере <code>pi = 3.14</code>, имя <code>pi</code> связано со значением <code>3.14</code>.
+Из нашего опыта мы можем сказать, что тип переменной <code>pi</code> — это (десятичное) число.</p>
 </div>
 <div class="paragraph">
-<p>Another example would be <code>firstName = Alice</code>, where <code>firstName</code> is the name of a variable with the value <code>Alice</code>.
-We would say that the type of this variable is a word.</p>
+<p>Другой пример — <code>firstName = Alice</code>, где <code>firstName</code> — это имя переменной со значением <code>Alice</code>.
+Мы бы сказали, что тип этой переменной — это слово.</p>
 </div>
 <div class="paragraph">
-<p>In programming languages this works similarly.
-These name assignments have their <em>name</em>, the <em>value</em>, and a <em>type</em>.</p>
+<p>В языках программирования это работает аналогично.
+Данные присваивания имён имеют своё <em>имя</em>, <em>значение</em> и <em>тип</em>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_variable_declaration">Variable declaration</h2>
+<h2 id="_декларация_переменной">Декларация переменной</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Nim is a <a href="https://en.wikipedia.org/wiki/Type_system#STATIC">statically typed</a> programming language, meaning that the type of an assignment needs to be declared before using the value.</p>
+<p>Nim это <a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%82%D0%B8%D0%BF%D0%BE%D0%B2">статически типизированный</a> язык программирования, что означает, что тип присваивания должен быть объявлен до использования значения.</p>
 </div>
 <div class="paragraph">
-<p>In Nim we also distinguish values that can change, or mutate, from those that can&#8217;t, but more on this later.
-We can declare a variable (a mutable assignment) using the <code>var</code> keyword, just by stating its name and type (the value can be added later) by using this syntax:</p>
+<p>В Nim мы также различаем значения, которые могут изменяться (или мутировать), и те, которые не могут, но об этом позже.
+Мы можем объявить переменную (изменяемое присваивание) с помощью ключевого слова <code>var</code>, просто указав её имя и тип (значение можно добавить позже), используя следующий синтаксис:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -356,7 +354,7 @@ We can declare a variable (a mutable assignment) using the <code>var</code> keyw
 </div>
 </div>
 <div class="paragraph">
-<p>If we already know its value, we can declare a variable and give it a value immediately:</p>
+<p>Если мы уже знаем значение, мы можем объявить переменную и сразу присвоить ей значение:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -370,18 +368,18 @@ We can declare a variable (a mutable assignment) using the <code>var</code> keyw
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Angular brackets(<code>&lt;&gt;</code>) are used to show something you can change.<br>
-So <code>&lt;name&gt;</code> is not literally the word <code>name</code> in angular brackets but rather any name.
+Угловые скобки(<code>&lt;&gt;</code>) используются для обозначения того, что вы можете изменить.<br>
+Таким образом, <code>&lt;name&gt;</code> — это не буквально слово <code>name</code> в угловых скобках, а любое имя.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Nim also has <a href="https://en.wikipedia.org/wiki/Type_inference">type inference</a> ability: the compiler can automatically detect the type of a name assignment from its value, without explicitly stating the type.
-We&#8217;ll look more into the various types in the <a href="#_basic_data_types">next chapter</a>.</p>
+<p>Nim также обладает способностью <a href="https://ru.wikipedia.org/wiki/%D0%92%D1%8B%D0%B2%D0%BE%D0%B4_%D1%82%D0%B8%D0%BF%D0%BE%D0%B2">вывода типов</a>: компилятор может автоматически определять тип присваивания имени по его значению, без явного указания типа.
+Мы посмотрим различные типы подробнее в <a href="#_основные_типы_данных">следующей главе</a>.</p>
 </div>
 <div class="paragraph">
-<p>So we can assign a variable without an explicit type like this:</p>
+<p>Так что мы можем присвоить переменную без явного указания типа следующим образом:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -389,7 +387,7 @@ We&#8217;ll look more into the various types in the <a href="#_basic_data_types"
 </div>
 </div>
 <div class="paragraph">
-<p>An example of this in Nim looks like this:</p>
+<p>Вот пример того, как это выглядит в Nim.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -401,32 +399,32 @@ We&#8217;ll look more into the various types in the <a href="#_basic_data_types"
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Variable <code>a</code> is of type <code>int</code> (integer) with no value explicitly set.</td>
+<td>Переменная <code>a</code> имеет тип <code>int</code> (integer) без явно определенного значения.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Variable <code>b</code> has a value of <code>7</code>. Its type is automatically detected as an integer.</td>
+<td>Переменная <code>b</code> имеет значение <code>7</code>. Её тип автоматически определяется как integer.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>When assigning names it is important to choose names that mean something for your program.
-Simply naming them <code>a</code>, <code>b</code>, <code>c</code>, and so forth will quickly become confusing.
-It is not possible to use spaces in a name, as that would split it into two.
-So if the name you choose consists of more than one word the usual way is to write it in <code>camelCase</code> style (notice that the first letter in a name should be lowercase).</p>
+<p>Когда вы присваиваете имена, важно выбирать имена, которые что-то значат для вашей программы.
+Простое именование их <code>a</code>, <code>b</code>, <code>c</code> и так далее быстро станет запутанным.
+Невозможно использовать пробелы в имени, так как это разделит его на два.
+Поэтому, если выбранное вами имя состоит из более чем одного слова, обычно его пишут в стиле <code>camelCase</code> (обратите внимание, что первая буква в имени должна быть строчной).</p>
 </div>
 <div class="paragraph">
-<p>Note however that Nim is both case- and underscore-insensitive meaning that <code>helloWorld</code> and <code>hello_world</code> would be the same name.
-The exception to this is the first character, which <em>is</em> case-sensitive.
-Names can also include both numbers and other UTF-8 characters, even emojis should you wish that, but keep in mind you and possibly others will have to type them.</p>
+<p>Заметьте, однако, что Nim не различает регистр букв и подчёркивания, что означает, что <code>helloWorld</code> и <code>hello_world</code> будут одним и тем же именем.
+Исключением из этого правила является первый символ, который <em>различает</em> регистр букв.
+Имена также могут включать как цифры, так и другие символы UTF-8, даже эмодзи, если вы того пожелаете, но имейте в виду, что вам и, возможно, другим придётся их вводить.</p>
 </div>
 <div class="paragraph">
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>Instead of typing <code>var</code> for each variable, multiple variables (not necessarily of the same type) can be declared in the same <code>var</code> block.
-In Nim, blocks are parts of code with the same indentation (same number of spaces before the first character), and the default indentation level is two spaces.
-You will see such blocks everywhere in a Nim program, not only for assigning names.</p>
+<p>Вместо того чтобы набирать <code>var</code> для каждой переменной, несколько переменных (не обязательно одного типа) могут быть объявлены в одном блоке <code>var</code>.
+В Nim блоки — это части кода с одинаковым отступом (одинаковым количеством пробелов перед первым символом), и уровень отступа по умолчанию — два пробела.
+Вы увидите такие блоки повсюду в программе на Nim, не только для присваивания имён.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -443,16 +441,16 @@ You will see such blocks everywhere in a Nim program, not only for assigning nam
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In Nim tabs are not allowed as indentation.<br>
-You can set up your code editor to convert pressing <code>Tab</code> to any number of spaces.<br>
-In VS Code, the default setting is to convert <code>Tab</code> to four spaces.
-This is easily overridden in settings (<code>Ctrl+,</code>) by setting <code>"editor.tabSize": 2</code>.
+В Nim Табы не допускаются в качестве отступов.<br>
+Вы можете настроить ваш редактор кода так, чтобы при нажатии <code>Tab</code> вставлялось любое количество пробелов.<br>
+В VS Code настройка по умолчанию — преобразование <code>Tab</code> в четыре пробела.
+Это легко изменить в настройках (<code>Ctrl+,</code>), установив <code>"editor.tabSize": 2</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>As previously mentioned variables are mutable, i.e. their value can change (multiple times), but their type must stay the same as declared.</p>
+<p>Как и было упомянуто ранее, переменные изменяемы, то есть их значение может изменяться (несколько раз), но их тип должен оставаться таким же, как и было декларировано.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -467,37 +465,37 @@ This is easily overridden in settings (<code>Ctrl+,</code>) by setting <code>"ed
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Variable <code>f</code> has an initial value of <code>7</code> and its type is inferred as <code>int</code>.</td>
+<td>Переменная <code>f</code> имеет начальное значение <code>7</code> и её тип автоматически определяется как <code>int</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The value of <code>f</code> is first changed to <code>-3</code>, and then to <code>19</code>. Both of these are integers, the same as the original value.</td>
+<td>Значение переменной <code>f</code> сначала изменяется на <code>-3</code>, а затем на <code>19</code>. Оба этих значения являются целыми числами, как и исходное значение.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Trying to change the value of <code>f</code> to <code>"Hello"</code> produces an error because <code>Hello</code> is not a number, and this would change the type of <code>f</code> from an integer to a string.</td>
+<td>Попытка изменить значение переменной <code>f</code> на <code>"Hello"</code> вызывает ошибку, потому что <code>"Hello"</code> не является числом, и это изменило бы тип переменной <code>f</code> с целого числа на строку.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td><code># error</code> is a comment. Comments in Nim code are written after a <code>#</code> character. Everything after it on the same line will be ignored.</td>
+<td><code># error</code> — это комментарий. Комментарии в коде Nim пишутся после символа <code>#</code>. Все, что находится после него на той же строке, будет проигнорировано.</td>
 </tr>
 </table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_immutable_assignment">Immutable assignment</h2>
+<h2 id="_неизменяемые_присваивания">Неизменяемые присваивания</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Unlike variables declared with <code>var</code> keyword, two more types of assignment exist in Nim, whose value cannot change, one declared with the <code>const</code> keyword, and the other declared with the <code>let</code> keyword.</p>
+<p>В отличие от переменных, объявленных с помощью ключевого слова <code>var</code>, в Nim существуют ещё два типа присваиваний, значение которых не может изменяться, один объявляется с помощью ключевого слова <code>const</code>, а другой — с помощью ключевого слова <code>let</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="_const">Const</h3>
 <div class="paragraph">
-<p>The value of an immutable assignment declared with <code>const</code> keyword must be known at compile time (before the program is run).</p>
+<p>Значение неизменяемого присваивания, объявленного с помощью ключевого слова <code>const</code>, должно быть известно на этапе компиляции (до запуска программы).</p>
 </div>
 <div class="paragraph">
-<p>For example, we can declare the acceleration of gravity as <code>const g = 9.81</code> or pi as <code>const pi = 3.14</code>, as we know their values in advance and these values will not change during the execution of our program.</p>
+<p>Для примера, мы можем объявить ускорение свободного падения как <code>const g = 9.81</code> или число пи как <code>const pi = 3.14</code>, так как мы знаем их значения заранее, и эти значения не изменятся во время выполнения нашей программы.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -512,23 +510,23 @@ This is easily overridden in settings (<code>Ctrl+,</code>) by setting <code>"ed
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The value of a constant cannot be changed.</td>
+<td>Значение константы не может быть изменено.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Variable <code>h</code> is not evaluated at compile time (it is a variable and its value can change during the execution of a program), consequently the value of constant <code>i</code> can&#8217;t be known at compile time, and this will raise an error.</td>
+<td>Переменная <code>h</code> не вычисляется на этапе компиляции (это переменная, и её значение может изменяться во время выполнения программы), следовательно, значение константы <code>i</code> не может быть известно на этапе компиляции, и это вызовет ошибку.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>In some programming languages it is a common practice to have the names of constants written in <code>ALL_CAPS</code>.
-Constants in Nim are written just like any other variable.</p>
+<p>В некоторых языках программирования принято писать имена констант в <code>ALL_CAPS</code>.
+Константы в Nim пишутся так же, как и любые другие переменные.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_let">Let</h3>
 <div class="paragraph">
-<p>Immutable assignments declared with <code>let</code> don&#8217;t need to be known at compile time, their value can be set at any time during the execution of a program, but once it is set, their value cannot change.</p>
+<p>Неизменяемые присваивания, объявленные с помощью ключевого слова <code>let</code>, не нуждаются в знании на этапе компиляции, их значение может быть установлено в любое время во время выполнения программы, но как только оно установлено, его значение не может измениться.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -543,43 +541,43 @@ Constants in Nim are written just like any other variable.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The value of an immutable cannot be changed.</td>
+<td>Значение неизменяемого присваивания не может быть изменено.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>In contrast to the <code>const</code> example above, this works.</td>
+<td>В отличие от примера с <code>const</code> выше, это работает.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>In practice, you will see/use <code>let</code> more frequently than <code>const</code>.</p>
+<p>На практике вы будете чаще видеть/использовать <code>let</code>, чем <code>const</code>.</p>
 </div>
 <div class="paragraph">
-<p>While you could use <code>var</code> for everything, your default choice should be <code>let</code>.
-Use <code>var</code> only for the variables which will be modified.</p>
+<p>Пока вы можете использовать <code>var</code> для всего, вашим выбором по умолчанию должно быть <code>let</code>.
+Используйте <code>var</code> только для переменных, которые будут изменяться.</p>
 </div>
 </div>
 </div>
 </div>
-<h1 id="_basic_data_types" class="sect0">Basic data types</h1>
+<h1 id="_основные_типы_данных" class="sect0">Основные типы данных</h1>
 <div class="sect1">
-<h2 id="_integers">Integers</h2>
+<h2 id="_целые_числа">Целые числа</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As seen in the previous chapter, integers are numbers which are written without a fractional component and without a decimal point.</p>
+<p>Как видно из предыдущей главы, целые числа - это числа, которые записываются без дробной части и без десятичной точки.</p>
 </div>
 <div class="paragraph">
-<p>For example: <code>32</code>, <code>-174</code>, <code>0</code>, <code>10_000_000</code> are all integers.
-Notice that we can use <code>_</code> as a thousands separator, to make larger numbers more readable (it is easier to see that we&#8217;re talking about 10 million when it&#8217;s written as 10_000_000 rather than as 10000000).</p>
+<p>Например: <code>32</code>, <code>-174</code>, <code>0</code>, <code>10_000_000</code> являются целыми числами.
+Обратите внимание, что мы можем использовать <code>_</code> как разделитель тысяч, чтобы сделать большие числа более читаемыми (легче понять, что речь идет о 10 миллионов, когда они записаны как 10_000_000, а не как 10000000).</p>
 </div>
 <div class="paragraph">
-<p>The usual mathematical operators&#8201;&#8212;&#8201;addition (<code>+</code>), subtraction (<code>-</code>), multiplication (<code>*</code>), and division (<code>/</code>)&#8201;&#8212;&#8201;work as one would expect.
-The first three operations always produce integers, while dividing two integers always gives a floating point number (a number with a decimal point) as a result, even if two numbers can be divided without a remainder.</p>
+<p>Обычные математические операторы&#8201;&#8212;&#8201;сложение (<code>+</code>), вычитание (<code>-</code>), умножение (<code>*</code>) и деление (<code>/</code>)&#8201;&#8212;&#8201;работают так, как можно было бы ожидать.
+Первые три операции всегда производят целые числа, в то время как деление двух целых чисел всегда дает число с плавающей точкой (число с десятичной точкой) в результате, даже если два числа могут быть разделены без остатка.</p>
 </div>
 <div class="paragraph">
-<p>Integer division (division where the fractional part is discarded) can be achieved with the <code>div</code> operator.
-An operator <code>mod</code> is used if one is interested in the remainder (modulus) of an integer division.
-The result of these two operations is always an integer.</p>
+<p>Деление целых чисел (деление, при котором дробная часть отбрасывается) можно выполнить с помощью оператора <code>div</code>.
+Оператор <code>mod</code> используется, если вас интересует остаток от деления целых чисел (модуль).
+Результат этих двух операций всегда является целым числом.</p>
 </div>
 <div class="listingblock">
 <div class="title">integers.nim</div>
@@ -600,12 +598,12 @@ The result of these two operations is always an integer.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The <code>echo</code> command will print to the screen everything that follows it separated by commas. In this case, it first prints the string <code>a + b = </code>, and then after it, in the same row, it prints the result of the expression <code>a + b</code>.</td>
+<td>Команда <code>echo</code> напечатает на экране всё, что следует за ней, разделённое запятыми. В данном случае она сначала печатает строку <code>a + b = </code>, а затем, в той же строке, печатает результат выражения <code>a + b</code>.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>We can compile and run the above code, and the output should be:</p>
+<p>Мы можем скомпилировать и запустить приведённый выше код, и вывод должен быть следующим:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -620,19 +618,19 @@ a mod b = 3</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_floats">Floats</h2>
+<h2 id="_числа_с_плавающей_точкой">Числа с плавающей точкой</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Floating-point numbers, or floats for short, are an <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">approximate representation</a> of real numbers.</p>
+<p>Числа с плавающей точкой, или просто float, являются <a href="https://ru.wikipedia.org/wiki/%D0%A7%D0%B8%D1%81%D0%BB%D0%BE_%D1%81_%D0%BF%D0%BB%D0%B0%D0%B2%D0%B0%D1%8E%D1%89%D0%B5%D0%B9_%D0%B7%D0%B0%D0%BF%D1%8F%D1%82%D0%BE%D0%B9">приблизительным представлением</a> действительных чисел.</p>
 </div>
 <div class="paragraph">
-<p>For example: <code>2.73</code>, <code>-3.14</code>, <code>5.0</code>, <code>4e7</code> are floats.
-Notice that we can use scientific notation for large floats, where the number after the <code>e</code> is the exponent.
-In this example, <code>4e7</code> is a notation representing <code>4 * 10^7</code>.</p>
+<p>Например: <code>2.73</code>, <code>-3.14</code>, <code>5.0</code>, <code>4e7</code> являются числами с плавающей точкой.
+Обратите внимание, что мы можем использовать научную нотацию для больших чисел с плавающей точкой, где число после <code>e</code> является показателем степени.
+В этом примере, <code>4e7</code> - это запись, представляющая <code>4 * 10^7</code>.</p>
 </div>
 <div class="paragraph">
-<p>We can also use the four basic mathematical operations between two floats.
-Operators <code>div</code> and <code>mod</code> are not defined for floats.</p>
+<p>Мы можем выполнять математические операции с числами с плавающей точкой так же, как и с целыми числами.
+Операторы <code>div</code> и <code>mod</code> не определены для чисел с плавающей точкой.</p>
 </div>
 <div class="listingblock">
 <div class="title">floats.nim</div>
@@ -659,12 +657,12 @@ c / d = 3.0  <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Notice that in the addition and division examples, even though we get a number without a decimal part, the result is still of the floating type.</td>
+<td>Обратите внимание, что в примерах сложения и деления, даже если мы получаем число без десятичной части, результат всё равно является числом с плавающей точкой.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The precedence of mathematical operations is as one would expect: multiplication and division have higher priority than addition and subtraction.</p>
+<p>Последовательность выполнения математических операций соответствует ожидаемой: умножение и деление имеют более высокий приоритет, чем сложение и вычитание.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -679,9 +677,9 @@ c / d = 3.0  <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_converting_floats_and_integers">Converting floats and integers</h3>
+<h3 id="_преобразование_float_и_int">Преобразование float и int</h3>
 <div class="paragraph">
-<p>Mathematical operations between variables of different numerical types are not possible in Nim, and they will produce an error:</p>
+<p>Математические операции между переменными разных числовых типов невозможны в Nim и приведут к ошибке:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -693,8 +691,8 @@ c / d = 3.0  <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The values of variables need to be converted to the same type.
-Conversion is straight-forward: to convert to an integer, we use the <code>int</code> function, and to convert to a float the <code>float</code> function is used.</p>
+<p>Значения переменных необходимо преобразовать к одному типу.
+Преобразование достаточно простое: для преобразования в целое число используется функция <code>int</code>, а для преобразования в число с плавающей точкой - функция <code>float</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -713,28 +711,28 @@ Conversion is straight-forward: to convert to an integer, we use the <code>int</
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Printing a <code>float</code> version of an integer <code>e</code>. (<code>e</code> remains of integer type)</td>
+<td>Печать <code>float</code> версии <code>int</code> числа <code>e</code>. (<code>e</code> остаётся <code>int</code>)</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Printing an <code>int</code> version of a float <code>f</code>.</td>
+<td>Печать <code>int</code> версии <code>float</code> числа <code>f</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Both operands are floats and can be added.</td>
+<td>Оба операнда являются числами с плавающей точкой и могут быть сложены.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Both operands are integers and can be added.</td>
+<td>Оба операнда являются целыми числами и могут быть сложены.</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="output">5.0
-23
-28.987
-28</code></pre>
+<pre class="rouge highlight"><code data-lang="nim"><span class="mf">5.0</span>
+<span class="mi">23</span>
+<span class="mf">28.987</span>
+<span class="mi">28</span></code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -744,9 +742,9 @@ Conversion is straight-forward: to convert to an integer, we use the <code>int</
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-When using the <code>int</code> function to convert a float to an integer no rounding will be performed.
-The number simply drops any decimals.<br>
-To perform rounding we must call another function, but for that we must know a bit more about how to use Nim.
+Когда мы используем функцию <code>int</code> для преобразования числа с плавающей точкой в целое, округление не производится.
+Число просто отбрасывает десятичную часть.<br>
+Для выполнения округления необходимо вызвать другую функцию, но для этого нужно знать немного больше о том, как использовать Nim.
 </td>
 </tr>
 </table>
@@ -755,15 +753,15 @@ To perform rounding we must call another function, but for that we must know a b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_characters">Characters</h2>
+<h2 id="_символы">Символы</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>char</code> type is used for representing a single <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> character.</p>
+<p>Тип <code>char</code> используется для представления одного <a href="https://ru.wikipedia.org/wiki/ASCII">ASCII</a> символа.</p>
 </div>
 <div class="paragraph">
-<p>Chars are written between two single ticks (<code>'</code>).
-Chars can be letters, symbols, or single digits.
-Multiple digits or multiple letters produce an error.</p>
+<p>Символы записываются между двумя одинарными кавычками (<code>'</code>).
+Символы могут быть буквами, символами или одиночными цифрами.
+Несколько цифр или несколько букв вызовут ошибку.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -778,14 +776,14 @@ Multiple digits or multiple letters produce an error.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_strings">Strings</h2>
+<h2 id="_строки">Строки</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Strings can be described as a series of characters.
-Their content is written between two double quotes (<code>"</code>).</p>
+<p>Строки могут быть описаны как последовательность символов.
+Их содержимое записывается между двумя двойными кавычками (<code>"</code>).</p>
 </div>
 <div class="paragraph">
-<p>We might think of strings as words, but they can contain more than one word, some symbols, or digits.</p>
+<p>Мы можем думать о строках как о словах, но они могут содержать более одного слова, некоторые символы или цифры.</p>
 </div>
 <div class="listingblock">
 <div class="title">strings.nim</div>
@@ -802,22 +800,22 @@ Their content is written between two double quotes (<code>"</code>).</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>An empty string.</td>
+<td>Пустая строка.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>This is not a number (int). It is inside double quotes, making it a string.</td>
+<td>Это не число (int). Оно находится внутри двойных кавычек, поэтому является строкой.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Even though this is only one character, it is not a char because it is enclosed inside of double quotes.</td>
+<td>Даже если это только один символ, это не char, потому что он заключен внутри двойных кавычек.</td>
 </tr>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_special_characters">Special characters</h3>
+<h3 id="_специальные_символы_в_строках">Специальные символы в строках</h3>
 <div class="paragraph">
-<p>If we try to print the following string:</p>
+<p>Есди мы попытаемся напечатать следующую строку:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -825,7 +823,7 @@ Their content is written between two double quotes (<code>"</code>).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>the result might surprise us:</p>
+<p>результат может удивить нас:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -834,34 +832,26 @@ im	ips</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This is because there are several characters which have a special meaning.
-They are used by prepending the escape character <code>\</code> to them.</p>
+<p>Это происходит потому, что есть несколько символов, которые имеют специальное значение.
+Они используются путем добавления перед ними символа экранирования <code>\</code>.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>\n</code> is a newline character</p>
+<p><code>\n</code> это символ новой строки</p>
 </li>
 <li>
-<p><code>\t</code> is a tab character</p>
+<p><code>\t</code> это символ табуляции</p>
 </li>
 <li>
-<p><code>\\</code> is a backslash (since one <code>\</code> is used as the escape character)</p>
+<p><code>\\</code> это обратная косая черта (так как одна <code>\</code> используется как символ экранирования)</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>If we wanted to print the above example as it was written, we have two possibilities:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Use <code>\\</code> instead of <code>\</code> to print backslashes, or</p>
-</li>
-<li>
-<p>Use raw strings which have syntax <code>r"&#8230;&#8203;"</code> (putting a letter <code>r</code> immediately before the first quote), in which there are no escape characters and no special meanings: everything is printed as it is.</p>
-</li>
-</ul>
+<p>Если мы хотим напечатать вышеуказанный пример так, как он был написан, у нас есть два варианта:
+* Используйте <code>\\</code> вместо <code>\</code> для печати обратных косых черт, или
+* Используйте сырые строки, которые имеют синтаксис <code>r"&#8230;&#8203;"</code> (помещая букву <code>r</code> сразу перед первой кавычкой), в которых нет символов экранирования и специальных значений: всё печатается как есть.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -876,15 +866,15 @@ some\nim\tips</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>There are more special characters than the ones listed above, and they are all found in the <a href="https://nim-lang.org/docs/manual.html#lexical-analysis-string-literals">Nim manual</a>.</p>
+<p>Есть и другие специальные символы, помимо перечисленных выше и их можно найти в <a href="https://nim-lang.org/docs/manual.html#lexical-analysis-string-literals">руководстве по Nim</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_string_concatenation">String concatenation</h3>
+<h3 id="_конкатенация_строк">Конкатенация строк</h3>
 <div class="paragraph">
-<p>Strings in Nim are mutable, meaning their content can change.
-With the <code>add</code> function we can add (append) either another string or a char to an existing string.
-If we don&#8217;t want to change the original string, we can also concatenate (join together) strings with the <code>&amp;</code> operator, this returns a new string.</p>
+<p>Строки в Nim изменяемы, что означает, что их содержимое может изменяться.
+С помощью функции <code>add</code> мы можем добавить (присоединить) либо другую строку, либо символ к существующей строке.
+Если мы не хотим изменять исходную строку, мы также можем конкатенировать (соединять вместе) строки с помощью оператора <code>&amp;</code>, который возвращает новую строку.</p>
 </div>
 <div class="listingblock">
 <div class="title">stringConcat.nim</div>
@@ -910,19 +900,19 @@ If we don&#8217;t want to change the original string, we can also concatenate (j
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>If we plan to modify strings, they should be declared as <code>var</code>.</td>
+<td>Если мы планируем изменять строки, они должны быть объявлены как <code>var</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Adding another string modifies the existing string <code>p</code> in-place, changing its value.</td>
+<td>Добавление другой строки изменяет существующую строку <code>p</code> на месте, меняя её значение.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>We can also add a <code>char</code> to a string.</td>
+<td>Мы также можем добавить символ к строке.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Concatenating two strings produces a new string, without modifying the original strings.</td>
+<td>Конкатенация двух строк создаёт новую строку, не изменяя исходные строки.</td>
 </tr>
 </table>
 </div>
@@ -939,26 +929,26 @@ q is still: xyz</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_boolean">Boolean</h2>
+<h2 id="_булевы_значения">Булевы значения</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A boolean (or just <code>bool</code>) data type can only have two values: <code>true</code> or <code>false</code>.
-Booleans are usually used for control flow (see <a href="#_control_flow">next chapter</a>), and they are often a result of relational operators.</p>
+<p>Булево значение (или просто <code>bool</code>) может иметь только два значения: <code>true</code> или <code>false</code>.
+Булевы значения обычно используются для управления потоком выполнения (см. <a href="#_поток_управления">следующая глава</a>), и они часто являются результатом операторов сравнения.</p>
 </div>
 <div class="paragraph">
-<p>The usual naming convention for boolean variables is to write them as a simple yes/no (true/false) question, e.g. <code>isEmpty</code>, <code>isFinished</code>, <code>isMoving</code>, etc.</p>
+<p>Обычное соглашение по именованию булевых переменных — писать их как простые вопросы да/нет (true/false), например, <code>isEmpty</code>, <code>isFinished</code>, <code>isMoving</code> и т.д.</p>
 </div>
 <div class="sect2">
-<h3 id="_relational_operators">Relational operators</h3>
+<h3 id="_операторы_сравнения">Операторы сравнения</h3>
 <div class="paragraph">
-<p>Relational operators test the relation between two entities, which must be comparable.</p>
+<p>Операторы сравнения проверяют отношение между двумя сущностями, которые должны быть сравнимы.</p>
 </div>
 <div class="paragraph">
-<p>To compare if two values are the same, <code>==</code> (two equal signs) is used.
-Do not confuse this with <code>=</code>, which is used for assignment as we saw earlier.</p>
+<p>Чтобы сравнить два значения и определить, равны ли они, используются <code>==</code> (два знака равенства).
+Не путайте это с <code>=</code>, который используется для присваивания, как мы видели ранее.</p>
 </div>
 <div class="paragraph">
-<p>Here are all the relational operators defined for integers:</p>
+<p>Тут все операторы сравнения для целых чисел:</p>
 </div>
 <div class="listingblock">
 <div class="title">relationalOperators.nim</div>
@@ -986,7 +976,7 @@ g is smaller or equal to h: true</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>We can also compare characters and strings:</p>
+<p>Мы также можем использовать эти операторы для сравнения символов (<code>char</code>) и строк (<code>string</code>):</p>
 </div>
 <div class="listingblock">
 <div class="title">relationalOperators.nim</div>
@@ -1014,19 +1004,19 @@ g is smaller or equal to h: true</code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>All uppercase letters come before lowercase letters.</td>
+<td>Все заглавные буквы идут перед строчными буквами.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>String comparison works char-by-char. First three characters are the same, and character <code>b</code> is smaller than character <code>z</code>.</td>
+<td>Сравнение строк происходит посимвольно. Первые три символа одинаковы, и символ <code>b</code> меньше символа <code>z</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>String length doesn&#8217;t matter for comparison if their characters are not identical.</td>
+<td>Длина строки не влияет на сравнение, если символы не совпадают.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Shorter string is smaller than the longer one.</td>
+<td>Короткая строка меньше длинной строки.</td>
 </tr>
 </table>
 </div>
@@ -1041,23 +1031,23 @@ true</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_logical_operators">Logical operators</h3>
+<h3 id="_логические_операторы">Логические операторы</h3>
 <div class="paragraph">
-<p>Logical operators are used to test the truthiness of an expression consisting of one or more boolean values.</p>
+<p>Логические операторы используются для проверки истинности выражения, состоящего из одного или нескольких булевых значений.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Logical <code>and</code> returns <code>true</code> only if both members are <code>true</code></p>
+<p>Логическое <code>and</code> возвращает <code>true</code> только если оба члена равны <code>true</code></p>
 </li>
 <li>
-<p>Logical <code>or</code> returns <code>true</code> if there is at least one member which is <code>true</code></p>
+<p>Логическое <code>or</code> возвращает <code>true</code>, если хотя бы один член равен <code>true</code></p>
 </li>
 <li>
-<p>Logical <code>xor</code> returns <code>true</code> if one member is true, but the other is not</p>
+<p>Логическое <code>xor</code> возвращает <code>true</code>, если один член равен <code>true</code>, но другой нет</p>
 </li>
 <li>
-<p>Logical <code>not</code> negates the truthiness of its member: changing <code>true</code> to <code>false</code>, and vice versa (it is the only logical operator that takes just one operand)</p>
+<p>Логическое <code>not</code> отрицает истинность своего члена: меняет <code>true</code> на <code>false</code>, и наоборот (это единственный логический оператор, который принимает только один операнд)</p>
 </li>
 </ul>
 </div>
@@ -1099,71 +1089,71 @@ not F: true</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Relational and logical operators can be combined together to form more complex expressions.</p>
+<p>Операторы сравнения и логические операторы могут быть использованы вместе для создания более сложных выражений.</p>
 </div>
 <div class="paragraph">
-<p>For example: <code>(5 &lt; 7) and (11 + 9 == 32 - 2*6)</code> will become <code>true and (20 == 20)</code>, which becomes <code>true and true</code>, and in the end this will give the final result of <code>true</code>.</p>
+<p>Например: <code>(5 &lt; 7) and (11 + 9 == 32 - 2*6)</code> станет <code>true and (20 == 20)</code>, что станет <code>true and true</code>, и в конце это даст окончательный результат <code>true</code>.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_recap">Recap</h2>
+<h2 id="_заключение">Заключение</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This was the longest chapter in this tutorial and we covered a lot of ground.
-Take your time to go through each data type and experiment with what you can do with each of them.</p>
+<p>Эта глава была самой длинной в этом Туториале, и мы охватили много материала.
+Не торопитесь, чтобы пройтись по каждому типу данных и поэкспериментировать с тем, что вы можете сделать с каждым из них.</p>
 </div>
 <div class="paragraph">
-<p>Types might seem like a restriction at first, but they allow the Nim compiler to both make your code faster, and make sure you&#8217;re not doing something wrong by accident&#8201;&#8212;&#8201;this is especially beneficial in large code bases.</p>
+<p>Типы могут показаться ограничением на первый взгляд, но они позволяют компилятору Nim как ускорить ваш код, так и убедиться, что вы не делаете что-то неправильно по ошибке — это особенно полезно в больших кодовых базах.</p>
 </div>
 <div class="paragraph">
-<p>Now you know the basic data types and several operations on them, which should be enough to do some simple calculations in Nim.
-Test your knowledge by doing the following exercises.</p>
+<p>Теперь вы знаете основные типы данных и несколько операций над ними, чего должно быть достаточно, чтобы выполнять простые вычисления в Nim.
+Проверьте свои знания, выполнив следующие упражнения.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises">Exercises</h2>
+<h2 id="_упражнения">Упражнения</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create an immutable variable containing your age (in years). Print your age in days. (1 year = 365 days)</p>
+<p>Создайте неизменяемую переменную, содержащую ваш возраст (в годах). Выведите ваш возраст в днях. (1 год = 365 дней)</p>
 </li>
 <li>
-<p>Check if your age is divisible by 3. (Hint: use <code>mod</code>)</p>
+<p>Проверьте, делится ли ваш возраст на 3 без остатка. (Подсказка: используйте <code>mod</code>)</p>
 </li>
 <li>
-<p>Create an immutable variable containing your height in centimeters. Print your height in inches. (1 in = 2.54 cm)</p>
+<p>Создайте неизменяемую переменную, содержащую ваш рост в сантиметрах. Выведите ваш рост в дюймах. (1 дюйм = 2.54 см)</p>
 </li>
 <li>
-<p>A pipe has a 3/8 inch diameter. Express the diameter in centimeters.</p>
+<p>Труба имеет диаметр 3/8 дюйма. Выразите диаметр в сантиметрах.</p>
 </li>
 <li>
-<p>Create an immutable variable containing your first name, and another one containing your last name. Make a variable <code>fullName</code> by concatenating the previous two variables. Don&#8217;t forget to put a whitespace in-between. Print your full name.</p>
+<p>Создайте неизменяемую переменную, содержащую ваше имя, и еще одну переменную, содержащую вашу фамилию. Создайте переменную <code>fullName</code>, объединив предыдущие две переменные. Не забудьте поставить пробел между ними. Выведите ваше полное имя.</p>
 </li>
 <li>
-<p>Alice earns $400 every 15 days. Bob earns $3.14 per hour and works 8 hours a day, 7 days a week. After 30 days, has Alice earned more than Bob? (Hint: use relational operators)</p>
+<p>Алиса зарабатывает $400 каждые 15 дней. Боб зарабатывает $3.14 в час и работает 8 часов в день, 7 дней в неделю. Через 30 дней Алиса заработала больше, чем Боб? (Подсказка: используйте операторы сравнения)</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
-<h1 id="_control_flow" class="sect0">Control flow</h1>
+<h1 id="_поток_управления" class="sect0">Поток управления</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>So far in our programs every line of code was executed at some point.
-Control flow statements allow us to have parts of code which will be executed only if some boolean condition is satisfied.</p>
+<p>До сих пор в наших программах каждая строка кода выполнялась в тот или иной момент.
+Операторы потока управления позволяют нам иметь части кода, которые будут выполняться только если удовлетворяется некоторое булево условие.</p>
 </div>
 <div class="paragraph">
-<p>If we think of our program as a road we can think of control flow as various branches, and we pick our path depending on some condition.
-For example, we will buy eggs only <em>if</em> their price is less than some value.
-Or, <em>if</em> it is raining, we will bring an umbrella, otherwise (<em>else</em>) we will bring sunglasses.</p>
+<p>Если мы представим нашу программу как дорогу, то поток управления можно представить как различные развилки, и мы выбираем наш путь в зависимости от некоторого условия.
+Например, мы купим яйца только <em>если</em> их цена меньше некоторого значения.
+Или, <em>если</em> идет дождь, мы возьмем зонт, <em>иначе</em> (<em>иначе</em>) мы возьмем солнечные очки.</p>
 </div>
 <div class="paragraph">
-<p>Written in <a href="https://en.wikipedia.org/wiki/Pseudocode">pseudocode</a>, these two examples would look like this:</p>
+<p>Написаныные в <a href="https://en.wikipedia.org/wiki/Pseudocode">pseudocode</a>, эти два примера будут выглядеть примерно так:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1177,18 +1167,18 @@ Or, <em>if</em> it is raining, we will bring an umbrella, otherwise (<em>else</e
 </div>
 </div>
 <div class="paragraph">
-<p>Nim syntax is very similar, as you&#8217;ll see below.</p>
+<p>Синтаксис Nim очень похож, как вы увидите ниже.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_if_statement">If statement</h2>
+<h2 id="_оператор_if">Оператор If</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>An if statement as shown above is the simplest way to branch our program.</p>
+<p>Оператор <code>if</code>, как показано выше, является самым простым способом разветвления нашей программы.</p>
 </div>
 <div class="paragraph">
-<p>The Nim syntax for writing if statement is:</p>
+<p>Синтаксис Nim для написания оператора <code>if</code> выглядит следующим образом:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1200,16 +1190,16 @@ Or, <em>if</em> it is raining, we will bring an umbrella, otherwise (<em>else</e
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The <code>condition</code> must be of boolean type: either a boolean variable or a relational and/or logical expression.</td>
+<td><code>condition</code> должно быть булевого типа: либо булевая переменная, либо сравнение и/или логическое выражение.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>All lines following the <code>if</code> line which are indented two spaces make the same block and will be executed only if the condition is <code>true</code>.</td>
+<td>Все строки, следующие за строкой <code>if</code>, которые отступлены на два пробела, составляют один блок и будут выполнены только если условие <code>true</code>.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>If statements can be nested, i.e. inside one if-block there can be another if statement.</p>
+<p>Операторы if могут быть вложенными, т.е. внутри одного блока if может находиться другой оператор if.</p>
 </div>
 <div class="listingblock">
 <div class="title">if.nim</div>
@@ -1240,19 +1230,19 @@ Or, <em>if</em> it is raining, we will bring an umbrella, otherwise (<em>else</e
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The first condition is true, the second is false&#8201;&#8212;&#8201;inner <code>echo</code> is not executed.</td>
+<td>Первое условие истинно, второе ложно&#8201;&#8212;&#8201;внутренний <code>echo</code> не выполняется.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Both conditions are true and both lines are printed.</td>
+<td>Оба условия истинны и обе строки печатаются.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The first condition is false&#8201;&#8212;&#8201;all lines inside of its block will be skipped, nothing is printed.</td>
+<td>Первое условие ложно&#8201;&#8212;&#8201;все строки внутри блока будут пропущены, ничего не напечатается.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Using the logical <code>and</code> inside of the <code>if</code> statement.</td>
+<td>Использование логического <code>and</code> внутри оператора <code>if</code>.</td>
 </tr>
 </table>
 </div>
@@ -1266,7 +1256,7 @@ not only that, b is *much* smaller than c</code></pre>
 <div class="sect2">
 <h3 id="_else">Else</h3>
 <div class="paragraph">
-<p>Else follows after an if-block and allows us to have a branch of code which will be executed when the condition in the if statement is not true.</p>
+<p>Else следует за if-блоком и позволяет нам иметь ветку кода, которая будет выполнена, когда условие в операторе if не истинно.</p>
 </div>
 <div class="listingblock">
 <div class="title">else.nim</div>
@@ -1299,7 +1289,7 @@ e is a small number</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you only want to execute a block if the statement is <code>false</code>, you can simply negate the condition with the <code>not</code> operator.
+Если вы хотите выполнить блок, если условие <code>false</code>, вы можете просто отрицать условие с помощью оператора <code>not</code>.
 </td>
 </tr>
 </table>
@@ -1308,11 +1298,11 @@ If you only want to execute a block if the statement is <code>false</code>, you 
 <div class="sect2">
 <h3 id="_elif">Elif</h3>
 <div class="paragraph">
-<p>Elif is short for "else if", and enables us to chain multiple if statements together.</p>
+<p>Elif это сокращение для "else if", и позволяет нам объединять несколько операторов if.</p>
 </div>
 <div class="paragraph">
-<p>The program tests every statement until it finds one which is true.
-After that, all further statements are ignored.</p>
+<p>Программа тестирует каждое условие до тех пор, пока не найдет истинное.
+После этого все последующие условия игнорируются.</p>
 </div>
 <div class="listingblock">
 <div class="title">elif.nim</div>
@@ -1351,7 +1341,7 @@ g is smaller than 1000</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In the case of <code>g</code>, even though <code>g</code> satisfies all three conditions, only the first branch is executed, automatically skipping all the other branches.
+В случае <code>g</code>, даже если <code>g</code> удовлетворяет всем трем условиям, выполняется только первая ветка, автоматически пропуская все остальные ветки.
 </td>
 </tr>
 </table>
@@ -1363,11 +1353,11 @@ In the case of <code>g</code>, even though <code>g</code> satisfies all three co
 <h2 id="_case">Case</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A case statement is another way to only choose one of multiple possible paths, similar to the if statement with multiple <code>elif</code>s.
-A <code>case</code> statement, however, doesn&#8217;t take multiple boolean conditions, but rather any value with distinct states and a path for each possible value.</p>
+<p>Оператор case является другим способом выбрать один из нескольких возможных путей, аналогично оператору if с несколькими <code>elif</code>.
+Оператор <code>case</code>, однако, не принимает несколько булевых условий, а принимает любое значение с различными состояниями и путь для каждого возможного значения.</p>
 </div>
 <div class="paragraph">
-<p>Code written with in if-elif block looking like this:</p>
+<p>Код, написанный в блоке if-elif выглядит так:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1382,7 +1372,7 @@ A <code>case</code> statement, however, doesn&#8217;t take multiple boolean cond
 </div>
 </div>
 <div class="paragraph">
-<p>can be written with case statement like this:</p>
+<p>может быть написан с использованием оператора case следующим образом:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1398,8 +1388,8 @@ A <code>case</code> statement, however, doesn&#8217;t take multiple boolean cond
 </div>
 </div>
 <div class="paragraph">
-<p>Unlike the if statement, case statement must cover <em>all</em> possible cases.
-If one is not interested in some of those cases, <code>else: discard</code> can be used.</p>
+<p>В отличии от оператора if, оператор case должен покрывать <em>все</em> возможные случаи.
+Если вы не заинтересованы в некоторых из этих случаев, можно использовать <code>else: discard</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">case.nim</div>
@@ -1420,7 +1410,7 @@ If one is not interested in some of those cases, <code>else: discard</code> can 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Even though we are interested in only three values of <code>h</code>, we must include this line to cover all other possible cases (all other characters). Without it, the code would not compile.</td>
+<td>Даже если мы заинтересованы только в трех значениях <code>h</code>, мы должны включить эту строку, чтобы покрыть все остальные возможные случаи (все другие символы). Без нее код не скомпилируется.</td>
 </tr>
 </table>
 </div>
@@ -1430,7 +1420,7 @@ If one is not interested in some of those cases, <code>else: discard</code> can 
 </div>
 </div>
 <div class="paragraph">
-<p>We can also use multiple values for each branch if the same action should happen for more than one value.</p>
+<p>Мы также можем использовать несколько значений для каждой ветки, если для более чем одного значения должно произойти одно и то же действие.</p>
 </div>
 <div class="listingblock">
 <div class="title">multipleCase.nim</div>
@@ -1455,62 +1445,62 @@ If one is not interested in some of those cases, <code>else: discard</code> can 
 </div>
 </div>
 </div>
-<h1 id="_loops" class="sect0">Loops</h1>
+<h1 id="_циклы" class="sect0">Циклы</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>Loops are another control flow construct which allow us to run some parts of code multiple times.</p>
+<p>Циклы являются еще одной конструкцией управления потоком, которая позволяет нам выполнять некоторые части кода несколько раз.</p>
 </div>
 <div class="paragraph">
-<p>In this chapter we will meet two kinds of loops:</p>
+<p>В этом разделе мы познакомимся с двумя видами циклов:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>for-loop: run a known number of times</p>
+<p>Цикл for: Запускается известное количество раз</p>
 </li>
 <li>
-<p>while-loop: run as long some condition is satisfied</p>
+<p>Цикл while: Запускается до тех пор, пока некоторое условие истинно</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_for_loop">For loop</h2>
+<h2 id="_цикл_for">Цикл For</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Syntax of a for-loop is:</p>
+<p>Синтаксис цикла for выглядит следующим образом:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="nim"><span class="k">for</span> <span class="o">&lt;</span><span class="n">loopVariable</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">iterable</span><span class="o">&gt;</span><span class="p">:</span>
-  <span class="o">&lt;</span><span class="n">loop</span> <span class="n">body</span><span class="o">&gt;</span></code></pre>
+<pre class="rouge highlight"><code data-lang="nim"><span class="k">for</span> <span class="o">&lt;</span><span class="err">переменная_цикла&gt; in &lt;итерируемый_объект&gt;:</span>
+  <span class="o">&lt;</span><span class="err">тело_цикла&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Traditionally, <code>i</code> is often used as a <code>loopVariable</code> name, but any other name can be used.
-That variable will be available only inside the loop.
-Once the loop has finished, the value of the variable is discarded.</p>
+<p>Традиционно, <code>i</code> часто используется в качестве имени <code>переменная_цикла</code>, но может быть использовано любое другое имя.
+Эта переменная будет доступна только внутри цикла.
+После завершения цикла значение переменной отбрасывается.</p>
 </div>
 <div class="paragraph">
-<p>The <code>iterable</code> is any object we can iterate through.
-Of the types already mentioned, strings are iterable objects.
-(More iterable types will be introduced in the <a href="#_containers">next chapter</a>.)</p>
+<p><code>Итерируемый_объект</code> (или просто <code>итерируемый</code>) - это объект, содержащий несколько значений, по которым мы хотим пройтись в цикле.
+Как в Основных типах данных было упомянуто ранее, строки это итерируемый объект.
+(Больше итерируемых типов будут представлены в <a href="#_контейнеры">следующая глава</a>.)</p>
 </div>
 <div class="paragraph">
-<p>All lines in the <code>loop body</code> are executed at every loop, which allows us to efficiently write repeating parts of code.</p>
+<p>Все строки в <code>теле_цикла</code> выполняются при каждой итерации цикла, что позволяет эффективно писать повторяющиеся части кода.</p>
 </div>
 <div class="paragraph">
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>If we want to iterate through a range of (integer) numbers in Nim, the syntax for the <code>iterable</code> is <code>start .. finish</code> where <code>start</code> and <code>finish</code> are numbers.
-This will iterate through all the numbers between <code>start</code> and <code>finish</code>, including both <code>start</code> and <code>finish</code>.
-For the default range iterable, <code>start</code> needs to be smaller than <code>finish</code>.</p>
+<p>Если мы хотим итерироваться по диапазону (целых) чисел в Nim, синтаксис для <code>итерируемого</code> это <code>start .. finish</code>, где <code>start</code> и <code>finish</code> это числа.
+Это будет итерироваться по всем числам между <code>start</code> и <code>finish</code>, включая оба <code>start</code> и <code>finish</code>.
+Для итерируемого по умолчанию диапазона, <code>start</code> должен быть меньше чем <code>finish</code>.</p>
 </div>
 <div class="paragraph">
-<p>If we want to iterate <em>until</em> a number (not including it), we can use <code>..&lt;</code>:</p>
+<p>Есди мы хотим итерироваться <em>до</em> числа (не включая его), мы можем использовать <code>..&lt;</code>:</p>
 </div>
 <div class="listingblock">
 <div class="title">for1.nim</div>
@@ -1528,11 +1518,11 @@ For the default range iterable, <code>start</code> needs to be smaller than <cod
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Iterating through a range of numbers using <code>..</code>&#8201;&#8212;&#8201;both ends are included in the range.</td>
+<td>Итерируя по диапазону чисел с помощью <code>..</code>&#8201;&#8212;&#8201;оба конца будут включены в диапазон.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Iterating through the same range using <code>..&lt;</code>&#8201;&#8212;&#8201;it iterates until the higher end, not including it.</td>
+<td>Итерируя по тому же диапазону с помощью <code>..&lt;</code>&#8201;&#8212;&#8201;итерирование происходит до верхней границы, не включая её.</td>
 </tr>
 </table>
 </div>
@@ -1551,7 +1541,7 @@ For the default range iterable, <code>start</code> needs to be smaller than <cod
 </div>
 </div>
 <div class="paragraph">
-<p>If we want to iterate through a range of numbers with a step size different than one, <code>countup</code> is used. With <code>countup</code> we define the starting value, the stopping value (included in the range), and the step size.</p>
+<p>Если мы хотим итерироваться по диапазону чисел с шагом, отличным от одного, используется <code>countup</code>. С помощью <code>countup</code> мы определяем начальное значение, конечное значение (включенное в диапазон) и размер шага.</p>
 </div>
 <div class="listingblock">
 <div class="title">for2.nim</div>
@@ -1564,7 +1554,7 @@ For the default range iterable, <code>start</code> needs to be smaller than <cod
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Counting up from zero to 16, with a step size of 4. The end (16) is included in the range.</td>
+<td>Счётчик от нуля до 16 с шагом 4. Конечное значение (16) включено в диапазон.</td>
 </tr>
 </table>
 </div>
@@ -1578,8 +1568,8 @@ For the default range iterable, <code>start</code> needs to be smaller than <cod
 </div>
 </div>
 <div class="paragraph">
-<p>To iterate through a range of numbers where the <code>start</code> is larger than <code>finish</code>, a similar function called <code>countdown</code> is used.
-Even if we&#8217;re counting down, the step size must be positive.</p>
+<p>Чтобы итерироваться по диапазону чисел, где <code>start</code> больше чем <code>finish</code>, используется похожая функция под названием <code>countdown</code>.
+Даже если мы считаем вниз, размер шага должен быть положительным.</p>
 </div>
 <div class="listingblock">
 <div class="title">for2.nim</div>
@@ -1597,11 +1587,11 @@ Even if we&#8217;re counting down, the step size must be positive.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>To iterate from a higher to a lower number, we must use <code>countdown</code> (The <code>..</code> operator can only be used when the starting value is smaller than the end value).</td>
+<td>Чтобы итерироваться от большего к меньшему числу, мы должны использовать <code>countdown</code> (оператор <code>..</code> может быть использован только когда начальное значение меньше конечного).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Even when counting down, the step size must be a positive number.</td>
+<td>Даже при обратном отсчете размер шага должен быть положительным.</td>
 </tr>
 </table>
 </div>
@@ -1620,7 +1610,7 @@ Even if we&#8217;re counting down, the step size must be positive.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Since string is an iterable, we can use a for-loop to iterate through each character of the string (this kind of iteration is sometimes called a <em>for-each</em> loop).</p>
+<p>Поскольку строка является итерируемым объектом, мы можем использовать цикл for, чтобы итерироваться по каждому символу строки (такой вид итерации иногда называют <em>for-each</em> циклом).</p>
 </div>
 <div class="listingblock">
 <div class="title">for3.nim</div>
@@ -1644,8 +1634,8 @@ t</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If we also need to have an iteration counter (starting from zero), we can achieve that by using <code>for &lt;counterVariable&gt;, &lt;loopVariable&gt; in &lt;iterator&gt;:</code> syntax.
-This is very practical if you want to iterate through one iterable, and simultaneously access another iterable at the same offset.</p>
+<p>Если нам также нужно иметь счетчик итераций (начинающийся с нуля), мы можем достичь этого, используя синтаксис <code>for &lt;переменнаяСчетчика&gt;, &lt;переменнаяЦикла&gt; in &lt;итерируемый&gt;:</code>.
+Ланный способ очень практичекие если вы желаеье итерировать один iterable, и одновременно получать доступ к другому iterable на том же смещении.</p>
 </div>
 <div class="listingblock">
 <div class="title">for3.nim</div>
@@ -1669,14 +1659,14 @@ letter 7 is: t</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_while_loop">While loop</h2>
+<h2 id="_цикл_while">Цикл While</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>While loops are similar to if statements, but they keep executing their block of code as long as the condition remains true.
-They are used when we don&#8217;t know in advance how many times the loop will run.</p>
+<p>Цикл While похож на условный оператор if, но он продолжает выполнять свой блок кода до тех пор, пока условие остается истинным.
+Они используются, когда мы заранее не знаем, сколько раз цикл будет выполняться.</p>
 </div>
 <div class="paragraph">
-<p>We must make sure the loop will terminate at some point and not become an <a href="https://en.wikipedia.org/wiki/Infinite_loop">infinite loop</a>.</p>
+<p>Мы должны убедиться, что цикл в какой-то момент завершится и не станет <a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D1%81%D0%BA%D0%BE%D0%BD%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D1%86%D0%B8%D0%BA%D0%BB">бесконечным циклом</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">while.nim</div>
@@ -1694,11 +1684,11 @@ They are used when we don&#8217;t know in advance how many times the loop will r
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>This condition will be checked every time before entering the new loop and executing the code inside of it.</td>
+<td>Это условие будет проверяться каждый раз перед входом в новый цикл и выполнением кода внутри него.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td><code>inc</code> is used to increment <code>a</code> by one. It is the same as writing <code>a = a + 1</code> or <code>a += 1</code>.</td>
+<td><code>inc</code> используется для увеличения <code>a</code> на единицу. Это то же самое, что и <code>a = a + 1</code> или <code>a += 1</code>.</td>
 </tr>
 </table>
 </div>
@@ -1713,14 +1703,14 @@ final value of a: 4</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_break_and_continue">Break and continue</h2>
+<h2 id="_break_и_continue">Break и continue</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>break</code> statement is used to prematurely exit from a loop, usually if some condition is met.</p>
+<p>Оператор <code>break</code> используется для преждевременного выхода из цикла, обычно если какое-то условие выполняется.</p>
 </div>
 <div class="paragraph">
-<p>In the next example, if there were no if statement with <code>break</code> in it, the loop would continue to run and print until <code>i</code> becomes 1000.
-With the <code>break</code> statement, when <code>i</code> becomes 3, we immediately exit the loop (before printing the value of <code>i</code>).</p>
+<p>В следующем примере, если бы не было условия <code>if</code> с <code>break</code>, цикл продолжился бы и выводил бы значения до тех пор, пока <code>i</code> не станет 1000.
+С оператором <code>break</code>, когда <code>i</code> становится 3, мы немедленно выходим из цикла (до вывода значения <code>i</code>).</p>
 </div>
 <div class="listingblock">
 <div class="title">break.nim</div>
@@ -1744,8 +1734,8 @@ With the <code>break</code> statement, when <code>i</code> becomes 3, we immedia
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>The <code>continue</code> statement starts the next iteration of a loop immediately, without executing the remaining lines of the current iteration.
-Notice how 3 and 6 are missing from the output of the following code:</p>
+<p>Оператор <code>continue</code> начинает следующую итерацию цикла немедленно, не выполняя оставшиеся строки текущей итерации.
+Обратите внимание, что 3 и 6 отсутствуют в выводе следующего кода:</p>
 </div>
 <div class="listingblock">
 <div class="title">continue.nim</div>
@@ -1769,23 +1759,23 @@ Notice how 3 and 6 are missing from the output of the following code:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises_2">Exercises</h2>
+<h2 id="_упражнения_2">Упражнения</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a href="https://en.wikipedia.org/wiki/Collatz_conjecture">Collatz conjecture</a> is a popular mathematical problem with simple rules. First pick a number. If it is odd, multiply it by three and add one; if it is even, divide it by two. Repeat this procedure until you arrive at one. E.g. 5 &#8594; odd &#8594; 3*5 + 1 = 16 &#8594; even &#8594; 16 / 2 = 8 &#8594; even &#8594; 4 &#8594; 2 &#8594; 1 &#8594; end!<br>
-Pick an integer (as a mutable variable) and create a loop which will print every step of the Collatz conjecture. (Hint: use <code>div</code> for division)</p>
+<p><a href="https://ru.wikipedia.org/wiki/%D0%93%D0%B8%D0%BF%D0%BE%D1%82%D0%B5%D0%B7%D0%B0_%D0%9A%D0%BE%D0%BB%D0%BB%D0%B0%D1%82%D1%86%D0%B0">Гипотеза Коллатца</a> это популярная математическая задача с простыми правилами. Сначала выберите число. Если оно нечетное, умножьте его на три и прибавьте один; если четное, разделите его на два. Повторяйте эту процедуру до тех пор, пока не получите единицу. Например: 5 &#8594; нечетное &#8594; 3*5 + 1 = 16 &#8594; четное &#8594; 16 / 2 = 8 &#8594; четное &#8594; 4 &#8594; 2 &#8594; 1 &#8594; конец!<br>
+Выберите целое число (как изменяемую переменную) и создайте цикл, который будет печатать каждый шаг гипотезы Коллатца. (Подсказка: используйте <code>div</code> для деления)</p>
 </li>
 <li>
-<p>Create an immutable variable containing your full name. Write a for-loop which will iterate through that string and print only the vowels (a, e, i, o, u). (Hint: use <code>case</code> statement with multiple values per branch)</p>
+<p>Создайте неизменяемую переменную, содержащую ваше полное имя. Напишите цикл for, который будет итерировать по этой строке и печатать только гласные (a, e, i, o, u). (Подсказка: используйте оператор <code>case</code> с несколькими значениями ветви)</p>
 </li>
 <li>
-<p><a href="https://en.wikipedia.org/wiki/Fizz_buzz">Fizz buzz</a> is a kids game sometimes used to test basic programming knowledge. We count numbers from one upwards. If a number is divisible by 3 replace it with <em>fizz</em>, if it is divisible by 5 replace it with <em>buzz</em>, and if a number is divisible by 15 (both 3 and 5) replace it with <em>fizzbuzz</em>. First few rounds would look like this: 1, 2, fizz, 4, buzz, fizz, 7, &#8230;&#8203;<br>
-Create a program which will print first 30 rounds of Fizz buzz. (Hint: beware of the order of divisibility tests)</p>
+<p><a href="https://ru.wikipedia.org/wiki/Fizz_buzz">Fizz buzz</a> это детская игра, иногда используемая для проверки базовых знаний программирования. Мы считаем числа от одного вверх. Если число делится на 3, замените его на <em>fizz</em>, если оно делится на 5, замените его на <em>buzz</em>, а если число делится на 15 (оба 3 и 5), замените его на <em>fizzbuzz</em>. Первые несколько раундов будут выглядеть так: 1, 2, fizz, 4, buzz, fizz, 7, &#8230;&#8203;<br>
+Создайте программу, которая будет печатать первые 30 раундов Fizz buzz. (Подсказка: обратите внимание на порядок проверок делимости)</p>
 </li>
 <li>
-<p>In the previous exercises you have converted inches to centimeters, and vice versa. Create a conversion table with multiple values. For example, the table might look like this:<br></p>
+<p>В предыдущих упражнениях вы конвертировали дюймы в сантиметры и наоборот. Создайте таблицу конвертации с несколькими значениями. Например, таблица может выглядеть так:<br></p>
 </li>
 </ol>
 </div>
@@ -1804,16 +1794,16 @@ Create a program which will print first 30 rounds of Fizz buzz. (Hint: beware of
 </div>
 </div>
 </div>
-<h1 id="_containers" class="sect0">Containers</h1>
+<h1 id="_контейнеры" class="sect0">Контейнеры</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>Containers are data types which contain a collection of items and allow us to access those elements.
-Typically a container is also iterable, meaning that we can use them the same way we used strings in the <a href="#_loops">loops chapter</a>.</p>
+<p>Контейнеры это типы данных, которые содержат коллекцию элементов и позволяют нам получить доступ к этим элементам.
+Обычно контейнер также является итерируемым, что означает, что мы можем использовать их так же, как строки в главе <a href="#_циклы">Циклы</a>.</p>
 </div>
 <div class="paragraph">
-<p>For example, a grocery list is a container of items we want to buy, and a list of primes is a container of numbers.
-Written in pseudocode:</p>
+<p>Например, список покупок - это контейнер элементов, которые мы хотим купить, а список простых чисел - это контейнер чисел.
+Написано в псевдокоде:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1824,20 +1814,20 @@ Written in pseudocode:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_arrays">Arrays</h2>
+<h2 id="_массивы">Массивы</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>An array is the simplest container type.
-Arrays are homogeneous, i.e. all elements in an array must have the same type.
-Arrays are also of a constant size, meaning that the amount of elements (or rather: the amount of <em>possible</em> elements), must be known at compile-time.
-This means that we call arrays a "homogeneous container of a constant length".</p>
+<p>Массив - это самый простой тип контейнера.
+Массивы однородны, т.е. все элементы в массиве должны иметь одинаковый тип.
+Массивы также имеют постоянный размер, что означает, что количество элементов (или скорее: количество <em>возможных</em> элементов) должно быть известно на этапе компиляции.
+Это означает, что мы называем массивы "однородным контейнером постоянной длины".</p>
 </div>
 <div class="paragraph">
-<p>The array type is declared using <code>array[&lt;length&gt;, &lt;type&gt;]</code>, where <code>length</code> is the total capacity of the array (number of elements it can fit), and <code>type</code> is a type of all its elements.
-The declaration can be omitted if both length and type can be inferred from the passed elements.</p>
+<p>Тип массива объявляется с помощью <code>array[&lt;length&gt;, &lt;type&gt;]</code>, где <code>length</code> - это общая емкость массива (количество элементов, которое он может содержать), а <code>type</code> - тип всех его элементов.
+Объявление может быть опущено, если и длина, и тип могут быть выведены из переданных элементов..</p>
 </div>
 <div class="paragraph">
-<p>The elements of an array are enclosed inside of square brackets.</p>
+<p>Элементы массива заключены внутри квадратных скобок.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1852,20 +1842,20 @@ The declaration can be omitted if both length and type can be inferred from the 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>If we provide the values, the length and type of array <code>b</code> are known at compile time. Although correct, there is no need to specifically declare it like array <code>a</code>.</td>
+<td>Если мы предоставляем значения, длина и тип массива <code>b</code> известны на этапе компиляции. Хотя это корректно, нет необходимости специально объявлять его как массив <code>a</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Neither the length nor the type of the elements can be inferred from this kind of declaration&#8201;&#8212;&#8201;this produces an error.</td>
+<td>Ни длина, ни тип элементов не могут быть выведены из этого типа объявления&#8201;&#8212;&#8201;это приводит к ошибке.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The correct way to declare an empty array (which will be filled later) is to give its length and type, without providing the values of its elements&#8201;&#8212;&#8201;array <code>d</code> can contain seven strings.</td>
+<td>Правильный способ объявить пустой массив (который будет заполнен позже) - это указать его длину и тип, не предоставляя значения его элементов&#8201;&#8212;&#8201;массив <code>d</code> может содержать семь строк.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Since the length of an array has to be known at compile-time, this will not work:</p>
+<p>Так как длина массива должна быть известна на этапе компиляции, это не сработает:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1880,21 +1870,21 @@ The declaration can be omitted if both length and type can be inferred from the 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>This produces an error because <code>n</code> is declared using <code>let</code>&#8201;&#8212;&#8201;its value is not known at compile time. We can only use values declared with <code>const</code> as a <code>length</code> parameter for an array initialization.</td>
+<td>Это приводит к ошибке, потому что <code>n</code> объявлен с помощью <code>let</code>&#8201;&#8212;&#8201;его значение неизвестно на этапе компиляции. Мы можем использовать только значения, объявленные с помощью <code>const</code>, как параметр <code>length</code> для инициализации массива.</td>
 </tr>
 </table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_sequences">Sequences</h2>
+<h2 id="_последовательность">Последовательность</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Sequences are containers similar to arrays, but their length doesn&#8217;t have to be known at compile time, and it can change during runtime: we declare only the type of the contained elements with <code>seq[&lt;type&gt;]</code>.
-Sequences are also homogeneous, i.e. every element in a sequence has to be the same type.</p>
+<p>Последовательности - это контейнеры, похожие на массивы, но их длина не обязательно должна быть известна на этапе компиляции, и она может изменяться во время выполнения: мы объявляем только тип содержащихся элементов с помощью <code>seq[&lt;type&gt;]</code>.
+Последовательности также являются однородными, т.е. каждый элемент в последовательности должен быть одного типа.</p>
 </div>
 <div class="paragraph">
-<p>The elements of a sequence are enclosed between <code>@[</code> and <code>]</code>.</p>
+<p>Элементы последовательности заключены между <code>@[</code> и <code>]</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1907,16 +1897,16 @@ Sequences are also homogeneous, i.e. every element in a sequence has to be the s
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The type of an empty sequence must be declared.</td>
+<td>Тип пустой последовательности должен быть объявлен.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The type of a non-empty sequence can be inferred. In this case, it is a sequence containing strings.</td>
+<td>Тип непустой последовательности может быть автоматически выведен. В этом случае, это последовательность, содержащая строки.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Another way to initialize an empty sequence is to call the <code>newSeq</code> procedure. We&#8217;ll look more at procedure calls in the <a href="#_procedures">next chapter</a> but for now just know that this is also a possibility:</p>
+<p>Другой способ инициализации пустой последовательности - вызвать процедуру <code>newSeq</code>. Мы рассмотрим вызовы процедур в <a href="#_процедуры">следующей главе</a>, но пока просто знайте, что это также возможно:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1928,14 +1918,14 @@ Sequences are also homogeneous, i.e. every element in a sequence has to be the s
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Providing the type parameter inside of square brackets allows the procedure to know that it shall return a sequence of a certain type.<br>
-A frequent error is omission of the final <code>()</code>, which must be included.</td>
+<td>Предоставление типа параметра внутри квадратных скобок позволяет процедуре знать, что она должна вернуть последовательность определенного типа.<br>
+Частая ошибка - пропуск конечных <code>()</code>, которые должны быть включены.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>We can add new elements to a sequence with the <code>add</code> function, similar to how we did with strings.
-For this to work the sequence must be mutable (defined with <code>var</code>), and the element we&#8217;re adding must be of the same type as the elements in the sequence.</p>
+<p>Мы можем добавлять новые элементы в последовательность с помощью функции <code>add</code>, аналогично тому, как мы это делали со строками.
+Для этого последовательность должна быть изменяемой (объявленной с помощью <code>var</code>), и добавляемый элемент должен быть того же типа, что и элементы в последовательности.</p>
 </div>
 <div class="listingblock">
 <div class="title">seq.nim</div>
@@ -1955,11 +1945,11 @@ For this to work the sequence must be mutable (defined with <code>var</code>), a
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Adding a new element of the same type (char).</td>
+<td>Добавление нового элемента того же типа (char).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Adding another sequence containing the same type.</td>
+<td>Добавление другой последовательности, содержащей тот же тип.</td>
 </tr>
 </table>
 </div>
@@ -1970,7 +1960,7 @@ For this to work the sequence must be mutable (defined with <code>var</code>), a
 </div>
 </div>
 <div class="paragraph">
-<p>Trying to pass different types to the existing sequences will produce an error:</p>
+<p>Попытка передать разные типы в существующие последовательности приведет к ошибке:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1984,16 +1974,16 @@ For this to work the sequence must be mutable (defined with <code>var</code>), a
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Trying to add a <code>float</code> to a sequence of <code>int</code>.</td>
+<td>Попытка добавить <code>float</code> к последовательности <code>int</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Trying to add a sequence of <code>int</code> to a sequence of <code>char</code>.</td>
+<td>Попытка добавить последовательность <code>int</code> к последовательности <code>char</code>.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Since sequences can vary in length we need a way to get their length, for this we can use the <code>len</code> function.</p>
+<p>С учетом того что последовательности могут изменять свою длину во время выполнения, нам нужен способ узнать их длину.  Для этого мы можем использовать функцию <code>len</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2013,21 +2003,19 @@ For this to work the sequence must be mutable (defined with <code>var</code>), a
 </div>
 </div>
 <div class="sect1">
-<h2 id="_indexing_and_slicing">Indexing and slicing</h2>
+<h2 id="_индексация_и_срезы">Индексация и срезы</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Indexing allows us to get a specific element from a container by its index.
-Think of the index as a position inside of the container.</p>
+<p>Индексация позволяет нам получить конкретный элемент из контейнера по его индексу.
+Думайте об индексе как о позиции внутри контейнера.</p>
 </div>
 <div class="paragraph">
-<p>Nim, like many other programming languages, has zero-based indexing, meaning that the first element in a container has the index zero, the second element has the index one, etc.</p>
+<p>Nim, как и многие другие языки программирования, использует индексацию с нулевым основанием, что означает, что первый элемент в контейнере имеет индекс ноль, второй элемент имеет индекс один и так далее.</p>
 </div>
 <div class="paragraph">
-<p>If we want to index "from the back", it is done by using the <code>^</code> prefix.
-The last element (first from the back) has index <code>^1</code>.</p>
-</div>
-<div class="paragraph">
-<p>The syntax for indexing is <code>&lt;container&gt;[&lt;index&gt;]</code>.</p>
+<p>Если мы хотим получить элемент "с конца", это делается с помощью префикса <code>^</code>.
+Последний элемент (первый с конца) имеет индекс <code>^1</code>. Второй с конца имеет индекс <code>^2</code> и так далее.
+Синтаксис для индексации: <code>&lt;container&gt;[&lt;index&gt;]</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">indexing.nim</div>
@@ -2042,11 +2030,11 @@ The last element (first from the back) has index <code>^1</code>.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Zero-based indexing: the element at index 1 is <code>b</code>.</td>
+<td>Индексация с нулевым основанием: элемент с индексом 1 - это <code>b</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Getting the last element.</td>
+<td>Получение последнего элемента.</td>
 </tr>
 </table>
 </div>
@@ -2060,15 +2048,15 @@ e</code></pre>
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>Slicing allows us to get a series of elements with one call.
-It uses the same syntax as ranges (introduced in the <a href="#_for_loop">for loop section</a>).</p>
+<p>Срезы позволяют нам получить серию элементов за один вызов.
+Он использует тот же синтаксис, что и диапазоны (введенные в <a href="#_циклы">цикл for</a>).</p>
 </div>
 <div class="paragraph">
-<p>If we use <code>start .. stop</code> syntax, both ends are included in the slice.
-Using <code>start ..&lt; stop</code> syntax, the <code>stop</code> index is not included in the slice.</p>
+<p>Если мы используем синтаксис <code>start .. stop</code>, оба конца включаются в срез.
+Используя синтаксис <code>start ..&lt; stop</code>, индекс <code>stop</code> не включается в срез.</p>
 </div>
 <div class="paragraph">
-<p>The syntax for slicing is <code>&lt;container&gt;[&lt;start&gt; .. &lt;stop&gt;]</code>.</p>
+<p>Синтаксис для срезов: <code>&lt;container&gt;[&lt;start&gt; .. &lt;stop&gt;]</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">indexing.nim</div>
@@ -2084,7 +2072,7 @@ Using <code>start ..&lt; stop</code> syntax, the <code>stop</code> index is not 
 </div>
 </div>
 <div class="paragraph">
-<p>Both indexing and slicing can be used to assign new values to the existing mutable containers and strings.</p>
+<p>Как индексация, так и срезы могут быть использованы для присвоения новых значений существующим изменяемым контейнерам и строкам.</p>
 </div>
 <div class="listingblock">
 <div class="title">assign.nim</div>
@@ -2109,15 +2097,15 @@ Using <code>start ..&lt; stop</code> syntax, the <code>stop</code> index is not 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Array of length 5 has indexes from zero to four. We will assign a value to each element of the array.</td>
+<td>Массив длины 5 имеет индексы от нуля до четырех. Мы присвоим значение каждому элементу массива.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Assigning (changing) the second element (index 1) of a sequence.</td>
+<td>Присваивание (изменение) второго элемента (индекс 1) последовательности.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Changing characters of a string at indexes 8 and 9.</td>
+<td>Изменение символов строки по индексам 8 и 9.</td>
 </tr>
 </table>
 </div>
@@ -2131,15 +2119,15 @@ Tom and Barry</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_tuples">Tuples</h2>
+<h2 id="_кортежи">Кортежи</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Both of the containers we&#8217;ve seen so far have been homogeneous.
-Tuples, on the other hand, contain heterogeneous data, i.e. elements of a tuple can be of different types.
-Similarly to arrays, tuples have fixed-size.</p>
+<p>Оба контейнера, которые мы видели до сих пор, были однородными.
+Кортежи, с другой стороны, содержат разнородные данные, т.е. элементы кортежа могут быть разных типов.
+Аналогично массивам, кортежи имеют фиксированный размер.</p>
 </div>
 <div class="paragraph">
-<p>The elements of a tuple are enclosed inside of parentheses.</p>
+<p>Елементы кортежа заключены внутри круглых скобок.</p>
 </div>
 <div class="listingblock">
 <div class="title">tuples.nim</div>
@@ -2152,7 +2140,7 @@ Similarly to arrays, tuples have fixed-size.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Tuples can contain fields of different types. In this case: <code>string</code>, <code>int</code>, and <code>char</code>.</td>
+<td>Кортежи могут содержать поля разных типов. В этом случае: <code>string</code>, <code>int</code>, и <code>char</code>.</td>
 </tr>
 </table>
 </div>
@@ -2162,8 +2150,8 @@ Similarly to arrays, tuples have fixed-size.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>We can also name each field in a tuple to distinguish them.
-This can be used for accessing the elements of the tuple, instead of indexing.</p>
+<p>Мы можем также дать имена каждому полю в кортеже, чтобы различать их.
+Это может быть использовано для доступа к элементам кортежа, вместо индексации</p>
 </div>
 <div class="listingblock">
 <div class="title">tuples.nim</div>
@@ -2179,11 +2167,11 @@ This can be used for accessing the elements of the tuple, instead of indexing.</
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Changing the value of a field by using the field&#8217;s index.</td>
+<td>Изменение значения поля по индексу.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Changing the value of a field by using the field&#8217;s name.</td>
+<td>Изменение значения поля по имени.</td>
 </tr>
 </table>
 </div>
@@ -2195,57 +2183,57 @@ This can be used for accessing the elements of the tuple, instead of indexing.</
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises_3">Exercises</h2>
+<h2 id="_упражнения_3">Упражнения</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create an empty array which can contain ten integers.</p>
+<p>Создайте пустой массив, который может содержать десять целых чисел.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Fill that array with numbers 10, 20, &#8230;&#8203;, 100. (Hint: use loops)</p>
+<p>Заполните этот массив числами 10, 20, &#8230;&#8203;, 100. (Подсказка: используйте циклы)</p>
 </li>
 <li>
-<p>Print only the elements of that array that are on odd indices (values 20, 40, &#8230;&#8203;).</p>
+<p>Выведите только элементы этого массива, которые находятся на нечетных индексах (значения 20, 40, &#8230;&#8203;).</p>
 </li>
 <li>
-<p>Multiply elements on even indices by 5. Print the modified array.</p>
+<p>Умножьте элементы на четных индексах на 5. Выведите измененный массив.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Re-do the <a href="#_exercises_2">Collatz conjecture exercise</a>, but this time instead of printing each step, add it to a sequence.</p>
+<p>Повторите упражнение гипотеза Коллатца, но в этот раз вместо печати каждого шага добавляйте его в последовательность.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pick a starting number. Interesting choices, among others, are 9, 19, 25 and 27.</p>
+<p>Выберите начальное число. Интересные выборы, среди прочего, это 9, 19, 25 и 27.</p>
 </li>
 <li>
-<p>Create a sequence whose only member is that starting number</p>
+<p>Создайте последовательность, единственным элементом которой является начальное число</p>
 </li>
 <li>
-<p>Using the same logic as before, keep adding elements to the sequence until you reach 1</p>
+<p>Используя ту же логику, что и раньше, продолжайте добавлять элементы в последовательность до достижения 1</p>
 </li>
 <li>
-<p>Print the length of the sequence, and the sequence itself</p>
+<p>Выведите длину последовательности и саму последовательность</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Find the number in a range from 2 to 100 which will produce the longest Collatz sequence.</p>
+<p>Найдите число в диапазоне от 2 до 100, которое приведет к самой длинной последовательности Коллатца.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>For each number in the given range calculate its Collatz sequence</p>
+<p>Для каждого числа в заданном диапазоне вычислите его последовательность Коллатца</p>
 </li>
 <li>
-<p>If the length of current sequence is longer than the previous record, save the current length and the starting number as a new record (you can use the tuple <code>(longestLength, startingNumber)</code> or two separate variables)</p>
+<p>Если длина текущей последовательности больше предыдущей записи, сохраните текущую длину и начальное число как новую запись (вы можете использовать кортеж <code>(longestLength, startingNumber)</code> или две отдельные переменные)</p>
 </li>
 <li>
-<p>Print the starting number which gives the longest sequence, and its length</p>
+<p>Выведите начальное число, которое дает самую длинную последовательность, и ее длину</p>
 </li>
 </ul>
 </div>
@@ -2254,58 +2242,58 @@ This can be used for accessing the elements of the tuple, instead of indexing.</
 </div>
 </div>
 </div>
-<h1 id="_procedures" class="sect0">Procedures</h1>
+<h1 id="_процедуры" class="sect0">Процедуры</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>Procedures, or <em>functions</em> as they are called in some other programming languages, are parts of code that perform a specific task, packaged as a unit.
-The benefit of grouping code together like this is that we can <em>call</em> these procedures instead of writing all the code over again when we wish to use the procedure&#8217;s code.</p>
+<p>Процедуры или <em>функции</em>, как их называют в некоторых других языках программирования, это части кода, которые выполняют определённую задачу, упакованную в единое целое.
+Преимуществом группировки кода таким образом является то, что мы можем <em>вызывать</em> эти процедуры вместо того, чтобы писать весь код заново, когда мы хотим использовать код процедуры.</p>
 </div>
 <div class="paragraph">
-<p>In some of the previous chapters we&#8217;ve looked at the Collatz conjecture in various different scenarios.
-By wrapping up the Collatz conjecture logic into a procedure we could have called the same code for all the exercises.</p>
+<p>В некоторых из предыдущих глав мы рассматривали гипотезу Коллатца в различных сценариях.
+Обёртывая логику гипотезы Коллатца в процедуру, мы могли бы вызывать один и тот же код для всех упражнений.</p>
 </div>
 <div class="paragraph">
-<p>So far we have used many built-in procedures, such as <code>echo</code> for printing, <code>add</code> for adding elements to a sequence, <code>inc</code> to increase the value of an integer, <code>len</code> to get the length of a container, etc.
-Now we&#8217;ll see how to create and use our own procedures.</p>
+<p>На протяжении мы использовали много встроенных процедур, таких как <code>echo</code> для печати, <code>add</code> для добавления элементов в последовательность, <code>inc</code> для увеличения значения целого числа, <code>len</code> для получения длины контейнера и т.д.
+Теперь мы увидим, как создавать и использовать наши собственные процедуры.</p>
 </div>
 <div class="paragraph">
-<p>Some of the advantages of using procedures are:</p>
+<p>Некоторые преимущества использования процедур:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Reducing code duplication</p>
+<p>Уменьшение дублирования кода</p>
 </li>
 <li>
-<p>Easier to read code as we can name pieces by what they do</p>
+<p>Упрощение чтения кода, поскольку мы можем называть части по их функционалу</p>
 </li>
 <li>
-<p>Decomposing a complex task into simpler steps</p>
+<p>Разбиение сложной задачи на более простые шаги</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>As mentioned in the beginning of this section, procedures are often called functions in other languages.
-This is actually a bit of a misnomer if we consider the mathematical definition of a function.
-Mathematical functions take a set of arguments (like <code>f(x, y)</code>, where <code>f</code> is a function, and <code>x</code> and <code>y</code> are its arguments) and <em>always</em> return the same answer for the same input.</p>
+<p>Как упоминалось в начале этого раздела, процедуры часто называют функциями в других языках программирования.
+Это на самом деле немного неверно, если мы рассмотрим математическое определение функции.
+Математические функции принимают набор аргументов (например, <code>f(x, y)</code>, где <code>f</code> - это функция, а <code>x</code> и <code>y</code> - её аргументы) и всегда возвращают один и тот же результат для одних и тех же входных данных.</p>
 </div>
 <div class="paragraph">
-<p>Programmatic procedures on the other hand don&#8217;t always return the same output for a given input.
-Sometimes they don&#8217;t return anything at all.
-This is because our computer programs can store state in the variables we mentioned earlier which procedures can read and change.
-In Nim, the word <code>func</code> is currently reserved to be used as the more mathematically correct kind of function, forcing no side-effects.</p>
+<p>Программные процедуры, с другой стороны, не всегда возвращают один и тот же результат для заданного входа.
+Иногда они вообще ничего не возвращают.
+Это связано с тем, что наши компьютерные программы могут хранить состояние в переменных, которые мы упоминали ранее, и которые процедуры могут читать и изменять.
+В Nim слово <code>func</code> зарезервировано для использования как более математически корректный вид функции, который не допускает побочных эффектов.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_declaring_a_procedure">Declaring a procedure</h2>
+<h2 id="_объявление_процедуры">Объявление процедуры</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before we can use (call) our procedure, we need to create it and define what it does.</p>
+<p>Прежде мы чем сможем использовать (вызывать) нашу процедуру, нам нужно её создать и определить, что она делает.</p>
 </div>
 <div class="paragraph">
-<p>A procedure is declared by using the <code>proc</code> keyword and the procedure name, followed by the input parameters and their type inside of parentheses, and the last part is a colon and the type of the value returned from a procedure, like this:</p>
+<p>Процедура объявляется с помощью ключевого слова <code>proc</code> и имени процедуры, за которым следуют входные параметры и их тип в круглых скобках, а последняя часть - это двоеточие и тип значения, возвращаемого процедурой, вот так:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2313,7 +2301,7 @@ In Nim, the word <code>func</code> is currently reserved to be used as the more 
 </div>
 </div>
 <div class="paragraph">
-<p>The body of a procedure is written in the indented block following the declaration appended with a <code>=</code> sign.</p>
+<p>Тело процедуры пишется в отступе после объявления с добавленным знаком <code>=</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">callProcs.nim</div>
@@ -2331,11 +2319,11 @@ In Nim, the word <code>func</code> is currently reserved to be used as the more 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Declaring procedure called <code>findMax</code>, which has two parameters, <code>x</code> and <code>y</code>, and it returns an <code>int</code> type.</td>
+<td>Объявление процедуры с именем <code>findMax</code>, которая имеет два параметра, <code>x</code> и <code>y</code>, и возвращает значение типа <code>int</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>To return a value from a procedure, we use the <code>return</code> keyword.</td>
+<td>Чтобы вернуть значение из процедуры, мы используем ключевое слово <code>return</code>.</td>
 </tr>
 </table>
 </div>
@@ -2356,7 +2344,7 @@ In Nim, the word <code>func</code> is currently reserved to be used as the more 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The <code>echoLanguageRating</code> procedure just echoes the given name, it doesn&#8217;t return anything, so the return type is not declared.</td>
+<td>Процедура <code>echoLanguageRating</code> просто выводит заданное имя, она не возвращает ничего, поэтому тип возвращаемого значения не объявляется.</td>
 </tr>
 </table>
 </div>
@@ -2364,8 +2352,8 @@ In Nim, the word <code>func</code> is currently reserved to be used as the more 
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>Normally we&#8217;re not allowed to change any of the parameters we are given.
-Doing something like this will throw an error:</p>
+<p>Обычно мы не можем изменять какие-либо параметры, которые нам передали.
+Творение чего-то подобного приведет к ошибке:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2377,7 +2365,7 @@ Doing something like this will throw an error:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>In order for this to work we need to allow Nim, and the programmer using our procedure, to change the argument by declaring it as a variable:</p>
+<p>Что бы сделать это возможным, нам нужно разрешить Nim и программисту, использующему нашу процедуру, изменять аргумент, объявив его как переменную:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2395,7 +2383,7 @@ Doing something like this will throw an error:</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Notice how <code>argument</code> is now declared as a <code>var int</code> and not just as an <code>int</code>.</td>
+<td>Обратите внимание, как <code>argument</code> теперь объявлен как <code>var int</code>, а не просто как <code>int</code>.</td>
 </tr>
 </table>
 </div>
@@ -2406,10 +2394,10 @@ Doing something like this will throw an error:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This of course means that the name we pass it must be declared as a variable as well, passing in something assigned with <code>const</code> or <code>let</code> will throw an error.</p>
+<p>Это естественно означает что имя, которое мы передаем, также должно быть объявлено как переменная, передача чего-то присвоенного с <code>const</code> или <code>let</code> вызовет ошибку.</p>
 </div>
 <div class="paragraph">
-<p>While it is good practice to pass things as arguments it is also possible to use names declared outside the procedure, both variables and constants:</p>
+<p>Хорошей практикой является передача аргументов в процедуры, но также возможно использовать имена, объявленные вне процедуры, как переменные, так и константы:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2427,11 +2415,11 @@ Doing something like this will throw an error:</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Here we access the outside variable <code>x</code>.</td>
+<td>Тут мы обращаемся к внешней переменной <code>x</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>We can also update its value, since it&#8217;s declared as a variable.</td>
+<td>Мы также можем обновить её значение, поскольку она объявлена как переменная.</td>
 </tr>
 </table>
 </div>
@@ -2444,11 +2432,11 @@ Doing something like this will throw an error:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_calling_the_procedures">Calling the procedures</h2>
+<h2 id="_вызов_процедуры">Вызов процедуры</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After we have declared a procedure, we can call it.
-The usual way of calling procedures/functions in many programming languages is to state its name and provide the arguments in the parentheses, like this:</p>
+<p>После того, как мы объявили процедуру, мы можем её вызвать.
+Обычный способ вызова процедур/функций во многих языках программирования - указать её имя и предоставить аргументы в круглых скобках, вот так:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2456,10 +2444,10 @@ The usual way of calling procedures/functions in many programming languages is t
 </div>
 </div>
 <div class="paragraph">
-<p>The result from calling a procedure can be stored in a variable.</p>
+<p>Результат от вызова процедуры может быть сохранен в переменной.</p>
 </div>
 <div class="paragraph">
-<p>If we want to call our <code>findMax</code> procedure from the above example, and save the return value in a variable we can do that with:</p>
+<p>Если мы хотим вызвать нашу процедуру <code>findMax</code> из приведенного выше примера и сохранить возвращаемое значение в переменной, мы можем сделать это так:</p>
 </div>
 <div class="listingblock">
 <div class="title">callProcs.nim</div>
@@ -2478,7 +2466,7 @@ The usual way of calling procedures/functions in many programming languages is t
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The result from the function <code>findMax</code> is here named <code>c</code>, and is called with the results of our first two calls (<code>findMax(987, 321)</code>).</td>
+<td>Результат от функции <code>findMax</code> здесь называется <code>c</code>, и вызывается с результатами наших первых двух вызовов (<code>findMax(987, 321)</code>).</td>
 </tr>
 </table>
 </div>
@@ -2493,10 +2481,10 @@ The usual way of calling procedures/functions in many programming languages is t
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>Nim, unlike many other languages, also supports <a href="https://en.wikipedia.org/wiki/Uniform_Function_Call_Syntax">Uniform Function Call Syntax</a>, which allows many different ways of calling procedures.</p>
+<p>Nim также, в отличие от многих других языков, поддерживает <a href="https://en.wikipedia.org/wiki/Uniform_Function_Call_Syntax">Унифицированный синтаксис вызова функций</a>, который позволяет использовать множество различных способов вызова процедур.</p>
 </div>
 <div class="paragraph">
-<p>This one is a call where the first argument is written before the function name, and the rest of the parameters are stated in parentheses:</p>
+<p>Этот вызов похож на обычный вызов процедуры, но первый аргумент записывается перед именем функции и остальные параметры указываются в круглых скобках:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2504,8 +2492,8 @@ The usual way of calling procedures/functions in many programming languages is t
 </div>
 </div>
 <div class="paragraph">
-<p>We have used this syntax when we were adding elements to an existing sequence (<code>&lt;seq&gt;.add(&lt;element&gt;)</code>), as this makes it more readable and expresses our intent more clearly than writing <code>add(&lt;seq&gt;, &lt;element&gt;)</code>.
-We can also omit the parentheses around the arguments:</p>
+<p>Мы использовали этот синтаксис, когда добавляли элементы в существующую последовательность (<code>&lt;seq&gt;.add(&lt;element&gt;)</code>), так как это делает его более читаемым и выражает наше намерение более ясно, чем запись <code>add(&lt;seq&gt;, &lt;element&gt;)</code>.
+Мы также можем опустить круглые скобки вокруг аргументов:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2513,8 +2501,8 @@ We can also omit the parentheses around the arguments:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>We&#8217;ve seen this style being used when we call the <code>echo</code> procedure, and when calling the <code>len</code> procedure without any arguments.
-These two can also be combined like this, but this syntax however is not seen very often:</p>
+<p>Мы видели этот стиль, когда вызывали процедуру <code>echo</code>, и при вызове процедуры <code>len</code> без каких-либо аргументов.
+Эти два также могут быть объединены вот так, но этот синтаксис, однако, не очень часто используется:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2525,7 +2513,7 @@ These two can also be combined like this, but this syntax however is not seen ve
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>The uniform call syntax allows for more readable chaining of multiple procedures:</p>
+<p>Унифицированный синтаксис вызова позволяет сделать цепочку из нескольких процедур более читаемой:</p>
 </div>
 <div class="listingblock">
 <div class="title">ufcs.nim</div>
@@ -2553,15 +2541,15 @@ These two can also be combined like this, but this syntax however is not seen ve
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>If multiple parameters are of the same type, we can declare their type in this compact way.</td>
+<td>Если несколько параметров имеют одинаковый тип, мы можем объявить их тип в этом компактном виде.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>First we add <code>a</code> and <code>b</code>, then the result of that operation (2 + 3 = 5) is passed as the first parameter to the <code>multi</code> procedure, where it is multiplied by <code>c</code> (5 * 4 = 20).</td>
+<td>Сначала мы складываем <code>a</code> и <code>b</code>, затем результат этой операции (2 + 3 = 5) передается как первый параметр в процедуру <code>multi</code>, где он умножается на <code>c</code> (5 * 4 = 20).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>First we multiply <code>c</code> and <code>b</code>, then the result of that operation (4 * 3 = 12) is passed as the first parameter to the <code>plus</code> procedure, where it is added with <code>a</code> (12 + 2 = 14).</td>
+<td>Сначала мы умножаем <code>c</code> и <code>b</code>, затем результат этой операции (4 * 3 = 12) передается как первый параметр в процедуру <code>plus</code>, где он складывается с <code>a</code> (12 + 2 = 14).</td>
 </tr>
 </table>
 </div>
@@ -2576,11 +2564,11 @@ true
 </div>
 </div>
 <div class="sect1">
-<h2 id="_result_variable">Result variable</h2>
+<h2 id="_переменная_result">Переменная result</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In Nim, every procedure that returns a value has an implicitly declared and initialized (with a default value) <code>result</code> variable.
-The procedure will return the value of this <code>result</code> variable when it reaches the end of its indented block, even with no <code>return</code> statement.</p>
+<p>В Nim, каждая процедура, которая возвращает значение, имеет неявно объявленную и инициализированную (значением по умолчанию) переменную <code>result</code>.
+Процедура вернет значение этой переменной <code>result</code>, когда достигнет конца своего отступленного блока, даже если нет оператора <code>return</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">result.nim</div>
@@ -2599,11 +2587,11 @@ The procedure will return the value of this <code>result</code> variable when it
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The return type is <code>int</code>. The <code>result</code> variable is initialized with the default value for <code>int</code>: <code>0</code>.</td>
+<td>Возвращаемый тип <code>int</code>. Переменная <code>result</code> инициализирована значением по умолчанию для <code>int</code>: <code>0</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>When the end of the procedure is reached, the value of <code>result</code> is returned.</td>
+<td>Когда процедура достигает конца своего отступленного блока, возвращается значение переменной <code>result</code>.</td>
 </tr>
 </table>
 </div>
@@ -2613,8 +2601,8 @@ The procedure will return the value of this <code>result</code> variable when it
 </div>
 </div>
 <div class="paragraph">
-<p>Note that this procedure is here to demonstrate the <code>result</code> variable, and it is not 100% correct:
-if you would pass a sequence containing only negative numbers, this procedure would return <code>0</code> (which is <em>not</em> contained in the sequence).</p>
+<p>Обратите внимание, что эта процедура здесь приведена для демонстрации переменной <code>result</code>, и она не является на 100% корректной:
+если вы передадите последовательность, содержащую только отрицательные числа, эта процедура вернет <code>0</code> (что <em>не</em> содержится в последовательности).</p>
 </div>
 <div class="paragraph">
 <p>&#160;</p>
@@ -2626,8 +2614,8 @@ if you would pass a sequence containing only negative numbers, this procedure wo
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Beware!
-In older Nim versions (before Nim 0.19.0), the default value of strings and sequences was <a href="https://en.wikipedia.org/wiki/Null_pointer"><code>nil</code></a>, and when we would use them as returning types, the <code>result</code> variable would need to be initialized as an empty string (<code>""</code>) or as an empty sequence (<code>@[]</code>).
+Осторожно!
+В старых версиях Nim (до Nim 0.19.0) значение по умолчанию для строк и последовательностей было <a href="https://en.wikipedia.org/wiki/Null_pointer"><code>nil</code></a>, и когда мы использовали их в качестве возвращаемых типов, переменная <code>result</code> должна была быть инициализирована как пустая строка (<code>""</code>) или как пустая последовательность (<code>@[]</code>).
 </td>
 </tr>
 </table>
@@ -2650,8 +2638,8 @@ In older Nim versions (before Nim 0.19.0), the default value of strings and sequ
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>In Nim version 0.19.0 and newer, this line is not needed&#8201;&#8212;&#8201;sequences are automatically initialized as empty sequences.<br>
-In older Nim versions, sequences must be initialized, and without this line the compiler would throw an error. (Notice that <code>var</code> must <em>not</em> be used, as <code>result</code> is already implicitly declared.)</td>
+<td>В версии Nim 0.19.0 и новее эта строка не нужна&#8201;&#8212;&#8201;последовательности автоматически инициализируются как пустые последовательности.<br>
+В более старых версиях Nim последовательности должны быть инициализированы, и без этой строки компилятор выдаст ошибку. (Обратите внимание, что <code>var</code> не должен использоваться, так как <code>result</code> уже объявлен неявно.)</td>
 </tr>
 </table>
 </div>
@@ -2664,7 +2652,7 @@ In older Nim versions, sequences must be initialized, and without this line the 
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>Inside of a procedure we can also call other procedures.</p>
+<p>Внутри процедуры мы также можем вызывать другие процедуры.</p>
 </div>
 <div class="listingblock">
 <div class="title">filterOdds.nim</div>
@@ -2693,15 +2681,15 @@ In older Nim versions, sequences must be initialized, and without this line the 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Once again, this line is not needed in the newer versions of Nim.</td>
+<td>Ещё раз, эта строка не нужна в новых версиях Nim.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Calling the previously declared procedure. Its return type is <code>bool</code> and can be used in the if-statement.</td>
+<td>Вызов ранее объявленной процедуры. Её возвращаемый тип <code>bool</code> и может быть использован в условии if.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The third way of calling a procedure, as we saw above.</td>
+<td>Третий способ вызова процедуры, как мы видели выше.</td>
 </tr>
 </table>
 </div>
@@ -2715,11 +2703,11 @@ In older Nim versions, sequences must be initialized, and without this line the 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_forward_declaration">Forward declaration</h2>
+<h2 id="_предварительное_объявление">Предварительное объявление</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As mentioned in the very beginning of this section we can declare a procedure without a code block.
-The reason for this is that we have to declare procedures before we can call them, doing this will not work:</p>
+<p>Как упоминалось в самом начале этого раздела, мы можем объявить процедуру без блока кода.
+Причина этого в том, что мы должны объявить процедуры до того, как мы сможем их вызвать, и вот так делать не будет работать:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2733,16 +2721,16 @@ The reason for this is that we have to declare procedures before we can call the
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>This will throw an error as <code>plus</code> isn&#8217;t defined yet.</td>
+<td>Это приведет к ошибке, так как <code>plus</code> еще не определена.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Here we define <code>plus</code>, but since it&#8217;s after we use it Nim doesn&#8217;t know about it yet.</td>
+<td>Здесь мы определяем <code>plus</code>, но так как она определена после её использования, Nim ещё не знает о ней.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The way to get around this is what&#8217;s called a forward declaration:</p>
+<p>Способ обойти это - это то, что называется предварительным объявлением:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2758,36 +2746,36 @@ The reason for this is that we have to declare procedures before we can call the
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Here we tell Nim that it should consider the <code>plus</code> procedure to exist with this definition.</td>
+<td>Тут мы говорим Nim, что процедура <code>plus</code> существует с таким определением.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Now we are free to use it in our code, this will work.</td>
+<td>Теперь мы можем использовать её в коде, это будет работать.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>This is were <code>plus</code> is actually implemented, this must of course match our previous definition.</td>
+<td>Это место, где <code>plus</code> реализована на самом деле, и она должна соответствовать предыдущему определению.</td>
 </tr>
 </table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises_4">Exercises</h2>
+<h2 id="_упражнения_4">Упражнения</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create a procedure which will greet a person (print "Hello &lt;name&gt;") based on the provided name. Create a sequence of names. Greet each person using the created procedure.</p>
+<p>Создайте процедуру, которая будет приветствовать человека (печатать "Hello &lt;name&gt;") на основе предоставленного имени. Создайте последовательность имен. Приветствуйте каждого человека с помощью созданной процедуры.</p>
 </li>
 <li>
-<p>Create a procedure <code>findMax3</code> which will return the largest of three values.</p>
+<p>Создайте процедуру <code>findMax3</code>, которая будет возвращать наибольшее из трех значений.</p>
 </li>
 <li>
-<p>Points in 2D plane can be represented as <code>tuple[x, y: float]</code>. Write a procedure which will receive two points and return a new point which is a sum of those two points (add x&#8217;s and y&#8217;s separately).</p>
+<p>Точки на плоскости можно представить как <code>tuple[x, y: float]</code>. Напишите процедуру, которая будет получать две точки и возвращать новую точку, которая является суммой этих двух точек (складывая x и y отдельно).</p>
 </li>
 <li>
-<p>Create two procedures <code>tick</code> and <code>tock</code> which echo out the words "tick" and "tock". Have a global variable to keep track of how many times they have run, and run one from the other until the counter reaches 20. The expected output is to get lines with "tick" and "tock" alternating 20 times. (Hint: use forward declarations.)</p>
+<p>Создайте две процедуры <code>tick</code> и <code>tock</code>, которые будут печатать слова "tick" и "tock". Создайте глобальную переменную для отслеживания количества вызовов, и вызывайте одну процедуру из другой до тех пор, пока счетчик не достигнет 20. Ожидаемый вывод - строки с "tick" и "tock", чередующиеся 20 раз. (Подсказка: используйте предварительное объявление.)</p>
 </li>
 </ol>
 </div>
@@ -2798,53 +2786,53 @@ The reason for this is that we have to declare procedures before we can call the
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You can press Ctrl+C to stop execution of a program if you enter an infinite loop.
+Вы можете нажать Ctrl+C, чтобы остановить выполнение программы, если вы ввели бесконечный цикл.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Test all procedures by calling them with different parameters.</p>
+<p>Тестируйте все процедуры, вызывая их с разными параметрами.</p>
 </div>
 </div>
 </div>
-<h1 id="_modules" class="sect0">Modules</h1>
+<h1 id="_модули" class="sect0">Модули</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>So far we have used the functionality which is available by default every time we start a new Nim file.
-This can be extended with modules, which give more functionality for some specific topic.</p>
+<p>До сих пор мы использовали функциональность, которая доступна по умолчанию каждый раз, когда мы запускаем новый файл Nim.
+Это можно расширить с помощью модулей, которые предоставляют больше функциональности по некоторым конкретным темам.</p>
 </div>
 <div class="paragraph">
-<p>Some of the most used Nim modules are:</p>
+<p>Некоторые из наиболее часто используемых модулей Nim:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>strutils</code>: additional functionality when dealing with strings</p>
+<p><code>strutils</code>: дополнительная функциональность при работе со строками</p>
 </li>
 <li>
-<p><code>sequtils</code>: additional functionality for sequences</p>
+<p><code>sequtils</code>: дополнительная функциональность для последовательностей</p>
 </li>
 <li>
-<p><code>math</code>: mathematical functions (logarithms, square roots, &#8230;&#8203;), trigonometry (sin, cos, &#8230;&#8203;)</p>
+<p><code>math</code>: математические функции (логарифмы, квадратные корни, &#8230;&#8203;), тригонометрия (sin, cos, &#8230;&#8203;)</p>
 </li>
 <li>
-<p><code>times</code>: measure and deal with time</p>
+<p><code>times</code>: измерение и работа со временем</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>But there are many more, both in what&#8217;s called the <a href="https://nim-lang.org/docs/lib.html">standard library</a> and in the <a href="https://nimble.directory/">nimble package manager</a>.</p>
+<p>Но их гораздо больше, как в так называемой <a href="https://nim-lang.org/docs/lib.html">стандартной библиотеке</a>, так и в <a href="https://nimble.directory/">менеджере пакетов nimble</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_importing_a_module">Importing a module</h2>
+<h2 id="_импортирование_модуля">Импортирование модуля</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If we want to import a module and all of its functionality, all we have to do is put <code>import &lt;moduleName&gt;</code> in our file.
-This is commonly done on the top of the file so we can easily see what our code uses.</p>
+<p>Если мы хотим импортировать модуль и всю его функциональность, все, что нам нужно сделать, это поместить <code>import &lt;moduleName&gt;</code> в наш файл.
+Это обычно делается вверху файла, чтобы мы могли легко видеть, что использует наш код.</p>
 </div>
 <div class="listingblock">
 <div class="title">stringutils.nim</div>
@@ -2864,19 +2852,19 @@ This is commonly done on the top of the file so we can easily see what our code 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Importing <a href="https://nim-lang.org/docs/strutils.html">strutils</a>.</td>
+<td>Импортируем <a href="https://nim-lang.org/docs/strutils.html">strutils</a>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Using <code>split</code> from <code>strutils</code> module. It splits the string in a sequence of words.</td>
+<td>Используем <code>split</code> из модуля <code>strutils</code>. Он разбивает строку на последовательность слов.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td><code>toUpperAscii</code> converts all ASCII letters to uppercase.</td>
+<td><code>toUpperAscii</code> преобразует все ASCII буквы в верхний регистр.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td><code>repeat</code> is also from <code>strutils</code> module, and it repeats either a character or a whole string the requested amount of times.</td>
+<td><code>repeat</code> также из модуля <code>strutils</code>, и он повторяет либо символ, либо всю строку указанное количество раз.</td>
 </tr>
 </table>
 </div>
@@ -2894,7 +2882,7 @@ MY STRING WITH WHITESPACE.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-To the users coming from other programming languages (especially Python), the way that imports work in Nim might seem "wrong". If that&#8217;s the case, <a href="https://narimiran.github.io/2019/07/01/nim-import.html">this</a> is the recommended reading.
+Для пользователей, приходящих из других языков программирования (особенно Python), способ импорта в Nim может показаться "неправильным". Если это так, рекомендуется прочитать <a href="https://narimiran.github.io/2019/07/01/nim-import.html">это</a>.
 </td>
 </tr>
 </table>
@@ -2921,19 +2909,19 @@ To the users coming from other programming languages (especially Python), the wa
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Importing <a href="https://nim-lang.org/docs/math.html">math</a>.</td>
+<td>Импортируем <a href="https://nim-lang.org/docs/math.html">math</a>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Converting degrees to radians with <code>degToRad</code>.</td>
+<td>Преобразуем градусы в радианы с помощью <code>degToRad</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td><code>sin</code> takes radians. We round (also from <code>math</code> module) the result to at most 2 decimal places. (Otherwise the result would be: 0.4999999999999999)</td>
+<td><code>sin</code> принимает радианы. Мы округляем (также из модуля <code>math</code>) результат до максимум 2 знаков после запятой. (В противном случае результат был бы: 0.4999999999999999)</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Math module also has <code>^</code> operator for calculating powers of a number.</td>
+<td>Модуль math также имеет оператор <code>^</code> для вычисления степеней числа.</td>
 </tr>
 </table>
 </div>
@@ -2947,11 +2935,11 @@ To the users coming from other programming languages (especially Python), the wa
 </div>
 </div>
 <div class="sect1">
-<h2 id="_creating_our_own">Creating our own</h2>
+<h2 id="_создание_собственных_модулей">Создание собственных модулей</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Often times we have so much code in a project that it makes sense to split it into pieces that each does a certain thing.
-If you create two files side by side in a folder, let&#8217;s call them <code>firstFile.nim</code> and <code>secondFile.nim</code>, you can import one from the other as a module:</p>
+<p>Спустя время у нас будет достаточно кода в проекте, что имеет смысл разделить его на части, каждая из которых делает определённую вещь.
+Если вы создадите два файла рядом в папке, назовём их <code>firstFile.nim</code> и <code>secondFile.nim</code>, вы можете импортировать один из другого как модуль:</p>
 </div>
 <div class="listingblock">
 <div class="title">firstFile.nim</div>
@@ -2967,11 +2955,11 @@ If you create two files side by side in a folder, let&#8217;s call them <code>fi
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Notice how the <code>plus</code> procedure now has an asterisk (<code>*</code>) after its name, this tells Nim that another file importing this one will be able to use this procedure.</td>
+<td>Обратите внимание, как процедура <code>plus</code> теперь имеет звёздочку (<code>*</code>) после её имени, это говорит Nim, что другой файл, импортирующий этот файл, сможет использовать эту процедуру.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>By contrast this will not be visible when importing this file.</td>
+<td>В противоположность этому, эта процедура не будет видна при импорте этого файла.</td>
 </tr>
 </table>
 </div>
@@ -2988,21 +2976,21 @@ If you create two files side by side in a folder, let&#8217;s call them <code>fi
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Here we import <code>firstFile.nim</code>. We don&#8217;t need to put the <code>.nim</code> extension on here.</td>
+<td>Тут мы импортируем <code>firstFile.nim</code>. Нам не нужно добавлять расширение <code>.nim</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>This will work fine and output <code>15</code> as it&#8217;s declared in <code>firstFile</code> and visible to us.</td>
+<td>Это будет работать нормально и выведет <code>15</code>, так как процедура объявлена в <code>firstFile</code> и доступна нам.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>However this will throw an error as the <code>minus</code> procedure is not visible since it doesn&#8217;t have an asterisk behind it&#8217;s name.</td>
+<td>Однако это вызовет ошибку, так как процедура <code>minus</code> не видна, так как у неё нет звёздочки после имени.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>In case you have more than these two files, you might want to organize them in a subdirectory (or more than one subdirectory).
-With the following directory structure:</p>
+<p>В случае, если у вас больше двух файлов, вы можете организовать их в подкаталоги (или более одного подкаталога).
+Со следующей структурой каталогов:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3017,7 +3005,7 @@ With the following directory structure:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>if you wanted to import all other files in your <code>secondFile.nim</code> this is how you would do it:</p>
+<p>Если вы хотите импортировать все файлы в вашем <code>secondFile.nim</code>, вот как вы это сделаете:</p>
 </div>
 <div class="listingblock">
 <div class="title">secondFile.nim</div>
@@ -3029,24 +3017,24 @@ With the following directory structure:</p>
 </div>
 </div>
 </div>
-<h1 id="_interacting_with_user_input" class="sect0">Interacting with user input</h1>
+<h1 id="_взаемодействие_с_пользовательским_вводом" class="sect0">Взаемодействие с пользовательским вводом</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>Using the stuff we&#8217;ve introduced so far (basic data types and containers, control flow, loops) allows us to make quite a few simple programs.</p>
+<p>Использование того, что мы уже представили до сих пор (базовые типы данных и контейнеры, управление потоком, циклы) позволяет нам создавать довольно много простых программ.</p>
 </div>
 <div class="paragraph">
-<p>In this chapter we will learn how to make our programs more interactive.
-For that we need an option to read data from a file, or ask a user for an input.</p>
+<p>В этой главе мы научимся делать наши программы более интерактивными.
+Для этого нам нужна возможность читать данные из файла или запрашивать ввод от пользователя.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_reading_from_a_file">Reading from a file</h2>
+<h2 id="_чтение_из_файла">Чтение из файла</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Let&#8217;s say we have a text file called <code>people.txt</code> in the same directory as our Nim code.
-The contents of that file looks like this:</p>
+<p>Например мы имеем текстовый файл под названием <code>people.txt</code> в той же директории, что и наш Nim код.
+Содержимое этого файла выглядит так:</p>
 </div>
 <div class="listingblock">
 <div class="title">people.txt</div>
@@ -3057,7 +3045,7 @@ The contents of that file looks like this:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>We want to use the contents of that file in our program, as a list (sequence) of names.</p>
+<p>Мы хотим использовать содержимое этого файла в нашей программе, как список (последовательность) имён.</p>
 </div>
 <div class="listingblock">
 <div class="title">readFromFile.nim</div>
@@ -3075,11 +3063,11 @@ The contents of that file looks like this:</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>To read contents of a file, we use the <code>readFile</code> procedure, and we provide a path to the file from which to read (if the file is in the same directory as our Nim program, providing a filename is enough). The result is a multiline string.</td>
+<td>Чтобы прочитать содержимое файла, мы используем процедуру <code>readFile</code>, и передаем ей путь к файлу, из которого нужно читать (если файл находится в той же директории, что и наш Nim-программа, достаточно просто указать имя файла). Результатом является многострочная строка.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>To split a multiline string into a sequence of strings (each string contains all the contents of a single line) we use <code>splitLines</code> from the <code>strutils</code> module.</td>
+<td>Чтобы разбить многострочную строку на последовательность строк (каждая строка содержит содержимое одной строки файла), мы используем <code>splitLines</code> из модуля <code>strutils</code>.</td>
 </tr>
 </table>
 </div>
@@ -3096,18 +3084,18 @@ Carol C.
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>There was a final new line (empty last line) in the original file, which is also present here.</td>
+<td>Это последняя строка в файле, которая содержит пустую строку.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Because of the final new line, our sequence is longer than we expected/wanted.</td>
+<td>Из-за пустой строки в конце файла, наша последовательность длиннее, чем мы ожидали/хотели.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>To solve the problem of a final new line, we can use the <code>strip</code> procedure from <code>strutils</code> after we have read from a file.
-All this does is remove any so-called whitespace from the start and end of our string.
-Whitespace is simply any character that makes some space, new-lines, spaces, tabs, etc.</p>
+<p>Чтобы решить проблему с пустой строкой в конце, мы можем использовать процедуру <code>strip</code> из модуля <code>strutils</code> после чтения файла.
+Всё, что делает <code>strip</code>, это удаляет любые так называемые пробельные символы (whitespace) в начале и конце строки.
+Пробельные символы — это просто символы, создающие пробелы: новые строки, пробелы, табуляции и т.д.</p>
 </div>
 <div class="listingblock">
 <div class="title">readFromFile2.nim</div>
@@ -3125,7 +3113,7 @@ Whitespace is simply any character that makes some space, new-lines, spaces, tab
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Using <code>strip</code> provides the expected results.</td>
+<td>Используя <code>strip</code>, мы получаем ожидаемые результаты.</td>
 </tr>
 </table>
 </div>
@@ -3140,11 +3128,11 @@ Carol C.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_reading_user_input">Reading user input</h2>
+<h2 id="_чтение_пользовательского_ввода">Чтение пользовательского ввода</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If we want to interact with a user, we must be able to ask them for an input, and then process it and use it.
-We need to read from <a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)">standard input (stdin)</a> by passing <code>stdin</code> to the <code>readLine</code> procedure.</p>
+<p>Если мы хотим взаимодействовать с пользователем, мы должны иметь возможность запрашивать у него ввод, а затем обрабатывать его и использовать.
+Нам нужно читать из <a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)">стандартного ввода (stdin)</a> передавая <code>stdin</code> в процедуру <code>readLine</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">interaction1.nim</div>
@@ -3159,7 +3147,7 @@ We need to read from <a href="https://en.wikipedia.org/wiki/Standard_streams#Sta
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The type of <code>name</code> is inferred to be a string.</td>
+<td>Тип <code>name</code> автоматически определяется как строка.</td>
 </tr>
 </table>
 </div>
@@ -3173,7 +3161,7 @@ We need to read from <a href="https://en.wikipedia.org/wiki/Standard_streams#Sta
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Waiting for user input. After we write our name and press <code>Enter</code>, the program will continue.</td>
+<td>Ожидаем ввод от пользователя. После того как мы введем имя и нажмем <code>Enter</code>, программа продолжится.</td>
 </tr>
 </table>
 </div>
@@ -3191,8 +3179,8 @@ Hello Alice, nice to meet you!</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you are using an outdated version of VS Code, you cannot run this the usual way (using <code>Ctrl+Alt+N</code>) because output window doesn&#8217;t allow user inputs&#8201;&#8212;&#8201;you need to run these examples in the terminal.<br>
-With the newer versions of VS Code there is no such limitation.
+Если вы используете устаревшую версию VS Code, вы не можете запускать это обычным способом (используя <code>Ctrl+Alt+N</code>), потому что окно вывода не позволяет вводить данные пользователя&#8201;&#8212;&#8201;вам нужно запускать эти примеры в терминале.<br>
+С более новыми версиями VS Code такой проблемы нет.
 </td>
 </tr>
 </table>
@@ -3200,11 +3188,11 @@ With the newer versions of VS Code there is no such limitation.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_dealing_with_numbers">Dealing with numbers</h2>
+<h2 id="_работа_с_числами">Работа с числами</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Reading from a file or from a user input always gives a string as a result.
-If we would like to use numbers, we need to convert strings to numbers: we again use the <code>strutils</code> module and use <code>parseInt</code> to convert to integers or <code>parseFloat</code> to convert into a float.</p>
+<p>Чтение из файла или из пользовательского ввода всегда даёт строку в качестве результата.
+Если мы хотим использовать числа, нам нужно конвертировать строки в числа: мы снова используем модуль <code>strutils</code> и используем <code>parseInt</code> для конвертации в целые числа или <code>parseFloat</code> для конвертации в число с плавающей точкой.</p>
 </div>
 <div class="listingblock">
 <div class="title">interaction2.nim</div>
@@ -3223,7 +3211,7 @@ If we would like to use numbers, we need to convert strings to numbers: we again
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Convert a string to an integer. When written like this, we trust our user to give a valid integer. What would happen if a user inputs <code>'79</code> or <code>ninety-three</code>? Try it yourself.</td>
+<td>Конвертируем строку в целое число. Когда написано так, мы доверяем пользователю, что он введёт корректное целое число. Что произойдёт, если пользователь введёт <code>'79</code> или <code>ninety-three</code>? Попробуйте сами.</td>
 </tr>
 </table>
 </div>
@@ -3238,7 +3226,7 @@ You are 84 years old.</code></pre>
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>If we have file <code>numbers.txt</code> in the same directory as our Nim code, with the following content:</p>
+<p>Допустим, у нас есть файл <code>numbers.txt</code> в той же директории, что и наш Nim код, со следующим содержимым:</p>
 </div>
 <div class="listingblock">
 <div class="title">numbers.txt</div>
@@ -3251,7 +3239,7 @@ You are 84 years old.</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>and we want to read that file and find the sum and average of the numbers provided, we can do something like this:</p>
+<p>и мы хотим прочитать этот файл и найти сумму и среднее значение предоставленных чисел, мы можем сделать следующее:</p>
 </div>
 <div class="listingblock">
 <div class="title">interaction3.nim</div>
@@ -3274,70 +3262,70 @@ You are 84 years old.</code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>We import multiple modules. <code>strutils</code> gives us <code>strip</code> and <code>splitLines</code>, <code>sequtils</code> gives <code>map</code>, and <code>math</code> gives <code>sum</code>.</td>
+<td>Мы импортируем несколько модулей. <code>strutils</code> даёт нам <code>strip</code> и <code>splitLines</code>, <code>sequtils</code> даёт <code>map</code>, а <code>math</code> даёт <code>sum</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>We strip the final new line, and split lines to create a sequence of strings.</td>
+<td>Мы удаляем последнюю новую строку, и разбиваем строки на последовательность строк.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td><code>map</code> works by applying a procedure (in this case <code>parseFloat</code>) to each member of a container. In other words, we convert each string to a float, returning a new sequence of floats.</td>
+<td><code>map</code> работает, применяя процедуру (в данном случае <code>parseFloat</code>) к каждому элементу контейнера. Другими словами, мы конвертируем каждую строку в число с плавающей точкой, возвращая новую последовательность чисел с плавающей точкой.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Using <code>sum</code> from <code>math</code> module to give us the sum of all elements in a sequence.</td>
+<td>Используем <code>sum</code> из модуля <code>math</code>, чтобы получить сумму всех элементов в последовательности.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>We need to convert the length of a sequence to float, because <code>sumNums</code> is a float.</td>
+<td>Нам нужно конвертировать длину последовательности в число с плавающей точкой, потому что <code>sumNums</code> является числом с плавающей точкой.</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="output">226.15
-45.23</code></pre>
+<pre class="rouge highlight"><code data-lang="nim"><span class="mf">226.15</span>
+<span class="mf">45.23</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises_5">Exercises</h2>
+<h2 id="_упражнения_5">Упражнения</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ask a user for their height and weight. Calculate their <a href="https://en.wikipedia.org/wiki/Body_mass_index">BMI</a>. Report them the BMI value and the category.</p>
+<p>Спросите пользователя о его росте и весе. Рассчитайте его <a href="https://en.wikipedia.org/wiki/Body_mass_index">ИМТ</a>. Сообщите пользователю значение ИМТ и категорию.</p>
 </li>
 <li>
-<p>Repeat <a href="#_exercises_4">Collatz conjecture exercise</a> so your program asks a user for a starting number. Print the resulting sequence.</p>
+<p>Повторите упражнение о гипотезе Коллатца, чтобы ваша программа запрашивала у пользователя начальное число. Выведите получившуюся последовательность.</p>
 </li>
 <li>
-<p>Ask a user for a string they want to have reversed. Create a procedure which takes a string and returns a reversed version. For example, if user types <code>Nim-lang</code>, the procedure should return <code>gnal-miN</code>. (Hint: use indexing and <code>countdown</code>)</p>
+<p>Спросите пользователя о строке, которую он хочет перевернуть. Создайте процедуру, которая принимает строку и возвращает перевернутую версию. Например, если пользователь введет <code>Nim-lang</code>, процедура должна вернуть <code>gnal-miN</code>. (Подсказка: используйте индексацию и <code>countdown</code>)</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
-<h1 id="_conclusion" class="sect0">Conclusion</h1>
+<h1 id="_заключение_2" class="sect0">Заключение</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>It is time to conclude this tutorial.
-Hopefully this has been useful to you, and you managed to make your first steps in programming and/or the Nim programming language.</p>
+<p>Время подводить итоги этого Туториала.
+Надеюсь, это было полезно для вас, и вы смогли сделать свои первые шаги в программировании и/или в языке программирования Nim.</p>
 </div>
 <div class="paragraph">
-<p>These have only been the basics and we&#8217;ve only scratched the surface, but this should be enough to enable you to make simple programs and solve some simple tasks or puzzles.
-Nim has a lot more to offer, and hopefully you will continue to explore its possibilities.</p>
+<p>Это были лишь основы, и мы только поцарапали поверхность, но этого должно быть достаточно, чтобы вы могли создавать простые программы и решать некоторые простые задачи или головоломки.
+Nim предлагает гораздо больше, и, надеюсь, вы продолжите исследовать его возможности.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_next_steps">Next steps</h2>
+<h2 id="_что_дальше">Что дальше?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you want to continue learning from Nim tutorials:</p>
+<p>Если вы хотите продолжить обучение по Туториалам Nim:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3350,23 +3338,21 @@ Nim has a lot more to offer, and hopefully you will continue to explore its poss
 </ul>
 </div>
 <div class="paragraph">
-<p>If you want to solve some programming puzzles:</p>
+<p>Если вы хотите решать задачи программирования, вот несколько ресурсов:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://adventofcode.com/">Advent of Code</a>: Series of interesting puzzles released every December. Archive of old puzzles (from 2015 onwards) is available.</p>
+<p><a href="http://adventofcode.com/">Advent of Code</a>: Серия интересных головоломок, публикуемых каждый декабрь. Архив старых головоломок (с 2015 года) доступен.</p>
 </li>
 <li>
-<p><a href="https://projecteuler.net/">Project Euler</a>: Mostly mathematical tasks.</p>
+<p><a href="https://projecteuler.net/">Project Euler</a>: В основном математические задачи.
+&#160;</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>&#160;</p>
-</div>
-<div class="paragraph">
-<p>Happy coding!</p>
+<p>Удачного Программирования!</p>
 </div>
 <div class="paragraph">
 <p>&#160;</p>
@@ -3379,7 +3365,8 @@ Nim has a lot more to offer, and hopefully you will continue to explore its poss
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>The source files are available <a href="https://github.com/narimiran/nim-basics">on Github</a>.</p>
+<p>Исходные файлы доступны <a href="https://github.com/kisvey/nim-basics-ru">на Github</a>.
+Оригинальный туториал доступен <a href="https://github.com/narimiran/nim-basics">на Github</a>.</p>
 </div>
 </div>
 </div>

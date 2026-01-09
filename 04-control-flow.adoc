@@ -1,15 +1,14 @@
-= Control flow
+= Поток управления
 
 
+До сих пор в наших программах каждая строка кода выполнялась в тот или иной момент.
+Операторы потока управления позволяют нам иметь части кода, которые будут выполняться только если удовлетворяется некоторое булево условие.
 
-So far in our programs every line of code was executed at some point.
-Control flow statements allow us to have parts of code which will be executed only if some boolean condition is satisfied.
+Если мы представим нашу программу как дорогу, то поток управления можно представить как различные развилки, и мы выбираем наш путь в зависимости от некоторого условия.
+Например, мы купим яйца только _если_ их цена меньше некоторого значения.
+Или, _если_ идет дождь, мы возьмем зонт, _иначе_ (_иначе_) мы возьмем солнечные очки.
 
-If we think of our program as a road we can think of control flow as various branches, and we pick our path depending on some condition.
-For example, we will buy eggs only _if_ their price is less than some value.
-Or, _if_ it is raining, we will bring an umbrella, otherwise (_else_) we will bring sunglasses.
-
-Written in https://en.wikipedia.org/wiki/Pseudocode[pseudocode], these two examples would look like this:
+Написаныные в https://en.wikipedia.org/wiki/Pseudocode[pseudocode], эти два примера будут выглядеть примерно так:
 
 [source]
 ----
@@ -22,17 +21,17 @@ else:
   bring sunglasses
 ----
 
-Nim syntax is very similar, as you'll see below.
+Синтаксис Nim очень похож, как вы увидите ниже.
 
 
 
 
 
-== If statement
+== Оператор If 
 
-An if statement as shown above is the simplest way to branch our program.
+Оператор `if`, как показано выше, является самым простым способом разветвления нашей программы.
 
-The Nim syntax for writing if statement is:
+Синтаксис Nim для написания оператора `if` выглядит следующим образом:
 
 [source]
 ----
@@ -40,20 +39,20 @@ if <condition>:     <1>
   <indented block>  <2>
 ----
 
-<1> The `condition` must be of boolean type: either a boolean variable or a relational and/or logical expression.
-<2> All lines following the `if` line which are indented two spaces make the same block and will be executed only if the condition is `true`.
+<1> `condition` должно быть булевого типа: либо булевая переменная, либо сравнение и/или логическое выражение.
+<2> Все строки, следующие за строкой `if`, которые отступлены на два пробела, составляют один блок и будут выполнены только если условие `true`.
 
-If statements can be nested, i.e. inside one if-block there can be another if statement.
+Операторы if могут быть вложенными, т.е. внутри одного блока if может находиться другой оператор if.
 
 [source]
 .if.nim
 ----
 include::{source-dir}/if.nim[]
 ----
-<1> The first condition is true, the second is false -- inner `echo` is not executed.
-<2> Both conditions are true and both lines are printed.
-<3> The first condition is false -- all lines inside of its block will be skipped, nothing is printed.
-<4> Using the logical `and` inside of the `if` statement.
+<1> Первое условие истинно, второе ложно -- внутренний `echo` не выполняется.
+<2> Оба условия истинны и обе строки печатаются.
+<3> Первое условие ложно -- все строки внутри блока будут пропущены, ничего не напечатается.
+<4> Использование логического `and` внутри оператора `if`.
 
 [source, output]
 ----
@@ -66,7 +65,7 @@ not only that, b is *much* smaller than c
 
 === Else
 
-Else follows after an if-block and allows us to have a branch of code which will be executed when the condition in the if statement is not true.
+Else следует за if-блоком и позволяет нам иметь ветку кода, которая будет выполнена, когда условие в операторе if не истинно.
 
 [source]
 .else.nim
@@ -80,17 +79,17 @@ d is a large number
 e is a small number
 ----
 
-NOTE: If you only want to execute a block if the statement is `false`, you can simply negate the condition with the `not` operator.
+NOTE: Если вы хотите выполнить блок, если условие `false`, вы можете просто отрицать условие с помощью оператора `not`.
 
 
 
 
 === Elif
 
-Elif is short for "else if", and enables us to chain multiple if statements together.
+Elif это сокращение для "else if", и позволяет нам объединять несколько операторов if.
 
-The program tests every statement until it finds one which is true.
-After that, all further statements are ignored.
+Программа тестирует каждое условие до тех пор, пока не найдет истинное.
+После этого все последующие условия игнорируются.
 
 [source]
 .elif.nim
@@ -104,17 +103,17 @@ f is larger than 1000
 g is smaller than 1000
 ----
 
-NOTE: In the case of `g`, even though `g` satisfies all three conditions, only the first branch is executed, automatically skipping all the other branches.
+NOTE: В случае `g`, даже если `g` удовлетворяет всем трем условиям, выполняется только первая ветка, автоматически пропуская все остальные ветки.
 
 
 
 
 == Case
 
-A case statement is another way to only choose one of multiple possible paths, similar to the if statement with multiple ``elif``s.
-A `case` statement, however, doesn't take multiple boolean conditions, but rather any value with distinct states and a path for each possible value.
+Оператор case является другим способом выбрать один из нескольких возможных путей, аналогично оператору if с несколькими ``elif``.
+Оператор `case`, однако, не принимает несколько булевых условий, а принимает любое значение с различными состояниями и путь для каждого возможного значения.
 
-Code written with in if-elif block looking like this:
+Код, написанный в блоке if-elif выглядит так:
 
 [source]
 ----
@@ -127,7 +126,7 @@ elif x == 10:
 else:
   echo "unknown number"
 ----
-can be written with case statement like this:
+может быть написан с использованием оператора case следующим образом:
 
 [source]
 ----
@@ -142,15 +141,15 @@ else:
   echo "unknown number"
 ----
 
-Unlike the if statement, case statement must cover _all_ possible cases.
-If one is not interested in some of those cases, `else: discard` can be used.
+В отличии от оператора if, оператор case должен покрывать _все_ возможные случаи.
+Если вы не заинтересованы в некоторых из этих случаев, можно использовать `else: discard`.
 
 [source]
 .case.nim
 ----
 include::{source-dir}/case.nim[]
 ----
-<1> Even though we are interested in only three values of `h`, we must include this line to cover all other possible cases (all other characters). Without it, the code would not compile.
+<1> Даже если мы заинтересованы только в трех значениях `h`, мы должны включить эту строку, чтобы покрыть все остальные возможные случаи (все другие символы). Без нее код не скомпилируется.
 
 [source, output]
 ----
@@ -159,7 +158,7 @@ You've chosen y
 
 
 
-We can also use multiple values for each branch if the same action should happen for more than one value.
+Мы также можем использовать несколько значений для каждой ветки, если для более чем одного значения должно произойти одно и то же действие.
 [source]
 .multipleCase.nim
 ----
